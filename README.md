@@ -43,10 +43,14 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-# Core Functions
+## Core Functions
 
 This project will serve as a clientside web page to help facilitate customers design and purchase supervillian costumes. There will also 
 be a page (manager eyes only) that summarizes recent sales and stock to the manager. The tech stack will include a React/redux front end, 
 a Java back-end using ORM's, and a postgreSQL database for persistent storage.
 
 ## Added an images folder with male and female stick figures.
+
+## Router
+
+The router used here is the React-Router.
