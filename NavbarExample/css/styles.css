@@ -1,0 +1,21 @@
+.parallax {
+    /* The image used */
+    background-image: url("../img/bgnd.jpeg");
+    
+    /* Set a specific height */
+    min-height: 1000px; 
+    
+  
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .navbar-brand,#navbar-brand{
+      font-family: eater;
+  }
+  body{
+    background-color: black;
+    }
