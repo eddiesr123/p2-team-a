@@ -6,6 +6,9 @@ import UserInfo from './UserInfo'
 import Purchase from './Purchase'
 
 
+const notFoundPage = () => { 
+  return <div>Not Found</div>
+}
 function AppRouter() {
   return (
     <Router>
@@ -36,6 +39,7 @@ function AppRouter() {
             <Route path="/browse/" component={Browse} />
             <Route path="/userinfo/" component={UserInfo} />
             <Route path="/purchase/" component={Purchase} />
+            <Route component={notFoundPage} />
           </div>
         </div>
 
