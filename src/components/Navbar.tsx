@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import { INavbarState, IState } from '../reducers'
 import { updateCartCount } from '../actions/navbar.actions'
@@ -44,10 +45,8 @@ export class Navbar extends React.Component<INavbarProps, any> {
 
                 <li className="divider-vertical nav-item" />
                 <li>
-                  <a className="nav-link" href="#">
-                    {" "}
-                    Browse
-                  </a>
+                  
+                  <Link className="nav-link" to="/browse/">Browse</Link>
                 </li>
               </ul>
 
