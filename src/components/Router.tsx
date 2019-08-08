@@ -7,7 +7,6 @@ import UserInfo from './UserInfo'
 import Purchase from './Purchase'
 import Checkout from "./Checkout";
 import Navbar from "./Navbar";
-import { Switch } from "@material-ui/core";
 
 
 const notFoundPage = () => {
@@ -33,15 +32,12 @@ function AppRouter() {
             </nav>
           </header>
           <div id='content'>
-            {/* switch means that routes closer to the top of the list will be matched first*/}
-            <Switch>
-              <Route path="/" exact component={Home} />
-              <Route path="/browse/" component={Browse} />
-              <Route path="/userinfo/" component={UserInfo} />
-              <Route path="/purchase/" component={Purchase} />
-              <Route path="/checkout/" component={Checkout} />
-              <Route component={notFoundPage} />
-            </Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/browse" component={Browse} />
+            <Route exact path="/userinfo" component={UserInfo} />
+            <Route exact path="/purchase" component={Purchase} />
+            <Route exact path="/checkout" component={Checkout} />
+            <Route component={notFoundPage} />
           </div>
         </div>
       </div>
