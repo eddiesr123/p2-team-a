@@ -11,7 +11,10 @@ export interface INavbarProps {
   updateCartCount: (amount:number) => void;
 }
 
-export class Navbar extends React.Component<INavbarProps, any> {
+
+import '../css/fontawesome-free-5.10.1-web/fontawesome-free-5.10.1-web/css/all.css';
+///For shopping cart icon: <i class="fas fa-shopping-cart"></i>
+export class Navbar extends React.Component<any, any> {
   render() {
     return (
       <div id="navbar">
