@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default class Navbar extends React.Component<any, any> {
   render() {
@@ -34,10 +35,8 @@ export default class Navbar extends React.Component<any, any> {
 
                 <li className="divider-vertical nav-item" />
                 <li>
-                  <a className="nav-link" href="#">
-                    {" "}
-                    Browse
-                  </a>
+                  
+                  <Link className="nav-link" to="/browse/">Browse</Link>
                 </li>
               </ul>
 
