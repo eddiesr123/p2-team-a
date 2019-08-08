@@ -1,6 +1,16 @@
 import React from "react";
 
-export default class Navbar extends React.Component<any, any> {
+import { INavbarState, IState } from '../reducers'
+import { updateCartCount } from '../actions/navbar.actions'
+import { connect } from "react-redux"
+
+export interface INavbarProps { 
+  // read in data from state store
+  navbar: INavbarState,
+  updateCartCount: (amount:number) => void;
+}
+
+export class Navbar extends React.Component<INavbarProps, any> {
   render() {
     return (
       <div id="navbar">
@@ -114,3 +124,16 @@ export default class Navbar extends React.Component<any, any> {
     );
   }
 }
+
+// read state-store values into state-component values
+const mapStateToProps = (state: IState) => {
+  return {
+    navbar: state.navbar
+  }
+}
+
+const mapDispatchToProps = {
+  updateCartCount: updateCartCount
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
