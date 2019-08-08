@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import '../css/fontawesome-free-5.10.1-web/fontawesome-free-5.10.1-web/css/all.css';
+///For shopping cart icon: <i class="fas fa-shopping-cart"></i>
 export default class Navbar extends React.Component<any, any> {
   render() {
     return (
