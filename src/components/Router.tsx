@@ -7,7 +7,6 @@ import UserInfo from './UserInfo'
 import Purchase from './Purchase'
 import Checkout from "./Checkout";
 import Navbar from "./Navbar";
-import { Switch } from "@material-ui/core";
 
 
 const notFoundPage = () => {
@@ -16,7 +15,7 @@ const notFoundPage = () => {
 
 function AppRouter() {
   return (
-    <Router>
+    <BrowserRouter>
       <div>
         <div className="App">
           <header className="App-header">
@@ -42,7 +41,7 @@ function AppRouter() {
           </div>
         </div>
       </div>
-    </Router >
+    </BrowserRouter >
   );
 }
 
