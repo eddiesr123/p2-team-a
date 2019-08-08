@@ -1,5 +1,6 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
+import { BrowserRouter as Router, Route, Link} from "react-router-dom";
 import Home from './Home'
 import Browse from './Browse'
 import UserInfo from './UserInfo'
@@ -11,6 +12,7 @@ import Navbar from "./Navbar";
 const notFoundPage = () => { 
   return <div>Not Found</div>
 }
+
 function AppRouter() {
   return (
     <Router>
