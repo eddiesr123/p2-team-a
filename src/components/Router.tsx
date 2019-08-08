@@ -4,6 +4,7 @@ import Home from './Home'
 import Browse from './Browse'
 import UserInfo from './UserInfo'
 import Purchase from './Purchase'
+import Navbar from "./Navbar";
 
 
 const notFoundPage = () => { 
@@ -17,11 +18,7 @@ function AppRouter() {
           <header className="App-header">
             <nav id="nav">
               <div id="nav-container">
-                <Link to="/">Home</Link>
-                <Link to="/browse/">Browse</Link>
-                <Link to="/purchase/">Purchase</Link>
-                <Link to="/userinfo/">UserInfo</Link>
-                <p>More navbar stuff</p>
+                <Navbar />
               </div>
             </nav>
           </header>

@@ -29,9 +29,35 @@
   padding: 20px;
 }
 
+.navbar-brand,#navbar-brand{
+  font-family: eater;
+}
+
 #content { 
   width:100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
+
+.parallax {
+  /* The image used */
+  background-image: url("%PUBLIC_URL%/public/images/bgnd.jpeg");
+  
+  /* Set a specific height */
+  min-height: 1000px; 
+  
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.navbar-brand,#navbar-brand{
+    font-family: eater;
+}
+body{
+  background-color: black;
+  }
