@@ -55,4 +55,6 @@ a Java back-end using ORM's, and a postgreSQL database for persistent storage.
 
 The router used here is the React-Router.
 
+## Images Update
+Uploaded pngs of male and female bodysuit costumes.  They are in the folder /public/images/alpha.  Alphas stands for alpha channel, which means transparency
 
