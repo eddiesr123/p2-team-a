@@ -57,3 +57,4 @@ The router used here is the React-Router.
 
 ## Images Update
 Uploaded pngs of male and female bodysuit costumes.  They are in the folder /public/images/alpha.  Alphas stands for alpha channel, which means transparency
+
