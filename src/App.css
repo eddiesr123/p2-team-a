@@ -55,7 +55,16 @@
 
 .navbar-brand,#navbar-brand{
     font-family: eater;
+    font-size: 26px;
 }
+.nav-link {
+  font-family: creepster;
+  font-size: 18px;
+}
+
 body{
   background-color: black;
+  }
+  .form-group input, .btn-outline-light {
+    margin-right:4px;
   }
