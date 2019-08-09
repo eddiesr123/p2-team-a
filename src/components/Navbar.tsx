@@ -29,18 +29,16 @@ export class Navbar extends React.Component<any, any> {
               <span className="navbar-toggler-icon" />
             </button>
 
-            <a className="navbar-brand" href="/" id="mainTitle">
-              Costumes Of DOOM!
-            </a>
+            <Link className="navbar-brand" to="/" id="mainTitle">
+              COSTUMES Of DOOM!
+            </Link>
 
             {/* Collapsible content */}
             <div className="collapse navbar-collapse navbar-opendiet-collapse">
               {/*links */}
               <ul className="nav navbar-nav mr-auto smooth-scroll">
-                <li className="active nav-item">
-                  <a className="nav-link" href="/">
-                    Home{" "}
-                  </a>
+                <li className="nav-item">
+                <Link className="nav-link" to="/" id="navbar-home-btn">Home</Link>
                 </li>
 
                 <li className="divider-vertical nav-item" />
@@ -67,16 +65,10 @@ export class Navbar extends React.Component<any, any> {
                     Sign up
                   </a>
                 </li>
-                <ul />
-              </ul>
-              <ul className="nav navbar-nav navbar-right">
-                <li className=" nav-item">
-                  <a className="nav-link" href="/cart">
-                    Cart
-                  </a>
+                <li className="nav-item">
+                <Link className="nav-link" to="/cart" id="navbar-cart-btn">Cart</Link> 
                 </li>
-                <ul />
-              </ul>
+              </ul>             
             </div>
           </div>
         </nav>
