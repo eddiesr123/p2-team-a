@@ -1,7 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default class Navbar extends React.Component<any, any> {
+import { INavbarState, IState } from '../reducers'
+import { updateCartCount } from '../actions/navbar.actions'
+import { connect } from "react-redux"
+import '../css/fontawesome-free-5.10.1-web/fontawesome-free-5.10.1-web/css/all.css';
+
+export interface INavbarProps { 
+  // read in data from state store
+  navbar: INavbarState,
+  updateCartCount: (amount:number) => void;
+}
+
+
+///For shopping cart icon: <i class="fas fa-shopping-cart"></i>
+export class Navbar extends React.Component<any, any> {
   render() {
     return (
       <div id="navbar">
@@ -107,3 +120,16 @@ export default class Navbar extends React.Component<any, any> {
     );
   }
 }
+
+// read state-store values into state-component values
+const mapStateToProps = (state: IState) => {
+  return {
+    navbar: state.navbar
+  }
+}
+
+const mapDispatchToProps = {
+  updateCartCount: updateCartCount
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
