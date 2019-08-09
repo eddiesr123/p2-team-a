@@ -47,26 +47,26 @@ export class Navbar extends React.Component<any, any> {
                 </li>
               </ul>
 
-                <ul className="nav navbar-nav navbar-right">
-                <li className=" nav-item">
-                  <a className="nav-link" href="/login">
-                    Sign in
-                  </a>
-                </li>
-                <ul />
-              </ul>
-
-              {/*  <a href="/register/">Signup</a> */}
-              {/*btn-default btn-sm*/}
-
               <ul className="nav navbar-nav navbar-right">
                 <li className=" nav-item">
-                  <a className="nav-link" href="/register">
+                  <Link className="nav-link" to="/login">
+                    Sign in
+                  </Link>
+                </li>
+              <ul />
+              </ul>
+              <ul className="nav navbar-nav navbar-right">
+                <li className=" nav-item">
+                  <Link className="nav-link" to="/signup">
                     Sign up
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                <Link className="nav-link" to="/cart" id="navbar-cart-btn">Cart</Link> 
+                  <Link className="nav-link" to="/cart" id="navbar-cart-link">
+                    <i className="fas fa-shopping-cart" id="navbar-cart-icon">
+                      <span className="icons" id="cart-icon"></span>
+                    </i>
+                  </Link> 
                 </li>
               </ul>             
             </div>
