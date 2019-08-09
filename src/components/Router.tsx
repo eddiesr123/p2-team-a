@@ -1,19 +1,16 @@
 import React from "react";
-
-import { Route, Link, BrowserRouter } from "react-router-dom";
-import Home from './Home'
-import Browse from './Browse'
-import UserInfo from './UserInfo'
-import Purchase from './Purchase'
-import Checkout from "./Checkout";
-import Navbar from "./Navbar";
-import { Switch } from "@material-ui/core";
+import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
+import Home from './Home';
+import Browse from './Browse';
+import UserInfo from './UserInfo';
+import Purchase from './Purchase';
+import Checkout from './Checkout';
+import Navbar from './Navbar';
+import SignUp from './SignUp';
+import Login from './Login';
 import HotItems from "./HotItems";
-
-
-const notFoundPage = () => {
-  return <div>Not Found</div>
-}
+import PrivateRoute from './PrivateRoute';
+import notFoundPage from './NotFound';
 
 function AppRouter() {
   return (
@@ -34,15 +31,16 @@ function AppRouter() {
             </nav>
           </header>
           <div id='content'>
-            {/* switch means that routes closer to the top of the list will be matched first*/}
             <Switch>
-              <Route path="/" exact component={Home} />
-              <Route path="/browse/" component={Browse} />
-              <Route path="/userinfo/" component={UserInfo} />
-              <Route path="/purchase/" component={Purchase} />
-              <Route path="/checkout/" component={Checkout} />
               <Route path="/hot/" component={HotItems} />
-              <Route component={notFoundPage} />
+                <Route exact path="/" component={Home} />
+                <Route exact path="/browse" component={Browse} />
+                <PrivateRoute exact path="/userinfo" component={UserInfo} />
+                <PrivateRoute exact path="/purchase" component={Purchase} />
+                <Route exact path="/checkout" component={Checkout} />
+                <Route exact path="/register" component={SignUp} />
+                <Route exact path="/login" component={Login} />
+                <Route component={notFoundPage} />
             </Switch>
           </div>
         </div>
