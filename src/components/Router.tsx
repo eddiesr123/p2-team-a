@@ -1,17 +1,15 @@
 import React from "react";
-
-import { BrowserRouter as Router, Route, Link, BrowserRouter } from "react-router-dom";
-import Home from './Home'
-import Browse from './Browse'
-import UserInfo from './UserInfo'
-import Purchase from './Purchase'
-import Checkout from "./Checkout";
-import Navbar from "./Navbar";
-
-
-const notFoundPage = () => {
-  return <div>Not Found</div>
-}
+import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
+import Home from './Home';
+import Browse from './Browse';
+import UserInfo from './UserInfo';
+import Purchase from './Purchase';
+import Checkout from './Checkout';
+import Navbar from './Navbar';
+import SignUp from './SignUp';
+import Login from './Login';
+import PrivateRoute from './PrivateRoute';
+import notFoundPage from './NotFound';
 
 function AppRouter() {
   return (
@@ -32,12 +30,16 @@ function AppRouter() {
             </nav>
           </header>
           <div id='content'>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/browse" component={Browse} />
-            <Route exact path="/userinfo" component={UserInfo} />
-            <Route exact path="/purchase" component={Purchase} />
-            <Route exact path="/checkout" component={Checkout} />
-            <Route component={notFoundPage} />
+            <Switch>
+                <Route exact path="/" component={Home} />
+                <Route exact path="/browse" component={Browse} />
+                <PrivateRoute exact path="/userinfo" component={UserInfo} />
+                <PrivateRoute exact path="/purchase" component={Purchase} />
+                <Route exact path="/checkout" component={Checkout} />
+                <Route exact path="/register" component={SignUp} />
+                <Route exact path="/login" component={Login} />
+                <Route component={notFoundPage} />
+            </Switch>
           </div>
         </div>
       </div>
