@@ -19,24 +19,27 @@ export default class Navbar extends React.Component<any, any> {
               <span className="navbar-toggler-icon" />
             </button>
 
-            <a className="navbar-brand" href="#" id="mainTitle">
-              Costumes Of DOOM!
-            </a>
+            <Link className="navbar-brand" to="/" id="mainTitle">
+              COSTUMES Of DOOM!
+            </Link>
 
             {/* Collapsible content */}
             <div className="collapse navbar-collapse navbar-opendiet-collapse">
               {/*links */}
               <ul className="nav navbar-nav mr-auto smooth-scroll">
-                <li className="active nav-item">
-                  <a className="nav-link" href="/">
-                    Home{" "}
-                  </a>
+                <li className="nav-item">
+                <Link className="nav-link" to="/" id="navbar-home-btn">Home</Link>
                 </li>
 
                 <li className="divider-vertical nav-item" />
-                <li>
-                  
-                  <Link className="nav-link" to="/browse/">Browse</Link>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/browse/" id="navbar-browse-btn">Browse</Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/userinfo/" id="navbar-userinfo-btn">User Information</Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/purchase/" id="navbar-purchase-btn">Purchase</Link>
                 </li>
               </ul>
 
@@ -44,7 +47,7 @@ export default class Navbar extends React.Component<any, any> {
                 className="navbar-form form-inline navbar-right"
                 action="/login/"
                 method="post"
-                role="login"
+                /*role="login" */
               >
                 <input
                   type="hidden"
@@ -65,34 +68,22 @@ export default class Navbar extends React.Component<any, any> {
                 </div>
                 {/* form-group */}
                 <div className="form-group">
-                  <label className="sr-only" htmlFor="inputPassword">
-                    Password:
-                  </label>
+                  <label className="sr-only" htmlFor="inputPassword">Password:</label> 
                   <input
-                    type="password"
-                    className="form-control input-sm text-light bg-dark"
-                    id="inputPassword"
-                    name="password"
-                    placeholder="Password"
-                  />
+                    type="password" className="form-control input-sm text-light bg-dark"
+                    id="inputPassword" name="password" placeholder="Password" />
                 </div>
-                {/* form-group */}
-                <button
-                  type="submit"
-                  className="btn btn-outline-light "
-                  value="Login"
-                  id="login-from-nav"
-                >
+                <div className="form-group">
+                  <label className="sr-only" htmlFor="inputSignUp">Sign Up:</label> 
+                  <button type="submit" className="btn btn-outline-light" value="Login" id="login-from-nav-btn">
                   Sign in
                 </button>
-                <button
-                  type="submit"
-                  className="btn btn-outline-light "
-                  value="Logout"
-                  id="logout"
-                >
+                <button type="submit" className="btn btn-outline-light" value="Logout" id="navbar-logout-btn">
                   Logout
                 </button>
+                </div>
+                {/* form-group */}
+                
               </form>
 
               {/*  <a href="/register/">Signup</a> */}
@@ -104,7 +95,10 @@ export default class Navbar extends React.Component<any, any> {
                     Sign up
                   </a>
                 </li>
-                <ul />
+                <li className="nav-item">
+                <Link className="nav-link" to="/cart/" id="navbar-cart-btn">
+                  <span className="glyphicon glyphicon-shopping-cart"></span>Cart</Link> 
+                </li>
               </ul>
             </div>
           </div>
