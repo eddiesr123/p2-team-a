@@ -1,6 +1,6 @@
 import React from "react";
 
-import { BrowserRouter as Router, Route, Link, BrowserRouter } from "react-router-dom";
+import { Route, Link, BrowserRouter } from "react-router-dom";
 import Home from './Home'
 import Browse from './Browse'
 import UserInfo from './UserInfo'
@@ -8,6 +8,7 @@ import Purchase from './Purchase'
 import Checkout from "./Checkout";
 import Navbar from "./Navbar";
 import { Switch } from "@material-ui/core";
+import HotItems from "./HotItems";
 
 
 const notFoundPage = () => {
@@ -40,6 +41,7 @@ function AppRouter() {
               <Route path="/userinfo/" component={UserInfo} />
               <Route path="/purchase/" component={Purchase} />
               <Route path="/checkout/" component={Checkout} />
+              <Route path="/hot/" component={HotItems} />
               <Route component={notFoundPage} />
             </Switch>
           </div>
