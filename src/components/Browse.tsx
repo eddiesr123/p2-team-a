@@ -1,7 +1,16 @@
 import React from 'react';
+import { Bodysuit } from './Bodysuit';
+import { Mask } from './Mask';
+import { Gloves } from './Gloves';
 
 function Browse() {
-    return <h2>This space is reserved for the browse components!</h2>;
+    return (
+        <div>
+            <Bodysuit/>
+            <Mask/>
+            <Gloves/>
+        </div>  
+    )
 }
 
 export default Browse;

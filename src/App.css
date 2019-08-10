@@ -91,3 +91,22 @@ body{
     background:rgb(255, 166, 0) !important;
   }
   #mainTitle {text-shadow: 1px 2px 2px rgb(255, 166, 0)}
+
+  .bodysuits {
+    position: absolute;
+    top: 150px;
+
+		z-index: 1;
+  }
+
+  .masks {
+    position: absolute;
+    top: 150px;
+    z-index: 2;
+  }
+  .gloves {
+    position: absolute;
+    top: 150px;
+    z-index: 3;
+  }
+
