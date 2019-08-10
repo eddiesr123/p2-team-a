@@ -7,6 +7,7 @@ export const addToCart= (id: any)=>{
         id
     }
 }
+
 //remove item action
 export const removeItem=(id: any)=>{
     return{

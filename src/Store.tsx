@@ -2,6 +2,7 @@ import { Store, createStore, compose, applyMiddleware } from 'redux';
 import reduxThunk from 'redux-thunk';
 import logger from 'redux-logger';
 import { state } from './reducers';
+import cartReducer from './reducers/cartReducer';
 
 const a: any = window;
 const composeEnhancers = a.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

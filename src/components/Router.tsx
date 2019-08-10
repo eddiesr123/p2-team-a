@@ -11,6 +11,8 @@ import Login from './Login';
 import HotItems from "./HotItems";
 import PrivateRoute from './PrivateRoute';
 import notFoundPage from './NotFound';
+import Cart from "./Cart";
+
 
 function AppRouter() {
   return (
@@ -24,7 +26,6 @@ function AppRouter() {
                 <Link to="/browse/">Browse</Link>
                 <Link to="/purchase/">Purchase</Link>
                 <Link to="/userinfo/">UserInfo</Link>
-                <Link to="/checkout/">Checkout</Link>
                 <p>More navbar stuff</p>
                 <Navbar />
               </div>
@@ -38,6 +39,7 @@ function AppRouter() {
                 <PrivateRoute exact path="/userinfo" component={UserInfo} />
                 <PrivateRoute exact path="/purchase" component={Purchase} />
                 <Route exact path="/checkout" component={Checkout} />
+                <Route path="/cart" component={Cart}/>
                 <Route exact path="/register" component={SignUp} />
                 <Route exact path="/login" component={Login} />
                 <Route component={notFoundPage} />

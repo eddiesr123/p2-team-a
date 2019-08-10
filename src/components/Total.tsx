@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { any } from 'prop-types';
 import { IState } from '../reducers';
+import { Link } from "react-router-dom";
 //import { addShipping } from './actions/cartActions'
+
+
 export class Total extends React.Component<any>{
     
     componentWillUnmount() {
@@ -33,7 +35,11 @@ export class Total extends React.Component<any>{
                         <li className="collection-item"><b>Total: {this.props.total} $</b></li>
                     </div>
                     <div className="checkout">
-                        <button className="waves-effect waves-light btn">Checkout</button>
+                        <ul className="nav navbar-nav navbar-right">
+                            <li className="nav-item">
+                                <Link style={{textShadow:"1.5px 1.5px 0 #000"}}className="nav-link" to="/checkout" id="navbar-cart-btn">Checkout</Link> 
+                            </li>
+                        </ul>  
                     </div>
                  </div>
         )

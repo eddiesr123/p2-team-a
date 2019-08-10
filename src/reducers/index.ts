@@ -8,17 +8,16 @@ export interface INavbarState {
 };
 
 export interface ICartState {
-    items: [
-        {
-            id: number,
-            title:string, 
-            desc: string, 
-            price:number,
-            img: any
-        },
-    ],
-    addedItems:any,
-    total: number
+        items: {
+            id: number;
+            title: string;
+            desc: string;
+            price: number;
+            img: string;
+        }[];
+        addedItems: any[];
+        total: number;
+
 };
 
 // Composed state of all substates

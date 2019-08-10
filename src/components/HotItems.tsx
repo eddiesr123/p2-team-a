@@ -1,22 +1,26 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { addToCart } from '../actions/cartActions'
-import { IState } from '../reducers';
+import { IState, ICartState } from '../reducers';
+import Button from 'react-bootstrap/Button'
+import { Avatar } from '@material-ui/core';
 
  export class HotItems extends React.Component<any>{
-    
+
+
     handleClick = (id: any)=>{
         this.props.addToCart(id); 
+        console.log(this.props.items)
     }
 
     render(){
-        let itemList: any = this.props.items.map((item: any)=>{
+        let itemList = this.props.items.map((item: any) => {
             return(
-                <div className="card" key={item.id}>
-                        <div className="card-image">
-                            <img src={item.img} alt={item.title}/>
+                <div className="card" style={{alignItems: "center"}} key={item.id}>
+                        <div >
+                            <Avatar src={item.img} alt={item.title} style={{margin: 10, width: 100, height: 100,}}/>
                             <span className="card-title">{item.title}</span>
-                            <a href="/" className="btn-floating halfway-fab waves-effect waves-light red" onClick={()=>{this.handleClick(item.id)}}><i className="material-icons">add</i></a>
+                            <Button itemRef="/hot" variant="dark" onClick={()=>{this.handleClick(item.id)}}><i>add</i></Button>
                         </div>
 
                         <div className="card-content">
@@ -39,11 +43,13 @@ import { IState } from '../reducers';
     }
 }
 const mapStateToProps = (state: IState)=>{
-    return {
+    return{
       items: state.cart.items
+      //items: state.items
     }
   }
-const mapDispatchToProps= (dispatch: any)=>{
+
+  const mapDispatchToProps= (dispatch: any)=>{
     
     return{
         addToCart: (id: any)=>{dispatch(addToCart(id))}

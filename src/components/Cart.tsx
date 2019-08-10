@@ -3,10 +3,19 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { removeItem,addQuantity,subtractQuantity} from '../actions/cartActions'
 import Total from './Total';
-import { IState } from '../reducers';
+import { IState, ICartState } from '../reducers';
 
 
-export class Cart extends React.Component<any>{
+export interface ICartProps { 
+    // read in data from state store
+    cart: ICartState,
+    removeItem: (id: any)=> void;
+    subtractQuantity: (id: any)=> void;
+    addQuantity: (id: any)=> void;
+  }
+
+
+class Cart extends React.Component<any, ICartProps>{
 
     //to remove the item completely
     handleRemove = (id: any)=>{
@@ -20,6 +29,7 @@ export class Cart extends React.Component<any>{
     handleSubtractQuantity = (id: any)=>{
         this.props.subtractQuantity(id);
     }
+
     render(){
               
         let addedItems = this.props.items.length ?
@@ -57,9 +67,9 @@ export class Cart extends React.Component<any>{
              )
        return(
             <div className="container">
-                <div className="cart">
+                <div className="cart" >
                     <h5>You have ordered:</h5>
-                    <ul className="collection">
+                    <ul className="collection" >
                         {addedItems}
                     </ul>
                 </div> 
@@ -72,7 +82,8 @@ export class Cart extends React.Component<any>{
 
 const mapStateToProps = (state: IState)=>{
     return{
-        items: state.cart.addedItems,
+        items: state.cart.addedItems
+        //items: state.addedItems,
         //addedItems: state.addedItems
     }
 }

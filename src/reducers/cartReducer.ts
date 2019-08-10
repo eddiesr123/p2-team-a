@@ -1,4 +1,4 @@
-import Item1 from '../logo.svg'
+import Item1 from '../SignUp.png'
 //import Item2 from '../../images/item2.jpg'
 //import Item3 from '../../images/item3.jpg'
 //import Item4 from '../../images/item4.jpg'
@@ -11,8 +11,12 @@ import { any } from 'prop-types';
 
 const initState: ICartState = {
     items: [
-        {id:1,title:'Winter body', desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, ex.", price:110,img:Item1},
-
+        {id:1,title:'Item', desc: "Costume of Doom", price:110,img:Item1},
+        {id:2,title:'Item', desc: "Costume of Doom", price:80,img: Item1},
+        {id:3,title:'Item', desc: "Costume of Doom",price:120,img: Item1},
+        {id:4,title:'Item', desc: "Costume of Doom", price:260,img:Item1},
+        {id:5,title:'Item', desc: "Costume of Doom", price:160,img: Item1},
+        {id:6,title:'Item', desc: "Costume of Doom",price:90,img: Item1},
     ],
     addedItems:[],
     total: 0
