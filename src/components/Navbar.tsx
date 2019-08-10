@@ -75,7 +75,7 @@ export class Navbar extends React.Component<any, any> {
                 <li className="nav-item">
                   <Link className="nav-link" to="/cart" id="navbar-cart-link">
                     <i className="fas fa-shopping-cart" id="navbar-cart-icon">
-                      <span className="icons" id="cart-icon"></span>
+                      <span className="icons" id="text-for-shoppingcart"> 0</span>
                     </i>
                   </Link> 
                 </li>
