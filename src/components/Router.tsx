@@ -26,6 +26,9 @@ function AppRouter() {
                 <Link to="/browse/">Browse</Link>
                 <Link to="/purchase/">Purchase</Link>
                 <Link to="/userinfo/">UserInfo</Link>
+                <Link to="/checkout/">Checkout</Link>
+                <Link to="/login/">Sign In</Link>
+                <Link to="/signup/">Sign Up</Link>
                 <p>More navbar stuff</p>
                 <Navbar />
               </div>
@@ -41,6 +44,7 @@ function AppRouter() {
                 <Route exact path="/checkout" component={Checkout} />
                 <Route path="/cart" component={Cart}/>
                 <Route exact path="/register" component={SignUp} />
+                <Route exact path="/signup" component={SignUp} />
                 <Route exact path="/login" component={Login} />
                 <Route component={notFoundPage} />
             </Switch>
