@@ -8,8 +8,11 @@ import Checkout from './Checkout';
 import Navbar from './Navbar';
 import SignUp from './SignUp';
 import Login from './Login';
+import HotItems from "./HotItems";
 import PrivateRoute from './PrivateRoute';
 import notFoundPage from './NotFound';
+import Cart from "./Cart";
+
 
 function AppRouter() {
   return (
@@ -33,11 +36,14 @@ function AppRouter() {
           </header>
           <div id='content'>
             <Switch>
+              <Route path="/hot/" component={HotItems} />
                 <Route exact path="/" component={Home} />
                 <Route exact path="/browse" component={Browse} />
                 <PrivateRoute exact path="/userinfo" component={UserInfo} />
                 <PrivateRoute exact path="/purchase" component={Purchase} />
                 <Route exact path="/checkout" component={Checkout} />
+                <Route path="/cart" component={Cart}/>
+                <Route exact path="/register" component={SignUp} />
                 <Route exact path="/signup" component={SignUp} />
                 <Route exact path="/login" component={Login} />
                 <Route component={notFoundPage} />

@@ -58,3 +58,8 @@ The router used here is the React-Router.
 ## Images Update
 Uploaded pngs of male and female bodysuit costumes.  They are in the folder /public/images/alpha.  Alphas stands for alpha channel, which means transparency
 
+## 08/09/2019
+In addition to adding the Shopping Cart icon, I added a <span> element, whose purpose is show the amount of items in the shopping cart, per Dylan's request.  The id of this span is "text-for-shoppingcart".
+
+
+
