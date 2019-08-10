@@ -45,7 +45,18 @@ export class Navbar extends React.Component<any, any> {
                 <li>
                   <Link className="nav-link" to="/browse">Browse</Link>
                 </li>
+
+                
+
+
+                {/* You guys can move this I just didnt know where to put it */}
+                <li className="divider-vertical nav-item" />
+                <li>
+                  <Link className="nav-link" to="/hot">Hot Items</Link> 
+                </li>
               </ul>
+
+
 
               <ul className="nav navbar-nav navbar-right">
                 <li className=" nav-item">
