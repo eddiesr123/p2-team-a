@@ -24,8 +24,8 @@ function Browse() {
                 </tbody>
             </table>*/}
             <div className="row">
-                <div className="col-sm-6 col-md-6" id="left-col"><BrowseTabComponent></BrowseTabComponent></div>
-                <div className="col-sm-6 col-md-6" id="right-col"><Display/></div>
+                <div className="col-sm-8 col-md-8" id="left-col"><BrowseTabComponent></BrowseTabComponent></div>
+                <div className="col-sm-4 col-md-4" id="right-col"><Display/></div>
 
             </div>
         </div>  
