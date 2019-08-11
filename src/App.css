@@ -68,3 +68,24 @@ body {
 .form-group input, .btn-outline-light {
   margin-right: 4px;
 }
+#pagination-detail {
+  text-align: center;
+  font-size: 0.7em;
+  color: #333;
+}
+
+#pagination-controls {
+  padding-top: 25px;
+  display: flex;
+  justify-content: space-evenly;
+  width: 400px;
+  margin: 0 auto;
+}
+
+#pagination-controls > div {
+  font-weight: bold;
+}
+
+.disabled-control {
+  color: #aaa;
+}
