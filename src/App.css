@@ -146,10 +146,6 @@ body {
   border-left: 1px solid black;
   height: 100%;
 }
-#right-col {
-  background: red;
-  
-}
 #display-id {
   text-align: center;
 }
