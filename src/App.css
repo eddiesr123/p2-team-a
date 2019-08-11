@@ -118,3 +118,10 @@ body {
   top: 150px;
   z-index: 3;
 }
+.col-lg-6 {
+  border-left: 1px solid black;
+  height: 100%;
+}
+#right-col {
+  background: red;
+}
