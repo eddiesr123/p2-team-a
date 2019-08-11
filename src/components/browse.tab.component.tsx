@@ -30,9 +30,12 @@ function BrowseTab() {
       
             <div className="tab-content" id="myTabContent">
                 <div className="tab-pane fade show active p-12" id="one" role="tabpanel" aria-labelledby="one-tab">
-                    <h5 className="card-title">hats n' such</h5>
-                    
-                    <ItemCardComponent/><ItemCardComponent/>
+                    <div className="container">
+                        <div className="row">
+                            <ItemCardComponent/><ItemCardComponent/><ItemCardComponent/><ItemCardComponent/>
+                            <ItemCardComponent/><ItemCardComponent/><ItemCardComponent/><ItemCardComponent/>
+                        </div>
+                    </div>
                     <PaginationComponent/>             
                 </div>
                 <div className="tab-pane fade p-12" id="two" role="tabpanel" aria-labelledby="two-tab">
