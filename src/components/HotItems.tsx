@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { addToCart } from '../actions/cartActions'
 import { IState, ICartState } from '../reducers';
-import Button from 'react-bootstrap/Button'
-import { Avatar } from '@material-ui/core';
+import Button from 'react-bootstrap/Button';//'./react-bootstrap/Button';
+import { Avatar} from '@material-ui/core';
 
  export class HotItems extends React.Component<any>{
 
@@ -16,7 +16,7 @@ import { Avatar } from '@material-ui/core';
     render(){
         let itemList = this.props.items.map((item: any) => {
             return(
-                <div className="card" style={{alignItems: "center"}} key={item.id}>
+                <div className="card hot-card" style={{alignItems: "center"}} key={item.id}>
                         <div >
                             <Avatar src={item.img} alt={item.title} style={{margin: 10, width: 100, height: 100,}}/>
                             <span className="card-title">{item.title}</span>
