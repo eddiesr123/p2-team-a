@@ -21,14 +21,18 @@
 
 #nav-container {
   display: flex;
-  justify-content: flex-end
+  justify-content: flex-end;
 }
 
-#nav-container>a {
+#nav-container > a {
   padding: 20px;
 }
 
-.navbar-brand, #navbar-brand {
+#content {
+  width: 100%;
+}
+.navbar-brand,
+#navbar-brand {
   font-family: eater;
 }
 
@@ -51,7 +55,8 @@
   background-size: cover;
 }
 
-.navbar-brand, #navbar-brand {
+.navbar-brand,
+#navbar-brand {
   font-family: eater;
   font-size: 26px;
 }
@@ -59,15 +64,27 @@
 .nav-link {
   font-family: creepster;
   font-size: 18px;
+  color: rgb(255, 166, 0) !important;
+}
+.nav-link:hover {
+  color: yellow !important;
+}
+.nav-link:active {
+  color: red !important;
 }
 
+#navbar-userinfo-btn,
+#navbar-logout-btn {
+  display: none;
+}
 body {
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.5);
 }
-
-.form-group input, .btn-outline-light {
+.form-group input,
+.btn-outline-light {
   margin-right: 4px;
 }
+
 #pagination-detail {
   text-align: center;
   font-size: 0.7em;
@@ -89,3 +106,38 @@ body {
 .disabled-control {
   color: #aaa;
 }
+.container {
+  text-align: justify;
+  margin-left: 0;
+  margin-right: 0;
+}
+.form-group input,
+.form-group button {
+  border: 1px solid rgb(255, 166, 0);
+  color: rgb(255, 166, 0);
+}
+#login-from-nav-btn:hover {
+  background: rgb(255, 166, 0) !important;
+}
+#mainTitle {
+  text-shadow: 1px 2px 2px rgb(255, 166, 0);
+}
+
+.bodysuits {
+  position: absolute;
+  top: 150px;
+
+  z-index: 1;
+}
+
+.masks {
+  position: absolute;
+  top: 150px;
+  z-index: 2;
+}
+.gloves {
+  position: absolute;
+  top: 150px;
+  z-index: 3;
+}
+
