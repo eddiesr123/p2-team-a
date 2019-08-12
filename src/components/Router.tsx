@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Home from './Home';
 import Browse from './Browse';
 import UserInfo from './UserInfo';
@@ -18,25 +18,17 @@ function AppRouter() {
   return (
     <BrowserRouter>
       <div>
-        <div className="App">
+        <div>
           <header className="App-header">
             <nav id="nav">
-              <div id="nav-container">
-                <Link to="/">Home</Link>
-                <Link to="/browse/">Browse</Link>
-                <Link to="/purchase/">Purchase</Link>
-                <Link to="/userinfo/">UserInfo</Link>
-                <Link to="/checkout/">Checkout</Link>
-                <Link to="/login/">Sign In</Link>
-                <Link to="/signup/">Sign Up</Link>
-                <p>More navbar stuff</p>
+              <div id="navbar">
                 <Navbar />
               </div>
             </nav>
           </header>
           <div id='content'>
             <Switch>
-              <Route path="/hot/" component={HotItems} />
+                <Route path="/hot/" component={HotItems} />
                 <Route exact path="/" component={Home} />
                 <Route exact path="/browse" component={Browse} />
                 <PrivateRoute exact path="/userinfo" component={UserInfo} />
