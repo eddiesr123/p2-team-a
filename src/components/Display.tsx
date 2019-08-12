@@ -5,7 +5,7 @@ import { Gloves } from './Gloves';
 
 function Display() {
     return (
-        <div>
+        <div id="display-id">
             <Bodysuit/>
             <Mask/>
             <Gloves/>
