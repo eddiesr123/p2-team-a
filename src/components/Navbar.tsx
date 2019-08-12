@@ -16,74 +16,52 @@ export interface INavbarProps {
 export class Navbar extends React.Component<any, any> {
   render() {
     return (
-      <div id="navbar">
-        <nav
-          className="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar top-nav-collapse bg-dark"
-          role="navigation">
-          <div className="container">
-            <button
-              type="button"
-              className="navbar-toggler"
-              data-toggle="collapse"
-              data-target=".navbar-opendiet-collapse">
-              <span className="navbar-toggler-icon" />
-            </button>
+        <nav className="navbar navbar-expand-lg navbar-dark fixed-top bg-dark" role="navigation">
+          <button className = "navbar-toggler navbar-toggler-right" type = "button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+          </button>
 
             <Link className="navbar-brand" to="/" id="mainTitle">
               COSTUMES Of DOOM!
             </Link>
 
             {/* Collapsible content */}
-            <div className="collapse navbar-collapse navbar-opendiet-collapse">
+            <div className="collapse navbar-collapse justify-content-end" id="navbarCollapse">
               {/*links */}
-              <ul className="nav navbar-nav mr-auto smooth-scroll">
-                <li className="nav-item">
-                <Link className="nav-link" to="/" id="navbar-home-btn">Home</Link>
+              <ul className="navbar-nav mr-auto">
+                <li className="divider-vertical nav-item" />
+                <li> 
+                  <Link className="nav-link" to="/" id="navbar-home-btn">Home</Link>
                 </li>
-
                 <li className="divider-vertical nav-item" />
                 <li>
                   <Link className="nav-link" to="/browse">Browse</Link>
                 </li>
-
-                
-
-
-                {/* You guys can move this I just didnt know where to put it */}
                 <li className="divider-vertical nav-item" />
                 <li>
                   <Link className="nav-link" to="/hot">Hot Items</Link> 
                 </li>
               </ul>
-
-
-
-              <ul className="nav navbar-nav navbar-right">
-                <li className=" nav-item">
-                  <Link className="nav-link" to="/login">
-                    Sign in
-                  </Link>
+              <ul className="navbar-nav">  
+                <li className="divider-vertical nav-item" />
+                <li>
+                  <Link className="nav-link" to="/login">Sign in</Link>
                 </li>
-              <ul />
-              </ul>
-              <ul className="nav navbar-nav navbar-right">
-                <li className=" nav-item">
-                  <Link className="nav-link" to="/signup">
-                    Sign up
-                  </Link>
+                <li className="divider-vertical nav-item" />
+                <li>
+                  <Link className="nav-link" to="/register">Sign up</Link>
                 </li>
-                <li className="nav-item">
+                <li className="divider-vertical nav-item" />
+                <li>
                   <Link className="nav-link" to="/cart" id="navbar-cart-link">
                     <i className="fas fa-shopping-cart" id="navbar-cart-icon">
                       <span className="icons" id="text-for-shoppingcart"> 0</span>
                     </i>
                   </Link> 
-                </li>
-              </ul>             
+                </li> 
+              </ul>            
             </div>
-          </div>
         </nav>
-      </div>
     );
   }
 }
