@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { addToCart } from '../actions/cartActions'
+import { addToCart, addQuantity } from '../actions/cartActions'
 import { IState, ICartState } from '../reducers';
+import { Avatar} from '@material-ui/core';
+import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button'
-import { Avatar } from '@material-ui/core';
 
- export class HotItems extends React.Component<any>{
+
+ class HotItems extends React.Component<any>{
 
 
     handleClick = (id: any)=>{
-        this.props.addToCart(id); 
-        console.log(this.props.items)
+        this.props.addToCart(id);
+        console.log(this.props.items);
     }
 
     render(){
@@ -20,15 +22,17 @@ import { Avatar } from '@material-ui/core';
                         <div >
                             <Avatar src={item.img} alt={item.title} style={{margin: 10, width: 100, height: 100,}}/>
                             <span className="card-title">{item.title}</span>
-                            <Button itemRef="/hot" variant="dark" onClick={()=>{this.handleClick(item.id)}}><i>add</i></Button>
+                            <Link to="/hot">
+                                <Button variant="dark" onClick={()=>{this.handleClick(item.id)}}><i>add</i></Button>
+                            </Link>
                         </div>
 
                         <div className="card-content">
                             <p>{item.desc}</p>
                             <p><b>Price: {item.price}$</b></p>
+                            <p><b>Quantity: {item.quantity}</b></p>
                         </div>
                  </div>
-
             )
         })
 

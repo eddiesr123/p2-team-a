@@ -7,19 +7,24 @@ import { Link } from "react-router-dom";
 
 export class Total extends React.Component<any>{
     
-    componentWillUnmount() {
-         if(this.refs.shipping) //.checked??
-              this.props.substractShipping()
-    }
+   
+   checked = false;
 
     handleChecked = (e: any)=>{
         if(e.target.checked){
             this.props.addShipping();
+            this.checked = true;
         }
         else{
             this.props.substractShipping();
+            this.checked = false;
         }
     }
+
+    componentWillUnmount() {
+        if(this.checked) //.checked??
+             this.props.substractShipping()
+   }
 
     render(){
   
