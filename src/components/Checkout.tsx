@@ -1,6 +1,5 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
 // import AppBar from '@material-ui/core/AppBar';
 // import Toolbar from '@material-ui/core/Toolbar';
 import Paper from '@material-ui/core/Paper';
@@ -79,7 +78,6 @@ export default function Checkout() {
 
   return (
     <React.Fragment>
-      <CssBaseline />
    {/*  <AppBar position="absolute" color="default" className={classes.appBar}>
         <Toolbar>
           <Typography variant="h6" color="inherit" noWrap> //COULD BE USEFUL AS A NAVBAR IF WE HAVE ISSUES WITH OTHER ONE

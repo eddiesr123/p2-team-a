@@ -1,5 +1,6 @@
 import { combineReducers } from "redux";
 import { navbarReducer } from "./navbar.reducer";
+import signupReducer from "./signup.reducer";
 import cartReducer from "./cartReducer";
 
 
@@ -20,15 +21,22 @@ export interface ICartState {
 
 };
 
+export interface ISignUpState {
+     user: any;
+     submitted: boolean;
+}
+
 // Composed state of all substates
 // means that to access clicks -> state.clicker.clicks
 export interface IState {
     navbar: INavbarState,
-    cart: ICartState
+    cart: ICartState,
+    signup: ISignUpState
 }
 
 
 export const state = combineReducers<IState>({
     navbar: navbarReducer,
-    cart: cartReducer
+    cart: cartReducer,
+    signup: signupReducer
 })
