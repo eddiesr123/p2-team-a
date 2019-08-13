@@ -11,33 +11,24 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import { Theme, withStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { userService } from '../services/user.service';
 
-const styles = (theme: Theme) => withStyles({
-  root: {
-      backgroundColor: theme.palette.common.white,
-    },
-  paper: {
-    marginTop: theme.spacing(8),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  form: {
-    width: '100%', // Fix IE 11 issue.
-    marginTop: theme.spacing(3),
-  },
-  bigAvatar: {
-    margin: 10,
+const styles = {
+  avatar:{
+    marginTop: 70,
     width: 100,
     height: 100,
   },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
+  paper:{
+    margin: 10,
   },
-});
+  form: {
+    width: 'auto', // Fix IE 11 issue.
+    marginTop: 30,
+   } 
+};
 
 export interface ISignUpProps {
   // read in data from state store
@@ -45,11 +36,6 @@ export interface ISignUpProps {
   user: any,
   name: any,
   classes: any
-
-  // to do- add items to this interface
-  // removeItem: (id: any)=> void;
-  // subtractQuantity: (id: any)=> void;
-  // addQuantity: (id: any)=> void;
 }
 
 
@@ -83,7 +69,6 @@ class SignUp extends React.Component<any, ISignUpState> {
     });
   }
 
-
   handleSubmit(event: any) {
     event.preventDefault();
     this.setState({ submitted: true });
@@ -94,17 +79,19 @@ class SignUp extends React.Component<any, ISignUpState> {
   }
 
   render() {
-    const { signup, classes } = this.props;
+    const { classes } = this.props;
     const { user } = this.state;
     return (
       <Container component="main" maxWidth="xs">
-        <div className={classes.paper}>
+        <div>
           <Grid container justify="center" alignItems="center">
-            <Avatar src={Skull} className={classes.bigAvatar} />
+            <Avatar src={Skull} className={classes.avatar} />
           </Grid>
-          <Typography component="h1" variant="h5">
+          <div className={classes.paper}>
+          <Typography component="h1" variant="h5" align="center">
             Sign up
         </Typography>
+         </div>
           <form className={classes.form} noValidate onSubmit={this.handleSubmit}>
             <Grid container spacing={2}>
               <Grid item xs={12}>
@@ -186,10 +173,9 @@ class SignUp extends React.Component<any, ISignUpState> {
               fullWidth
               variant="contained"
               color="primary"
-              className={classes.submit}
             >
               Sign Up
-          {signup}</Button>
+            </Button>
             <Grid container justify="flex-end">
               <Grid item>
                 <Link href="/login" variant="body2">

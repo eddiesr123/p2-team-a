@@ -5,17 +5,20 @@ import { alertActions } from '../actions/alert.actions'
 export const userActions = {
     signup,
     signin,
+    userinfo,
     logout
 };
 
 function signup(user: any) {
     return (dispatch: any) => {
-        dispatch(request({ user: user.username }));
+        dispatch(request({ user }));
 
         userService.signup(user)
             .then(
                 user => { 
-                    dispatch(success(user));           
+                    dispatch(success(user));    
+                    //history.push('/');
+                    dispatch(alertActions.success('Registration successful'));       
                 },
                 error => {
                     dispatch(failure(error.toString()));
@@ -24,19 +27,20 @@ function signup(user: any) {
             );
     };
 
-    function request(user: any) { return { type: userConstants.LOGIN_REQUEST, user } }
-    function success(user: any) { return { type: userConstants.LOGIN_SUCCESS, user } }
-    function failure(error: any) { return { type: userConstants.LOGIN_FAILURE, error } }
+    function request(user: any) { return { type: userConstants.SIGNUP_REQUEST, user } }
+    function success(user: any) { return { type: userConstants.SIGNUP_SUCCESS, user } }
+    function failure(error: any) { return { type: userConstants.SIGNUP_FAILURE, error } }
 }
 
-function signin(username: any, password: any) {
+function signin(user: any) {
     return (dispatch: any) => {
-        dispatch(request({ username }));
+        dispatch(request({ user }));
 
-        userService.signin(username, password)
+        userService.signin(user)
             .then(
                 user => { 
-                    dispatch(success(user));           
+                    dispatch(success(user));  
+                    //history.push('/');         
                 },
                 error => {
                     dispatch(failure(error.toString()));
@@ -45,10 +49,27 @@ function signin(username: any, password: any) {
             );
     };
 
-    function request(user: any) { return { type: userConstants.LOGIN_REQUEST, user } }
-    function success(user: any) { return { type: userConstants.LOGIN_SUCCESS, user } }
-    function failure(error: any) { return { type: userConstants.LOGIN_FAILURE, error } }
+    function request(user: any) { return { type: userConstants.SIGNIN_REQUEST, user } }
+    function success(user: any) { return { type: userConstants.SIGNIN_SUCCESS, user } }
+    function failure(error: any) { return { type: userConstants.SIGNIN_FAILURE, error } }
 }
+
+function userinfo(userid : any) {
+    return ( dispatch : any) => {
+        dispatch(request());
+
+        userService.userinfo(userid)
+            .then(
+                user => dispatch(success(user)),
+                error => dispatch(failure(error.toString()))
+            );
+    };
+
+    function request() { return { type: userConstants.USERINFO_REQUEST } }
+    function success(user: any) { return { type: userConstants.USERINFO_SUCCESS, user } }
+    function failure(error: any) { return { type: userConstants.USERINFO_FAILURE, error } }
+}
+
 
 function logout() {
     userService.logout();

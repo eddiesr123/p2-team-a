@@ -3,6 +3,7 @@ const api_url = '';
 export const userService = {
     signup,
     signin,
+    userinfo,
     logout
 };
 
@@ -13,33 +14,42 @@ async function signup(user : any) {
         body: JSON.stringify({ user })
     };
 
-    return await fetch(`${api_url}/auth/login`, requestOptions)
+    return await fetch(`${api_url}/signup`, requestOptions)
         .then(handleResponse)
         .then(user => {
             // store user details and jwt token in local storage to keep user logged in between page refreshes
             localStorage.setItem('user', JSON.stringify(user));
+
             return user;
         });
 }
 
-async function signin(username: any, password: any) {
+async function signin(user: any) {
     const requestOptions = {
         method: 'POST',
         headers: {'Content-Type' : 'application/json'},
-        body: JSON.stringify({ username, password })
+        body: JSON.stringify({ user })
     };
 
-    return await fetch(`${api_url}/auth/login`, requestOptions)
+    return await fetch(`${api_url}/signin`, requestOptions)
         .then(handleResponse)
         .then(user => {
             // store user details and jwt token in local storage to keep user logged in between page refreshes
-            user.username = username;
             localStorage.setItem('user', JSON.stringify(user));
 
             return user;
         });
 }
 
+async function userinfo(user: any) {
+    const requestOptions = {
+        method: 'GET',
+        headers: {'Content-Type' : 'application/json'},
+        body: JSON.stringify({ user })
+    };
+
+    return await fetch(`${api_url}/userinfo`, requestOptions).then(handleResponseFetch);
+}
 
 function logout() {
     // remove user from local storage to log user out
@@ -62,4 +72,17 @@ function handleResponse(response: any) {
 
         return data;
     });
+}
+
+async function handleResponseFetch(response : any) {
+    const user = await response.json();
+    if (!response.ok) {
+        if (response.status === 404) {
+           
+        }
+
+        const error = (response && response.message) || response.statusText;
+        return Promise.reject(error);
+    }
+    return user;
 }
