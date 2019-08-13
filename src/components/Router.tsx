@@ -36,7 +36,6 @@ function AppRouter() {
                 <Route exact path="/checkout" component={Checkout} />
                 <Route path="/cart" component={Cart}/>
                 <Route exact path="/register" component={SignUp} />
-                <Route exact path="/signup" component={SignUp} />
                 <Route exact path="/login" component={Login} />
                 <Route component={notFoundPage} />
             </Switch>
