@@ -1,5 +1,5 @@
 import React from 'react';
-import bodysuit from "../images/alphas/bodysuit-green-female.png";
+import bodysuit from "../../images/alphas/bodysuit-green-female.png";
 export class Bodysuit extends React.Component<any, any> {
     render() {
         return(

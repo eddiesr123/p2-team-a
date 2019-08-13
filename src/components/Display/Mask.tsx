@@ -1,5 +1,5 @@
 import React from 'react';
-import mask from "../images/alphas/mask-green-female.png";
+import mask from "../../images/alphas/mask-green-female.png";
 export class Mask extends React.Component<any, any> {
     render() {
         return(
