@@ -2,11 +2,11 @@ import React from 'react';
 import '../css/fontawesome-free-5.10.1-web/fontawesome-free-5.10.1-web/css/all.css';
 import '../css/browser.css';
 import PaginationComponent from './Pagination.component';
-import ItemCardComponent from './CatalogCard';
-import { Bodysuit } from './Bodysuit';
-import { Mask } from './Mask';
-import { Gloves } from './Gloves';
-import  Display  from './Display';
+import CatalogCard from './CatalogCard';
+import { Bodysuit } from './Display/Bodysuit';
+import { Mask } from './Display/Mask';
+import { Gloves } from './Display/Gloves';
+import  Display  from './Display/Display';
 import Catalog from './Catalog';
 function Browse() {
     return (
