@@ -2,7 +2,7 @@ import React from 'react';
 import '../css/fontawesome-free-5.10.1-web/fontawesome-free-5.10.1-web/css/all.css';
 import '../css/browser.css';
 import PaginationComponent from './Pagination.component';
-import ItemCardComponent from './item.card.component';
+import CatalogCard from './CatalogCard';
 function BrowseTab() {
     return( <div className="container card-container">
     <div className="row" >
@@ -32,8 +32,8 @@ function BrowseTab() {
                 <div className="tab-pane fade show active p-12" id="one" role="tabpanel" aria-labelledby="one-tab">
                     <div className="container">
                         <div className="row">
-                            <ItemCardComponent/><ItemCardComponent/><ItemCardComponent/><ItemCardComponent/>
-                            <ItemCardComponent/><ItemCardComponent/><ItemCardComponent/><ItemCardComponent/>
+                            <CatalogCard/><CatalogCard/><CatalogCard/><CatalogCard/>
+                            <CatalogCard/><CatalogCard/><CatalogCard/><CatalogCard/>
                         </div>
                     </div>
                     <PaginationComponent/>             
