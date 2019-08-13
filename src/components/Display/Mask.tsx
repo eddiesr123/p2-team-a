@@ -9,4 +9,4 @@ export class Mask extends React.Component<any, any> {
             </div>
         )
     }
-}
+} 
