@@ -11,12 +11,12 @@ import { any } from 'prop-types';
 
 const initState: ICartState = {
     items: [
-        {id:1,title:'Item', desc: "Costume of Doom", price:110,img:Item1},
-        {id:2,title:'Item', desc: "Costume of Doom", price:80,img: Item1},
-        {id:3,title:'Item', desc: "Costume of Doom",price:120,img: Item1},
-        {id:4,title:'Item', desc: "Costume of Doom", price:260,img:Item1},
-        {id:5,title:'Item', desc: "Costume of Doom", price:160,img: Item1},
-        {id:6,title:'Item', desc: "Costume of Doom",price:90,img: Item1},
+        {id:1,title:'Item-1', desc: "Costume of Doom", price:110,img:Item1},
+        {id:2,title:'Item-2', desc: "Costume of Doom", price:80,img: Item1},
+        {id:3,title:'Item-3', desc: "Costume of Doom",price:120,img: Item1},
+        {id:4,title:'Item-4', desc: "Costume of Doom", price:260,img:Item1},
+        {id:5,title:'Item-5', desc: "Costume of Doom", price:160,img: Item1},
+        {id:6,title:'Item-6', desc: "Costume of Doom",price:90,img: Item1},
     ],
     addedItems:[],
     total: 0
@@ -53,10 +53,12 @@ const cartReducer= (state = initState, action: any)=>{
     if(action.type === REMOVE_ITEM){
         let itemToRemove: any= state.addedItems.find((item: any)=> action.id === item.id)
         let new_items: any = state.addedItems.filter((item: any)=> action.id !== item.id)
+        let addedItem: any = state.items.find((item: any)=> item.id === action.id)
         
         //calculating the total
         let newTotal = state.total - (itemToRemove.price * itemToRemove.quantity )
         console.log(itemToRemove)
+        addedItem.quantity = "";
         return{
             ...state,
             addedItems: new_items,
@@ -75,16 +77,19 @@ const cartReducer= (state = initState, action: any)=>{
     }
     if(action.type=== SUB_QUANTITY){  
         let addedItem: any = state.items.find((item: any)=> item.id === action.id) 
+
         //if the qt == 0 then it should be removed
         if(addedItem.quantity === 1){
             let new_items = state.addedItems.filter((item: any)=>item.id !== action.id)
             let newTotal = state.total - addedItem.price
+            addedItem.quantity = "";
             return{
                 ...state,
                 addedItems: new_items,
                 total: newTotal
             }
-        }
+        } 
+
         else {
             addedItem.quantity -= 1
             let newTotal = state.total - addedItem.price

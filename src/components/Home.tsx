@@ -1,7 +1,10 @@
 import React from 'react';
+import HotItems from './HotItems';
 
 function Home() {
-    return <h2>Clicking index makes this component appear!</h2>;
+    return  (
+      <HotItems />
+    );
   }
 
 export default Home;
