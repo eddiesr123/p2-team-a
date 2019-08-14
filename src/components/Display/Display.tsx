@@ -15,10 +15,10 @@ export class Display extends React.Component<any, IDisplayProps> {
   render() {
     return (
       <div id="display-id">
-        <Bodysuit />
+        <Bodysuit suit ={this.props.suit} />
         <Mask />
         <Gloves />
-        <span>{this.props.total}</span>
+        <span>{this.props.suit}</span>
       </div>
     );
   }
