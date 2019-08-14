@@ -21,31 +21,33 @@ export interface ICartState {
         }[];
         addedItems: any[];
         total: number;
+        totalItems: number;
+        checkedBox: boolean;
 
 };
 
 export interface ISignUpState {
      user: any;
      submitted: boolean;
-}
+};
+
 export interface IDisplayState {
-}   
-export interface ICatalogState{
+};
+
+export interface ICatalogState {
     gloves:any,
     mask:any,
     suit:any
-}
+};
 // Composed state of all substates
 // means that to access clicks -> state.clicker.clicks
 export interface IState {
     navbar: INavbarState,
     cart: ICartState,
     signup: ISignUpState,
-    display: IDisplayState
+    display: IDisplayState,
     catalog: ICatalogState
-}
-
-
+};
 
 
 export const state = combineReducers<IState>({
@@ -53,5 +55,6 @@ export const state = combineReducers<IState>({
     cart: cartReducer,
     signup: signupReducer,
     display:displayReducer,
-    catalog: catalogReducer
-})
+   catalog: catalogReducer
+});
+
