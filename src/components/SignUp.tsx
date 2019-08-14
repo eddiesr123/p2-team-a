@@ -46,8 +46,8 @@ class SignUp extends React.Component<any, ISignUpState> {
     this.state = {
       user: {
         username: '',
-        firstname: '',
-        lastname: '',
+        firstName: '',
+        lastName: '',
         email: '',
         password: ''
       },
@@ -111,13 +111,13 @@ class SignUp extends React.Component<any, ISignUpState> {
               <Grid item xs={12} sm={6}>
                 <TextField
                   autoComplete="fname"
-                  name="firstname"
+                  name="firstName"
                   value={user.firstname}
                   onChange={this.handleChange}
                   variant="outlined"
                   required
                   fullWidth
-                  id="firstname"
+                  id="firstName"
                   label="First Name"
                 />
               </Grid>
@@ -126,9 +126,9 @@ class SignUp extends React.Component<any, ISignUpState> {
                   variant="outlined"
                   required
                   fullWidth
-                  id="lastname"
+                  id="lastName"
                   label="Last Name"
-                  name="lastname"
+                  name="lastName"
                   value={user.lastname}
                   onChange={this.handleChange}
                   autoComplete="lname"

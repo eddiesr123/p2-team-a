@@ -1,4 +1,4 @@
-const api_url = '';
+const api_url = 'http://localhost:8080/users';
 
 export const orderService = {
     getOrdersById

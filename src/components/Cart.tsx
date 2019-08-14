@@ -85,9 +85,7 @@ class Cart extends React.Component<any, ICartProps>{
 
 const mapStateToProps = (state: IState)=>{
     return{
-        items: state.cart.addedItems
-        //items: state.addedItems,
-        //addedItems: state.addedItems
+        items: state.cart.addedItems,
     }
 }
 const mapDispatchToProps = (dispatch: any)=>{

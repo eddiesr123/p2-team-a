@@ -2,8 +2,10 @@ import { combineReducers } from "redux";
 import { navbarReducer } from "./navbar.reducer";
 import signupReducer from "./signup.reducer";
 import signinReducer from "./signin.reducer";
-import userinfoReducer from "./userinfo.reducer";
 import cartReducer from "./cartReducer";
+import { displayReducer } from "./displayReducer"; 
+import { catalogReducer } from "./catalog.reducer";
+
 
 export interface INavbarState {
     cartCount: number
@@ -19,13 +21,18 @@ export interface ICartState {
         }[];
         addedItems: any[];
         total: number;
+        totalItems: number;
+        checkedBox: boolean;
 
 };
 
 export interface ISignUpState {
      user: any;
      submitted: boolean;
-}
+};
+
+export interface IDisplayState {
+};
 
 export interface ISignInState {
      user: any; 
@@ -38,6 +45,12 @@ export interface IUserState {
     user: any;
 }
 
+export interface ICatalogState {
+    gloves:any,
+    mask:any,
+    suit:any
+};
+
 // Composed state of all substates
 // means that to access clicks -> state.clicker.clicks
 export interface IState {
@@ -45,14 +58,16 @@ export interface IState {
     cart: ICartState,
     signup: ISignUpState,
     signin: ISignInState,
-    userinfo: IUserState
-}
-
+    display: IDisplayState,
+    catalog: ICatalogState
+};
 
 export const state = combineReducers<IState>({
     navbar: navbarReducer,
     cart: cartReducer,
     signup: signupReducer,
     signin: signinReducer,
-    userinfo: userinfoReducer
-})
+    display: displayReducer,
+    catalog: catalogReducer
+});
+

@@ -37,25 +37,29 @@ export class Navbar extends React.Component<any, any> {
                 <li>
                   <Link className="nav-link" to="/browse">Browse</Link>
                 </li>
-                <li className="divider-vertical nav-item" />
-                <li>
-                  <Link className="nav-link" to="/hot">Hot Items</Link> 
-                </li>
               </ul>
               <ul className="navbar-nav">  
                 <li className="divider-vertical nav-item" />
                 <li>
-                  <Link className="nav-link" to="/login">Sign in</Link>
+                {!this.props.signin.loggedIn ?
+                  <Link className="nav-link" to="/register">Sign up</Link>
+                  :
+                  <Link className="nav-link" to="/userinfo">`${this.props.signin.username}, </Link>
+                }
                 </li>
                 <li className="divider-vertical nav-item" />
                 <li>
-                  <Link className="nav-link" to="/register">Sign up</Link>
+                {!this.props.signin.loggedIn ?
+                  <Link className="nav-link" to="/login">Sign in</Link>
+                  :
+                  <Link className="nav-link" to="/logout">logout</Link>
+                }
                 </li>
                 <li className="divider-vertical nav-item" />
                 <li>
                   <Link className="nav-link" to="/cart" id="navbar-cart-link">
                     <i className="fas fa-shopping-cart" id="navbar-cart-icon">
-                      <span className="icons" id="text-for-shoppingcart"> 0</span>
+                      <span className="icons" id="text-for-shoppingcart">{this.props.total}</span>
                     </i>
                   </Link> 
                 </li> 
@@ -69,7 +73,10 @@ export class Navbar extends React.Component<any, any> {
 // read state-store values into state-component values
 const mapStateToProps = (state: IState) => {
   return {
-    navbar: state.navbar
+    navbar: state.navbar,
+    addedItems: state.cart.addedItems,
+    total: state.cart.totalItems,
+    signin: state.signin
   }
 }
 

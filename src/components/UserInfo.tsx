@@ -1,26 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { userActions } from '../actions/user.actions';
-import { ordersActions } from '../actions/orders.actions';
 import { IState, IUserState } from '../reducers';
-import { List, ListItem, ListItemText, Divider } from '@material-ui/core';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
-import { withStyles } from '@material-ui/core/styles';
-
-const styles = {
-  paper:{
-    margin: 10,
-  },
-  form: {
-    width: 'auto', // Fix IE 11 issue.
-    marginTop: 10,
-  } 
-  };
+import { userService } from '../services/user.service';
 
 export interface IUserProps {
     // read in data from state store
@@ -42,82 +24,75 @@ class UserInfo extends React.Component<any, IUserState> {
         lastname: '',
         email: '',
         cardnumber: '' 
-      }
+      },
     }
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
 }
 
-componentDidMount() {
-  this.props.userinfo(this.props.user.userid);
-  // this.props.getOrdersById(this.props.orders.userid);
+handleChange(event: any) {
+  const { name, value } = event.target;
+  const { user } = this.state;
+  this.setState({
+    user: {
+      ...user,
+      [name]: value
+    }
+  });
+}
+
+handleSubmit(event: any) {
+  event.preventDefault();
+  //this.setState({ submitting: true });
+  const { user } = this.state;
+  if (user.username && user.firstname && user.lastname && user.email && user.password && user.cardnumber) {
+    userService.changeInfo(user);
+  }
 }
 
 render() {
-  const dividerFullWidth = {
-    marginLeft: '0.5px'
-  }
-  const { orders, classes } = this.props;
+const { pristine, reset, submitting } = this.props; 
+
 return (
-  <div className="container">
-    <div className="container">
-              <div><h2>Personal information:</h2></div>
-              <div style={{ marginTop: '-18px', marginBottom: '6px', textAlign: 'center' }}>
-                <List style={{ display: 'inline-block' }}>
-                  <ListItem>
-                    <ListItemText primary="Username" secondary={this.state.user.username} />
-                  </ListItem>
-                  <Divider variant="inset" component="li" style={dividerFullWidth} />
-                  <ListItem>
-                    <ListItemText primary="Full name" secondary={`${this.state.user.firstName} ${this.state.user.lastName}`} />
-                  </ListItem>
-                  <Divider variant="inset" component="li" style={dividerFullWidth} />
-                  <ListItem>
-                    <ListItemText primary="Email" secondary={this.state.user.email} />
-                  </ListItem>
-                  <Divider variant="inset" component="li" style={dividerFullWidth} />
-                  <ListItem>
-                    <ListItemText primary="Cardnumber" secondary={this.state.user.cardnumber} />
-                  </ListItem>
-                  <Divider variant="inset" component="li" style={dividerFullWidth} />
-                </List>
-              </div>
-    </div>        
-    <div className="container">
-     {/*<h2>Your orders:</h2>
-     <Paper className={classes.paper}>
-      <Table className={classes.table}>
-        <TableHead>
-          <TableRow>
-            <TableCell>Orders</TableCell>
-            <TableCell align="right">Costum</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {orders.items.map((order : any) => (
-            <TableRow key={order.name}>
-              <TableCell component="th" scope="row">
-                {order.name}
-              </TableCell>
-              <TableCell align="right">{order.name}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-          </Paper>*/} 
-    </div> 
-  </div>  
+  <div>
+    <h1 className="title">Personal information</h1>
+    <form onSubmit={this.handleSubmit}>
+      <div>
+        <input type="text" placeholder = {`${this.state.user.username}`} name="username" onChange={this.handleChange} />
+      </div>
+      <div>
+        <input type="text" placeholder = {`${this.state.user.password}`} name="password" onChange={this.handleChange} />
+      </div>
+      <div>
+        <input type="text" placeholder = {`${this.state.user.firstName}`} name="firstName" onChange={this.handleChange} />
+      </div>
+      <div>
+        <input type="text" placeholder = {`${this.state.user.lastName}`} name="lastName" onChange={this.handleChange} />
+      </div>
+      <div>
+        <input type="text" placeholder = {`${this.state.user.email}`} name="email" onChange={this.handleChange} />
+      </div>
+      <div>
+        <input type="text" placeholder = {`${this.state.user.cardnumber}`} name="cardnumber" onChange={this.handleChange} max="16" />
+      </div>
+      <div>
+        <button type="submit" disabled={pristine || submitting}>Update</button>
+      </div>
+    </form>
+  </div>
   );
 }
 }
 
 function mapStateToProps(state: IState) {
-  const { user } = state.userinfo;
+  const { user } = state.signin;
   return { user };
 }
 
 const actionCreators = {
-  userinfo: userActions.userinfo,
-  orders: ordersActions.getOrdersById,
+  changeInfo: userActions.changeInfo,
   logout: userActions.logout
 };
 
-export default connect(mapStateToProps, actionCreators)(withStyles(styles)(UserInfo))
+export default connect(mapStateToProps, actionCreators)(UserInfo)

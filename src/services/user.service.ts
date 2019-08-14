@@ -1,9 +1,9 @@
-const api_url = '';
+const api_url = 'http://localhost:8080/users';
 
 export const userService = {
     signup,
     signin,
-    userinfo,
+    changeInfo,
     logout
 };
 
@@ -19,31 +19,29 @@ async function signup(user : any) {
         .then(user => {
             // store user details and jwt token in local storage to keep user logged in between page refreshes
             localStorage.setItem('user', JSON.stringify(user));
-
             return user;
         });
 }
 
 async function signin(user: any) {
+    const {username, password} = user;
     const requestOptions = {
         method: 'POST',
         headers: {'Content-Type' : 'application/json'},
-        body: JSON.stringify({ user })
+        body: JSON.stringify({ username, password })
     };
 
     return await fetch(`${api_url}/signin`, requestOptions)
         .then(handleResponse)
         .then(user => {
-            // store user details and jwt token in local storage to keep user logged in between page refreshes
             localStorage.setItem('user', JSON.stringify(user));
-
             return user;
         });
 }
 
-async function userinfo(user: any) {
+async function changeInfo(user: any) {
     const requestOptions = {
-        method: 'GET',
+        method: 'UPDATE',
         headers: {'Content-Type' : 'application/json'},
         body: JSON.stringify({ user })
     };
@@ -56,22 +54,19 @@ function logout() {
     localStorage.removeItem('user');
 }
 
-function handleResponse(response: any) {
-    return response.text().then((text: any) => {
-        const data = text && JSON.parse(text);
-        if (!response.ok) {
-            if (response.status === 401) {
-                // auto logout if 401 response returned from api
-                logout();
-                window.location.reload(true);
-            }
-
-            const error = (data && data.message) || response.statusText;
-            return Promise.reject(error);
+async function handleResponse(response: any) {
+    const user = await response.json();
+    console.log(user.headers);
+    if (!response.ok) {
+        if (response.status === 404) {
+            // auto logout if 404 response returned from api
+            logout();  
         }
 
-        return data;
-    });
+        const error = (response && response.message) || response.statusText;
+        return Promise.reject(error);
+    }
+    return user;
 }
 
 async function handleResponseFetch(response : any) {

@@ -9,9 +9,10 @@ import Navbar from './Navbar';
 import SignUp from './SignUp';
 import SignIn from './SignIn';
 import HotItems from "./HotItems";
-import PrivateRoute from './PrivateRoute';
+//import PrivateRoute from './PrivateRoute';
 import notFoundPage from './NotFound';
 import Cart from "./Cart";
+import Logout from "./Logout";
 
 function AppRouter() {
   return (
@@ -36,12 +37,13 @@ function AppRouter() {
                 <Route path="/cart" component={Cart}/>
                 <Route exact path="/register" component={SignUp} />
                 <Route exact path="/login" component={SignIn} />
+                <Route exact path="/logout" component={Logout} />
                 <Route component={notFoundPage} />
-            </Switch>
+            </Switch> 
           </div>
         </div>
       </div>
-    </BrowserRouter >
+     </BrowserRouter>
   );
 }
 

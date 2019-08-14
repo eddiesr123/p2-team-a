@@ -6,25 +6,20 @@ import { Link } from "react-router-dom";
 
 
 export class Total extends React.Component<any>{
-    
-   
-   checked = false;
 
     handleChecked = (e: any)=>{
         if(e.target.checked){
             this.props.addShipping();
-            this.checked = true;
         }
         else{
             this.props.substractShipping();
-            this.checked = false;
         }
     }
 
-    componentWillUnmount() {
-        if(this.checked) //.checked??
+    componentWillMount() {
+        if(this.props.checked)
              this.props.substractShipping()
-   }
+    }
 
     render(){
   
@@ -54,7 +49,8 @@ export class Total extends React.Component<any>{
 const mapStateToProps = (state: IState)=>{
     return{
         addedItems: state.cart.addedItems,
-        total: state.cart.total
+        total: state.cart.total,
+        checked: state.cart.checkedBox
     }
 }
 

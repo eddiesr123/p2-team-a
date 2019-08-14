@@ -2,23 +2,21 @@ import { userConstants } from '../constants/user.constants';
 import { ISignInState } from './index'
 
 const initState: ISignInState = {
-  user:{
+  user: {
     username: '',
-    password: ''
- },
-    loggingIn: false,
-    loggedIn: false,
-    submitted: false
+    password: '',
+},
+  loggingIn: false,
+  loggedIn: false,
+  submitted: false
 }
 
-let userLocal = localStorage.getItem('user');
-//const initState = userLocal ? { loggedIn: true, userLocal } : {};
 const signinReducer = (state = initState, action: any) => {
   switch (action.type) {
     case userConstants.SIGNIN_REQUEST:
-      return { ...state, loggingIn: true, user: action.user };
+      return { ...state, loggingIn: true, submitted: true };
     case userConstants.SIGNIN_SUCCESS:
-      return { ...state, loggedIn: true, user: action.user };
+      return { ...state, loggedIn: true, submitted: true };
     case userConstants.SIGNIN_FAILURE:
       return {...state};
     case userConstants.LOGOUT:

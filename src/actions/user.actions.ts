@@ -1,13 +1,16 @@
 import { userConstants } from '../constants/user.constants';
 import { userService } from '../services/user.service';
-import { alertActions } from '../actions/alert.actions'
+import { alertActions } from '../actions/alert.actions';
+import { createBrowserHistory } from 'history';
 
 export const userActions = {
     signup,
     signin,
-    userinfo,
+    changeInfo,
     logout
 };
+
+const history = createBrowserHistory();
 
 function signup(user: any) {
     return (dispatch: any) => {
@@ -17,7 +20,7 @@ function signup(user: any) {
             .then(
                 user => { 
                     dispatch(success(user));    
-                    //history.push('/');
+                    history.push('/');
                     dispatch(alertActions.success('Registration successful'));       
                 },
                 error => {
@@ -40,7 +43,7 @@ function signin(user: any) {
             .then(
                 user => { 
                     dispatch(success(user));  
-                    //history.push('/');         
+                    history.push('/');         
                 },
                 error => {
                     dispatch(failure(error.toString()));
@@ -54,11 +57,11 @@ function signin(user: any) {
     function failure(error: any) { return { type: userConstants.SIGNIN_FAILURE, error } }
 }
 
-function userinfo(userid : any) {
+function changeInfo(user : any) {
     return ( dispatch : any) => {
         dispatch(request());
 
-        userService.userinfo(userid)
+        userService.changeInfo(user)
             .then(
                 user => dispatch(success(user)),
                 error => dispatch(failure(error.toString()))
