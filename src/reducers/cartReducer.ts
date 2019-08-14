@@ -6,7 +6,6 @@ import Item1 from '../SignUp.png'
 //import Item6 from '../../images/item6.jpg'
 import { ADD_TO_CART,REMOVE_ITEM,SUB_QUANTITY,ADD_QUANTITY,ADD_SHIPPING } from '../actions/action-types/cart-actions'
 import { ICartState } from '.';
-import { any } from 'prop-types';
 
 
 const initState: ICartState = {
@@ -19,7 +18,9 @@ const initState: ICartState = {
         {id:6,title:'Item-6', desc: "Costume of Doom",price:90,img: Item1},
     ],
     addedItems:[],
-    total: 0
+    total: 0,
+    totalItems: 0,
+    checkedBox: false,
 
 }
 const cartReducer= (state = initState, action: any)=>{
@@ -34,18 +35,21 @@ const cartReducer= (state = initState, action: any)=>{
             addedItem.quantity += 1 
              return{
                 ...state,
-                 total: state.total + addedItem.price 
+                 total: state.total + addedItem.price,
+                 totalItems: state.totalItems + 1,
                   }
         }
          else{
             addedItem.quantity = 1;
             //calculating the total
-            let newTotal = state.total + addedItem.price 
+            let newTotal = state.total + addedItem.price
+            let newTotalItems = state.totalItems + 1
             
             return{
                 ...state,
                 addedItems: [...state.addedItems, addedItem],
-                total : newTotal
+                total : newTotal,
+                totalItems: newTotalItems
             }
             
         }
@@ -57,12 +61,14 @@ const cartReducer= (state = initState, action: any)=>{
         
         //calculating the total
         let newTotal = state.total - (itemToRemove.price * itemToRemove.quantity )
+        let newTotalItems = state.totalItems - itemToRemove.quantity
         console.log(itemToRemove)
         addedItem.quantity = "";
         return{
             ...state,
             addedItems: new_items,
-            total: newTotal
+            total: newTotal,
+            totalItems: newTotalItems
         }
     }
     //INSIDE CART COMPONENT
@@ -70,9 +76,11 @@ const cartReducer= (state = initState, action: any)=>{
         let addedItem: any = state.items.find((item: any)=> item.id === action.id)
           addedItem.quantity += 1 
           let newTotal = state.total + addedItem.price
+          let newTotalItems = state.totalItems + 1
           return{
               ...state,
-              total: newTotal
+              total: newTotal,
+              totalItems: newTotalItems
           }
     }
     if(action.type=== SUB_QUANTITY){  
@@ -82,20 +90,24 @@ const cartReducer= (state = initState, action: any)=>{
         if(addedItem.quantity === 1){
             let new_items = state.addedItems.filter((item: any)=>item.id !== action.id)
             let newTotal = state.total - addedItem.price
+            let newTotalItems = state.totalItems - 1
             addedItem.quantity = "";
             return{
                 ...state,
                 addedItems: new_items,
-                total: newTotal
+                total: newTotal,
+                totalItems: newTotalItems
             }
         } 
 
         else {
             addedItem.quantity -= 1
             let newTotal = state.total - addedItem.price
+            let newTotalItems = state.totalItems - 1
             return{
                 ...state,
-                total: newTotal
+                total: newTotal,
+                totalItems: newTotalItems
             }
         }
         
@@ -104,14 +116,16 @@ const cartReducer= (state = initState, action: any)=>{
     if(action.type=== ADD_SHIPPING){
           return{
               ...state,
-              total: state.total + 6
+              total: state.total + 6,
+              checkedBox: true
           }
     }
 
     if(action.type=== 'SUB_SHIPPING'){
         return{
             ...state,
-            total: state.total - 6
+            total: state.total - 6,
+            checkedBox: false
         }
   }
     

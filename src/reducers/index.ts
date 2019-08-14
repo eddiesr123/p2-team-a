@@ -21,6 +21,8 @@ export interface ICartState {
         }[];
         addedItems: any[];
         total: number;
+        totalItems: number;
+        checkedBox: boolean;
 
 };
 
