@@ -8,9 +8,10 @@ import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import AddressForm from '../checkout-dependencies/addressform';
-import PaymentForm from '../checkout-dependencies/paymentform';
-import Review from '../checkout-dependencies/review';
+import AddressForm from './checkout-dependencies/addressform';
+import PaymentForm from './checkout-dependencies/paymentform';
+import { IState } from '../reducers';
+import Review from './checkout-dependencies/review';
 
 const useStyles = makeStyles(theme => ({
   appBar: {
