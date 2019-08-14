@@ -5,7 +5,7 @@ export class Bodysuit extends React.Component<any, any> {
         return(
             <div className="bodysuits-div" id="bodysuit-div">
                 <img className="bodysuits" id="bodysuit-green-female" width="36%" 
-                    src={bodysuit} alt="bodysuit" />
+                    src={require(this.props.suit)} alt="bodysuit" />
             </div>
         )
     }
