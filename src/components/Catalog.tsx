@@ -3,6 +3,12 @@ import '../css/fontawesome-free-5.10.1-web/fontawesome-free-5.10.1-web/css/all.c
 import '../css/browser.css';
 import PaginationComponent from './Pagination.component';
 import CatalogCard from './CatalogCard';
+import { ICatalogState } from '../reducers';
+//import '../css/browsercss';
+export interface ICatalogProps{
+    catalogCard: ICatalogState,
+    updateSuit: (image:String) => void;
+}
 function BrowseTab() {
     return( <div className="container card-container">
     <div className="row" >
@@ -32,7 +38,7 @@ function BrowseTab() {
                 <div className="tab-pane fade show active p-12" id="one" role="tabpanel" aria-labelledby="one-tab">
                     <div className="container">
                         <div className="row">
-                            <CatalogCard/><CatalogCard/><CatalogCard/><CatalogCard/>
+                            <CatalogCard pathToImg = {'bodysuit-blue-female.png'} imgObj = {require('../images/alphas/bodysuit-blue-female.png')}/><CatalogCard/><CatalogCard/><CatalogCard/>
                             <CatalogCard/><CatalogCard/><CatalogCard/><CatalogCard/>
                         </div>
                     </div>
