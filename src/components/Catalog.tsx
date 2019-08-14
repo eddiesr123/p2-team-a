@@ -10,9 +10,15 @@ import { connect } from 'react-redux';
 //import '../css/browsercss';
 export interface ICatalogProps {
     catalogCard: ICatalogState,
-    updateSuit: (image: String) => void;
+    updateSuit: (image: String) => void,
+    updateMask: (image: String) => void,
+    updateGloves: (image: String) => void;
 }
+//axios.data
 export class Catalog extends React.Component<any, ICatalogProps> {
+    componentDidMount() {
+        // let allmasks = await axios.get('http://localhost:8080/items/');
+    }
     render() {
         return (<div className="container card-container">
             <div className="row" >
@@ -42,7 +48,7 @@ export class Catalog extends React.Component<any, ICatalogProps> {
                             <div className="tab-pane fade show active p-12" id="one" role="tabpanel" aria-labelledby="one-tab">
                                 <div className="container">
                                     <div className="row">
-                                        <CatalogCard pathToImg={'bodysuit-blue-female.png'} imgObj={require('../images/alphas/bodysuit-blue-female.png')} /><CatalogCard /><CatalogCard /><CatalogCard />
+                                        <CatalogCard updateSuit={this.props.updateSuit} pathToImg={'../images/alphas/bodysuit-blue-female.png'} imgObj={require('../images/alphas/bodysuit-blue-female.png')} /><CatalogCard /><CatalogCard /><CatalogCard />
                                         <CatalogCard /><CatalogCard /><CatalogCard /><CatalogCard />
                                     </div>
                                 </div>
@@ -86,11 +92,13 @@ const mapStateToProps = (state: IState) => {
     }
 }
 
-const mapDispatchToProps = {
-    updateCartCount: updateCartCount,
-    updateSuit: catalogActions.updateSuit,
-    updateGloves: catalogActions.updateGloves,
-    updateMask: catalogActions.updateMask
+const mapDispatchToProps = (dispatch: any) => {
+    return {
+        updateCartCount: updateCartCount,
+        updateSuit: (suit: any) => { dispatch(catalogActions.updateSuit(suit)) },
+        updateGloves: catalogActions.updateGloves,
+        updateMask: catalogActions.updateMask
+    }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Catalog);
