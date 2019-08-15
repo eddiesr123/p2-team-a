@@ -16,7 +16,7 @@ export class Total extends React.Component<any>{
         }
     }
 
-    componentWillMount() {
+    componentDidMount() {
         if(this.props.checked) {
              this.props.substractShipping();
         }
