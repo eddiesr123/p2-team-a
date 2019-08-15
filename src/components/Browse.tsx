@@ -12,8 +12,8 @@ function Browse() {
     return (
         <div className="container-fluid">
             <div className="row">
-                <div className="col-sm-9 col-md-9" id="left-col"><Catalog></Catalog></div>
-                <div className="col-sm-3 col-md-3" id="right-col"><Display/></div>
+                <div className="col-sm-12 col-md-12 col-lg-9" id="left-col"><Catalog></Catalog></div>
+                <div className="col-sm-12 col-md-12 col-lg-3" id="right-col"><Display/></div>
 
             </div>
         </div>  

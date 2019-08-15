@@ -125,21 +125,21 @@ body {
 
 .bodysuits {
   position: absolute;
-  top: 150px;
-  left: 28%;
+  top: 30px;
+  left: 0.3%;
   z-index: 1;
 }
 
 .masks {
   position: absolute;
-  top: 150px;
-  left: 28%;
+  top: 30px;
+  left: 0.3%;
   z-index: 2;
 }
 .gloves {
   position: absolute;
-  top: 150px;
-  left: 28%;
+  top: 30px;
+  left: 0.3%;
   z-index: 3;
 }
 /*
