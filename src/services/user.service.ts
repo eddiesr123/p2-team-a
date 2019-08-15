@@ -7,10 +7,10 @@ export const userService = {
     logout
 };
 
-async function signup(user : any) {
+async function signup(user: any) {
     const requestOptions = {
         method: 'POST',
-        headers: {'Content-Type' : 'application/json'},
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ user })
     };
 
@@ -24,25 +24,40 @@ async function signup(user : any) {
 }
 
 async function signin(user: any) {
-    const {username, password} = user;
+    const { username, password } = user;
     const requestOptions = {
         method: 'POST',
-        headers: {'Content-Type' : 'application/json'},
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password })
     };
 
     return await fetch(`${api_url}/signin`, requestOptions)
         .then(handleResponse)
+        .then(response => response.json())
         .then(user => {
             localStorage.setItem('user', JSON.stringify(user));
             return user;
         });
 }
 
+
+async function handleResponse(response: any) {
+
+    if (!response.ok) {
+        if (response.status === 404) {
+            // auto logout if 404 response returned from api
+            logout();
+        }
+        const error = response && (response.message || response.statusText);
+        return Promise.reject(error);
+    }
+    return response;
+}
+
 async function changeInfo(user: any) {
     const requestOptions = {
         method: 'UPDATE',
-        headers: {'Content-Type' : 'application/json'},
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ user })
     };
 
@@ -54,26 +69,12 @@ function logout() {
     localStorage.removeItem('user');
 }
 
-async function handleResponse(response: any) {
-    const user = await response.json();
-    console.log(user.headers);
-    if (!response.ok) {
-        if (response.status === 404) {
-            // auto logout if 404 response returned from api
-            logout();  
-        }
 
-        const error = (response && response.message) || response.statusText;
-        return Promise.reject(error);
-    }
-    return user;
-}
-
-async function handleResponseFetch(response : any) {
+async function handleResponseFetch(response: any) {
     const user = await response.json();
     if (!response.ok) {
         if (response.status === 404) {
-           
+
         }
 
         const error = (response && response.message) || response.statusText;

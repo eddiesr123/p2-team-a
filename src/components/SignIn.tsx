@@ -17,18 +17,18 @@ import Container from '@material-ui/core/Container';
 import { userService } from '../services/user.service';
 
 const styles = {
-  avatar:{
+  avatar: {
     marginTop: 70,
     width: 100,
     height: 100,
   },
-  paper:{
+  paper: {
     margin: 10,
   },
   form: {
     width: 'auto', // Fix IE 11 issue.
     marginTop: 10,
-   } 
+  }
 };
 
 export interface ISignInProps {
@@ -50,11 +50,11 @@ class SignIn extends React.Component<any, ISignInState> {
       user: {
         username: '',
         password: '',
-    },
-    loggingIn: false,
-    loggedIn: false,
-    submitted: false
-  };
+      },
+      loggingIn: false,
+      loggedIn: false,
+      submitted: false
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -71,93 +71,97 @@ class SignIn extends React.Component<any, ISignInState> {
     });
   }
 
-  handleSubmit(event: any) {
-    event.preventDefault();
+  async handleSubmit(event: any) {
+    event.preventDefault(); //prevents text from being cleared
     this.setState({ submitted: true });
     const { user } = this.state;
     if (user.username && user.password) {
-      userService.signin(user);
+      let myUser: any;
+      myUser = await userService.signin(user);
+      // console.log("completed userService sign in");
+      // let updateStoreUser = userActions.signin(user)
+      // updateStoreUser();
     }
   }
 
   render() {
     const { loggingIn, classes } = this.props;
     const { user } = this.state;
-  return (
-    <Container component="main" maxWidth="xs">
-      <div>
-      <Grid container justify="center" alignItems="center">
+    return (
+      <Container component="main" maxWidth="xs">
+        <div>
+          <Grid container justify="center" alignItems="center">
             <Avatar src={Skull} className={classes.avatar} />
           </Grid>
           <div className={classes.paper}>
-        <Typography component="h1" variant="h5" align="center">
-          Sign in
+            <Typography component="h1" variant="h5" align="center">
+              Sign in
         </Typography>
-        </div>
-        <form className={classes.form} noValidate onSubmit={this.handleSubmit}> 
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            id="username"
-            label="Username"
-            name="username"
-            value={user.username}
-            onChange={this.handleChange}
-            autoComplete="username"
-            autoFocus
-          />
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="Password"
-            type="password"
-            id="password"
-            value={user.password}
-            onChange={this.handleChange}
-            autoComplete="current-password"
-          />
-          <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
-          />
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-          >
-            Sign In
+          </div>
+          <form className={classes.form} noValidate onSubmit={this.handleSubmit}>
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              id="username"
+              label="Username"
+              name="username"
+              value={user.username}
+              onChange={this.handleChange}
+              autoComplete="username"
+              autoFocus
+            />
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              name="password"
+              label="Password"
+              type="password"
+              id="password"
+              value={user.password}
+              onChange={this.handleChange}
+              autoComplete="current-password"
+            />
+            <FormControlLabel
+              control={<Checkbox value="remember" color="primary" />}
+              label="Remember me"
+            />
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+            >
+              Sign In
           </Button>
-          {loggingIn}
-          <Grid container>
-            <Grid item xs>
-              <Link href="#" variant="body2">
-                Forgot password?
+            {loggingIn}
+            <Grid container>
+              <Grid item xs>
+                <Link href="#" variant="body2">
+                  Forgot password?
               </Link>
+              </Grid>
+              <Grid item>
+                <Link href="/register" variant="body2">
+                  {"Don't have an account? Sign Up"}
+                </Link>
+              </Grid>
             </Grid>
-            <Grid item>
-              <Link href="/register" variant="body2">
-                {"Don't have an account? Sign Up"}
-              </Link>
-            </Grid>
-          </Grid>
-        </form>
-      </div>
-      <Box mt={5}>
-      </Box>
-    </Container>
-  );
-}
+          </form>
+        </div>
+        <Box mt={5}>
+        </Box>
+      </Container>
+    );
+  }
 }
 
 function mapStateToProps(state: IState) {
-    const { user, loggedIn, loggingIn, submitted } = state.signin;
-    return { user, loggedIn, loggingIn, submitted };
+  const { user, loggedIn, loggingIn, submitted } = state.signin;
+  return { user, loggedIn, loggingIn, submitted };
 }
 
 const actionCreators = {

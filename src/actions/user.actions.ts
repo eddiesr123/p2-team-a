@@ -15,7 +15,6 @@ const history = createBrowserHistory();
 function signup(user: any) {
     return (dispatch: any) => {
         dispatch(request({ user }));
-
         userService.signup(user)
             .then(
                 user => { 
@@ -36,7 +35,9 @@ function signup(user: any) {
 }
 
 function signin(user: any) {
+    console.log("starting dispatch for user sign in", user);
     return (dispatch: any) => {
+        console.log("starting dispatch for user sign in", user);
         dispatch(request({ user }));
 
         userService.signin(user)
