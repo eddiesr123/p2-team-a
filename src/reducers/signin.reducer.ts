@@ -14,13 +14,13 @@ const initState: ISignInState = {
 const signinReducer = (state = initState, action: any) => {
   switch (action.type) {
     case userConstants.SIGNIN_REQUEST:
-      return { ...state, loggingIn: true, submitted: true };
+      return { ...action.user, loggingIn: true, submitted: true };
     case userConstants.SIGNIN_SUCCESS:
-      return { ...state, loggedIn: true, submitted: true };
+      return { ...action.user, loggingIn: false, loggedIn: true, submitted: true };
     case userConstants.SIGNIN_FAILURE:
-      return {...state};
+      return { ...state, loggingIn: false, loggedIn: false, submitted: false };
     case userConstants.LOGOUT:
-      return {...state};
+      return { ...state, loggingIn: false, loggedIn: false, submitted: false };
     default:
       return initState
   }

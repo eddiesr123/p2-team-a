@@ -1,6 +1,8 @@
 import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Home from './Home';
+import { Route, Switch } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { userActions } from '../actions/user.actions';
+import { IState, ISignInState } from '../reducers';
 import Browse from './Browse';
 import UserInfo from './UserInfo';
 import Purchase from './Purchase';
@@ -14,9 +16,14 @@ import notFoundPage from './NotFound';
 import Cart from "./Cart";
 import Logout from "./Logout";
 
-function AppRouter() {
-  return (
-    <BrowserRouter>
+export interface ISignInProps {
+  // read in data from state store
+  signin: ISignInState,
+}
+
+class AppRouter extends React.Component<ISignInProps, ISignInState> {
+  public render() {
+    return (
       <div>
         <div>
           <header className="App-header">
@@ -28,8 +35,7 @@ function AppRouter() {
           </header>
           <div id='content'>
             <Switch>
-                <Route path="/hot/" component={HotItems} />
-                <Route exact path="/" component={Home} />
+                <Route exact path="/" component={HotItems} />
                 <Route exact path="/browse" component={Browse} />
                 <Route exact path="/userinfo" component={UserInfo} />
                 <Route exact path="/purchase" component={Purchase} />
@@ -43,8 +49,19 @@ function AppRouter() {
           </div>
         </div>
       </div>
-     </BrowserRouter>
   );
 }
+}
 
-export default AppRouter;
+// read state-store values into state-component values
+const mapStateToProps = (state: IState) => {
+  return {
+    signin: state.signin
+  }
+}
+
+const actionCreators = {
+  signin: userActions.signin,
+}
+
+export default connect(mapStateToProps, actionCreators)(AppRouter);

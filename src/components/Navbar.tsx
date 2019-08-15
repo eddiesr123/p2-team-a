@@ -44,7 +44,7 @@ export class Navbar extends React.Component<any, any> {
                 {!this.props.signin.loggedIn ?
                   <Link className="nav-link" to="/register">Sign up</Link>
                   :
-                  <Link className="nav-link" to="/userinfo">`${this.props.signin.username}, </Link>
+                  <Link className="nav-link" to="/userinfo">{this.props.signin.username}, </Link>
                 }
                 </li>
                 <li className="divider-vertical nav-item" />

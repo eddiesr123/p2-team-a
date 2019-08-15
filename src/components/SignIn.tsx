@@ -14,7 +14,6 @@ import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import { userService } from '../services/user.service';
 
 const styles = {
   avatar: {
@@ -76,11 +75,7 @@ class SignIn extends React.Component<any, ISignInState> {
     this.setState({ submitted: true });
     const { user } = this.state;
     if (user.username && user.password) {
-      let myUser: any;
-      myUser = await userService.signin(user);
-      // console.log("completed userService sign in");
-      // let updateStoreUser = userActions.signin(user)
-      // updateStoreUser();
+      this.props.signin(user) 
     }
   }
 

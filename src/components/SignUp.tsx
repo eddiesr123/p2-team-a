@@ -13,7 +13,6 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import { userService } from '../services/user.service';
 
 const styles = {
   avatar:{
@@ -74,7 +73,7 @@ class SignUp extends React.Component<any, ISignUpState> {
     this.setState({ submitted: true });
     const { user } = this.state;
     if (user.username && user.firstname && user.lastname && user.email && user.password) {
-      userService.signup(user);
+    this.props.signup(user);
     }
   }
 

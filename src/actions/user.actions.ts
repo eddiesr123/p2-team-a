@@ -10,7 +10,7 @@ export const userActions = {
     logout
 };
 
-const history = createBrowserHistory();
+const history = createBrowserHistory({forceRefresh: true});
 
 function signup(user: any) {
     return (dispatch: any) => {
@@ -35,11 +35,8 @@ function signup(user: any) {
 }
 
 function signin(user: any) {
-    console.log("starting dispatch for user sign in", user);
     return (dispatch: any) => {
-        console.log("starting dispatch for user sign in", user);
         dispatch(request({ user }));
-
         userService.signin(user)
             .then(
                 user => { 
