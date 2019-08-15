@@ -4,7 +4,7 @@ import '../css/fontawesome-free-5.10.1-web/fontawesome-free-5.10.1-web/css/all.c
 export default class ItemCardComponent extends React.Component<any, any> {
     render() {
         return ( 
-        <div className="col-3">
+        <div className="col-3 catalog-card">
         <div className="card card-item" >
             <img className="card-img-top set-img-card" id="cards" src={this.props.imgObj} alt="Card image cap"/>
             <div className="card-body">
