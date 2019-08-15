@@ -1,4 +1,4 @@
-import { ADD_TO_CART,REMOVE_ITEM,SUB_QUANTITY,ADD_QUANTITY,ADD_SHIPPING, GET_PRODUCTS } from '../actions/action-types/cart-actions';
+import { ADD_TO_CART,REMOVE_ITEM,SUB_QUANTITY,ADD_QUANTITY,ADD_SHIPPING, GET_PRODUCTS, RESET_STATE } from '../actions/action-types/cart-actions';
 import { ICartState } from '.';
 
 
@@ -115,18 +115,21 @@ const cartReducer= (state = initState, action: any)=>{
             total: state.total - 6,
             checkedBox: false
         }
-  }
+    }
 
     if(action.type=== GET_PRODUCTS) {
-
-            return {
-                
-                
-                    ...state,
-                        items: action.items,
-                        stateCheck: true
-            }
+        return {
+            ...state,
+            items: action.items,
+            stateCheck: true
         }
+    }
+
+    if(action.type=== RESET_STATE) {
+        return {
+            ...initState,
+        }
+    }
     
   else{
     return state
