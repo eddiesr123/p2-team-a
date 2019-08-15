@@ -23,6 +23,7 @@ export interface ICartState {
 
 export interface ISignUpState {
      user: any;
+     signuping: boolean;
      submitted: boolean;
 };
 
@@ -30,14 +31,28 @@ export interface IDisplayState {
 };
 
 export interface ISignInState {
-     user: any; 
+     user: {
+        username: string,
+        firstName: string,
+        lastName: string,
+        email: string,
+        password: string,
+        creditCard: string
+    }; 
      loggingIn: boolean;
      loggedIn: boolean;
      submitted: boolean;
 }
 
 export interface IUserState {
-    user: any;
+    user: {
+        username: string,
+        firstName: string,
+        lastName: string,
+        email: string,
+        password: string,
+        creditCard: string
+    };
 }
 
 export interface ICatalogState {

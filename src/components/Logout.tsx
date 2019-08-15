@@ -16,18 +16,18 @@ class Logout extends React.Component<any, IUserState> {
             user: {
                 username: '',
                 password: '',
-                firstname: '',
-                lastname: '',
+                firstName: '',
+                lastName: '',
                 email: '',
-                cardnumber: '' 
+                creditCard: '' 
               }
             }
         }
 
     componentDidMount() {
-        // reset login status
+    // reset login status
     this.props.logout();
-        }
+    }
 
     render() {
         return (

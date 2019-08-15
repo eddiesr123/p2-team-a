@@ -10,22 +10,10 @@ import  Display  from './Display/Display';
 import Catalog from './Catalog';
 function Browse() {
     return (
-        <div className="container-fluid">{/*}
-            <Bodysuit/>
-            <Mask/>
-            <Gloves/> 
-            <table className="tables" id="display-table">
-                <caption>Select Your Costume below</caption>
-                <tbody>
-                    <tr>
-                        <td className="display-cols-1" id="display-col-1">Hello</td>
-                        <td className="display-cols-2" id="display-col-2"><Display /></td>
-                    </tr>
-                </tbody>
-            </table>*/}
+        <div className="container-fluid">
             <div className="row">
-                <div className="col-sm-8 col-md-8" id="left-col"><Catalog></Catalog></div>
-                <div className="col-sm-4 col-md-4" id="right-col"><Display/></div>
+                <div className="col-sm-12 col-md-12 col-lg-9" id="left-col"><Catalog></Catalog></div>
+                <div className="col-sm-12 col-md-12 col-lg-3" id="right-col"><Display/></div>
 
             </div>
         </div>  
