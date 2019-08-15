@@ -142,7 +142,7 @@ body {
   left: 0.3%;
   z-index: 3;
 }
-/*
+
 .col-lg-6 {
   border-left: 1px solid black;
   height: 100%;
@@ -150,7 +150,6 @@ body {
 #display-id {
   text-align: center;
 }
-*/
 #right-col {
   border: 20px solid rgba(0,0,0,.125);
   background: rgba(255,255,255, 0.9) !important;
@@ -182,4 +181,4 @@ body {
 }
 #sign-up-div input {
   border: 1px solid rgb(255, 166, 0) !important;
-} 
+}
