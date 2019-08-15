@@ -49,9 +49,9 @@ export class Catalog extends React.Component<any, ICatalogProps> {
                                 <div className="container">
                                     <div className="row">
                                         <CatalogCard updateDisplay={this.props.updateSuit} pathToImg={'../images/alphas/bodysuit-blue-female.png'} imgObj={require('../images/alphas/bodysuit-blue-female.png')} />
-                                        <CatalogCard updateSuit={this.props.updateSuit} pathToImg={'../images/alphas/bodysuit-black-female.png'} imgObj={require('../images/alphas/bodysuit-black-female.png')} />
-                                        <CatalogCard updateSuit={this.props.updateSuit} pathToImg={'../images/alphas/bodysuit-red-female.png'} imgObj={require('../images/alphas/bodysuit-red-female.png')} />
-                                        <CatalogCard updateSuit={this.props.updateSuit} pathToImg={'../images/alphas/bodysuit-green-female.png'} imgObj={require('../images/alphas/bodysuit-green-female.png')}/>
+                                        <CatalogCard updateDisplay={this.props.updateSuit} pathToImg={'../images/alphas/bodysuit-black-female.png'} imgObj={require('../images/alphas/bodysuit-black-female.png')} />
+                                        <CatalogCard updateDisplay={this.props.updateSuit} pathToImg={'../images/alphas/bodysuit-red-female.png'} imgObj={require('../images/alphas/bodysuit-red-female.png')} />
+                                        <CatalogCard updateDisplay={this.props.updateSuit} pathToImg={'../images/alphas/bodysuit-green-female.png'} imgObj={require('../images/alphas/bodysuit-green-female.png')}/>
                                     </div>
                                 </div>
                             </div>
