@@ -155,6 +155,7 @@ body {
   border: 20px solid rgba(0,0,0,.125);
   background: rgba(255,255,255, 0.9) !important;
   border-radius: 6px;
+  min-height: 600px;
 }
 .hot-card  {
   margin-bottom: 8px;
@@ -162,9 +163,7 @@ body {
   box-shadow: 1px 1px 2px rgb(255, 166, 0);
   background: rgba(255, 166, 0, 0.1) !important;
 }
-#hot-card-div link, #hot-card-div span {
-  
-}
+
 #items-of-hot {
   color: black;
   text-shadow: 1px 1px 2px rgb(255, 166, 0);

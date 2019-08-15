@@ -15,10 +15,10 @@ export class Display extends React.Component<any, IDisplayProps> {
   render() {
     return (
       <div id="display-id">
-        <Bodysuit suit = {this.props.suit} />
-        <Mask mask = {this.props.mask} />
-        <Gloves gloves = {this.props.gloves} />
-        {/*<span>{this.props.suit}</span> */}
+        <Bodysuit suit = {'./src/images/alphas/bodysuit-green-female.png'} />
+        <Mask mask = {'./src/images/alphas/mask-green-female.png'} /> 
+        <Gloves gloves = {'./src/images/alphas/gloves-female.png'} />
+        <span>{this.props.suit}</span>
       </div>
     );
   }

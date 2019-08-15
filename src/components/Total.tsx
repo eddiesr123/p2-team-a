@@ -17,8 +17,9 @@ export class Total extends React.Component<any>{
     }
 
     componentWillMount() {
-        if(this.props.checked)
-             this.props.substractShipping()
+        if(this.props.checked) {
+             this.props.substractShipping();
+        }
     }
 
     render(){
@@ -29,7 +30,7 @@ export class Total extends React.Component<any>{
                     <li className="collection-item">
                             <label>
                                 <input type="checkbox" ref="shipping" onChange= {this.handleChecked} />
-                                <span>Shipping(+6$)</span>
+                                <span>Expedited Shipping(+6$)</span>
                             </label>
                         </li>
                         <li className="collection-item"><b>Total: {this.props.total} $</b></li>

@@ -1,4 +1,5 @@
-import { ADD_TO_CART,REMOVE_ITEM,SUB_QUANTITY,ADD_QUANTITY,/*ADD_SHIPPING*/} from './action-types/cart-actions'
+import { ADD_TO_CART,REMOVE_ITEM,SUB_QUANTITY,ADD_QUANTITY,GET_PRODUCTS/*ADD_SHIPPING*/} from './action-types/cart-actions'
+import { alertActions } from './alert.actions';
 
 //add cart action
 export const addToCart= (id: any)=>{
@@ -29,3 +30,24 @@ export const addQuantity=(id: any)=>{
         id
     }
 }
+
+
+export const getProducts=(items: any) => {
+        return{
+            type: GET_PRODUCTS,
+            items
+        }
+    }
+
+
+/*
+export const getProducts =
+    (id: number, name: string, price: number, imgPath: string, thumbnailPath: string, clothingType: string, user: string) => (dispatch: any) => {
+        dispatch({
+            payload: {
+                id, name, price, imgPath, thumbnailPath, clothingType, user
+            },
+            type: GET_PRODUCTS
+        });
+    }
+    */

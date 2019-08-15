@@ -1,10 +1,5 @@
 import React from 'react';
-import mask from "../../images/alphas/mask-green-female.png";
-
-const imgMap: any = {'../../images/alphas/mask-black-female.png': require('../../images/alphas/mask-black-female.png'),
-                    '../../images/alphas/mask-blue-female.png': require('../../images/alphas/mask-blue-female.png'),
-                    '../../images/alphas/mask-green-female.png': require('../../images/alphas/mask-green-female.png'),
-                    '../../images/alphas/mask-red-female.png': require('../../images/alphas/mask-red-female.png')}
+import imgMap from '../../images/items-map'
 
 export class Mask extends React.Component<any, any> {
     render() {
@@ -13,7 +8,7 @@ export class Mask extends React.Component<any, any> {
                 <img className="masks" id="mask-green-female"  width="50%"
                     //src={require(this.props.mask)} alt="mask" />
                     //src={require('../../images/alphas/mask-green-female.png')} alt="mask" />
-                    src= {imgMap[this.props.mask]} alt="mask" />
+                    src={imgMap[this.props.mask]} alt="mask" />
             </div>
         )
     }
