@@ -13,7 +13,7 @@ export interface INavbarProps {
 
 
 ///For shopping cart icon: <i class="fas fa-shopping-cart"></i>
-export class Navbar extends React.Component<any, any> {
+export class Navbar extends React.Component<any, INavbarState> {
   render() {
     return (
         <nav className="navbar navbar-expand-lg navbar-dark fixed-top bg-dark" role="navigation">
@@ -41,11 +41,19 @@ export class Navbar extends React.Component<any, any> {
               <ul className="navbar-nav">  
                 <li className="divider-vertical nav-item" />
                 <li>
-                  <Link className="nav-link" to="/login">Sign in</Link>
+                {!this.props.signin.loggedIn ?
+                  <Link className="nav-link" to="/register">Sign up</Link>
+                  :
+                  <Link className="nav-link" to="/userinfo">{this.props.signin.username}, </Link>
+                }
                 </li>
                 <li className="divider-vertical nav-item" />
                 <li>
-                  <Link className="nav-link" to="/register">Sign up</Link>
+                {!this.props.signin.loggedIn ?
+                  <Link className="nav-link" to="/login">Sign in</Link>
+                  :
+                  <Link className="nav-link" to="/logout">logout</Link>
+                }
                 </li>
                 <li className="divider-vertical nav-item" />
                 <li>
@@ -67,7 +75,8 @@ const mapStateToProps = (state: IState) => {
   return {
     navbar: state.navbar,
     addedItems: state.cart.addedItems,
-    total: state.cart.totalItems
+    total: state.cart.totalItems,
+    signin: state.signin
   }
 }
 

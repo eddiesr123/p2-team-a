@@ -23,7 +23,7 @@ const make = async (files) => {
             "price": null,
             "imgPath": "./src/images/alphas/",
             "thumbnailPath":"./src/images/thumbnails/",
-            "type": null,
+            "clothingType": null,
             "user": null
         }
         myItem.imgPath += file;
@@ -31,15 +31,15 @@ const make = async (files) => {
         myItem.name = (file.substring(0, file.length - 4)).split('-').join(' ');
 
         if (file.includes('suit')) {
-            myItem.type = 'BODYSUIT'
+            myItem.clothingType = 'suit'
             myItem.price = 80.00
         }
         if (file.includes('mask')) {
-            myItem.type = 'MASK'
+            myItem.clothingType = 'mask'
             myItem.price = 20.00
         }
         if (file.includes('gloves')) {
-            myItem.type = 'GLOVES'
+            myItem.clothingType = 'gloves'
             myItem.price = 300.00
         }
         console.log(myItem);

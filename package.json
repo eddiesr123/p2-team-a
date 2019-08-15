@@ -5,6 +5,7 @@
   "dependencies": {
     "@material-ui/core": "^4.3.2",
     "@material-ui/icons": "^4.2.1",
+    "@redux-offline/redux-offline": "^2.5.2",
     "@types/axios": "^0.14.0",
     "@types/enzyme-adapter-react-16": "^1.0.5",
     "@types/history": "^4.7.2",
