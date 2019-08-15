@@ -48,15 +48,17 @@ export class Catalog extends React.Component<any, ICatalogProps> {
                             <div className="tab-pane fade show active p-12" id="one" role="tabpanel" aria-labelledby="one-tab">
                                 <div className="container">
                                     <div className="row">
-                                        <CatalogCard updateSuit={this.props.updateSuit} pathToImg={'../images/alphas/bodysuit-blue-female.png'} imgObj={require('../images/alphas/bodysuit-blue-female.png')} /><CatalogCard /><CatalogCard /><CatalogCard />
-                                        <CatalogCard /><CatalogCard /><CatalogCard /><CatalogCard />
+                                        <CatalogCard updateSuit={this.props.updateSuit} pathToImg={'../images/alphas/bodysuit-blue-female.png'} imgObj={require('../images/alphas/bodysuit-blue-female.png')} /><CatalogCard updateSuit={this.props.updateSuit} pathToImg={'../images/alphas/bodysuit-black-female.png'} imgObj={require('../images/alphas/bodysuit-black-female.png')} /><CatalogCard updateSuit={this.props.updateSuit} pathToImg={'../images/alphas/bodysuit-red-female.png'} imgObj={require('../images/alphas/bodysuit-red-female.png')} /><CatalogCard updateSuit={this.props.updateSuit} pathToImg={'../images/alphas/bodysuit-green-female.png'} imgObj={require('../images/alphas/bodysuit-green-female.png')}/>
                                     </div>
                                 </div>
                                 <PaginationComponent />
                             </div>
                             <div className="tab-pane fade p-12" id="two" role="tabpanel" aria-labelledby="two-tab">
-                                <h5 className="card-title">Masks n' things</h5>
-                                <p className="card-text">Masks Masks Masks Masks Masks Masks Masks Masks Masks Masks Masks Masks Masks </p>
+                                <div className="container">
+                                    <div className="row">
+                                    <CatalogCard /><CatalogCard /><CatalogCard /><CatalogCard />
+                                    </div>
+                                </div>
                                 <PaginationComponent />
                             </div>
                             <div className="tab-pane fade p-12" id="three" role="tabpanel" aria-labelledby="three-tab">
