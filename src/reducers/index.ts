@@ -12,16 +12,12 @@ export interface INavbarState {
 
 export interface ICartState {
         items: {
-            id: number;
-            title: string;
-            desc: string;
-            price: number;
-            img: string;
         }[];
         addedItems: any[];
         total: number;
         totalItems: number;
         checkedBox: boolean;
+        stateCheck: boolean;
 
 };
 
