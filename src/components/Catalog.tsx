@@ -35,19 +35,13 @@ export class Catalog extends React.Component<any, ICatalogProps> {
                                 <li className="nav-item">
                                     <a className="nav-link" id="three-tab" data-toggle="tab" href="#three" role="tab" aria-controls="Three" aria-selected="false"><i className="fas fa-mitten"></i></a>
                                 </li>
-                                <li className="nav-item">
-                                    <a className="nav-link" id="four-tab" data-toggle="tab" href="#four" role="tab" aria-controls="Four" aria-selected="false"><i className="fas fa-archway"></i></a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link" id="five-tab" data-toggle="tab" href="#five" role="tab" aria-controls="Five" aria-selected="false"><i className="fas fa-shoe-prints"></i></a>
-                                </li>
                             </ul>
                         </div>
 
                         <div className="tab-content" id="myTabContent">
                             <div className="tab-pane fade show active p-12" id="one" role="tabpanel" aria-labelledby="one-tab">
                                 <div className="container">
-                                    <div className="row">
+                                    <div className="row f-box">
                                         <CatalogCard updateDisplay={this.props.updateSuit} pathToImg={'../images/alphas/bodysuit-blue-female.png'} imgObj={require('../images/alphas/bodysuit-blue-female.png')} />
                                         <CatalogCard updateDisplay={this.props.updateSuit} pathToImg={'../images/alphas/bodysuit-black-female.png'} imgObj={require('../images/alphas/bodysuit-black-female.png')} />
                                         <CatalogCard updateDisplay={this.props.updateSuit} pathToImg={'../images/alphas/bodysuit-red-female.png'} imgObj={require('../images/alphas/bodysuit-red-female.png')} />
@@ -57,7 +51,7 @@ export class Catalog extends React.Component<any, ICatalogProps> {
                             </div>
                             <div className="tab-pane fade p-12" id="two" role="tabpanel" aria-labelledby="two-tab">
                                 <div className="container">
-                                    <div className="row">
+                                    <div className="row f-box">
                                         <CatalogCard updateDisplay={this.props.updateMask} pathToImg={'../images/alphas/mask-blue-female.png'} imgObj={require('../images/alphas/mask-blue-female.png')} />
                                         <CatalogCard updateDisplay={this.props.updateMask} pathToImg={'../images/alphas/mask-black-female.png'} imgObj={require('../images/alphas/mask-black-female.png')} />
                                         <CatalogCard updateDisplay={this.props.updateMask} pathToImg={'../images/alphas/mask-green-female.png'} imgObj={require('../images/alphas/mask-green-female.png')} />
@@ -66,16 +60,11 @@ export class Catalog extends React.Component<any, ICatalogProps> {
                                 </div>
                             </div>
                             <div className="tab-pane fade p-12" id="three" role="tabpanel" aria-labelledby="three-tab">
-                                <h5 className="card-title">Torso</h5>
-                                <p className="card-text">torso things</p>
-                            </div>
-                            <div className="tab-pane fade p-12" id="four" role="tabpanel" aria-labelledby="four-tab">
-                                <h5 className="card-title">Tab Card four</h5>
-                                <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
-                            <div className="tab-pane fade p-12" id="five" role="tabpanel" aria-labelledby="five-tab">
-                                <h5 className="card-title">Tab Card five</h5>
-                                <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <div className="container">
+                                    <div className="row f-box">
+                                        <CatalogCard updateDisplay={this.props.updateGloves} pathToImg={'../images/alphas/gloves-female.png'} imgObj={require('../images/alphas/gloves-female.png')} />
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
