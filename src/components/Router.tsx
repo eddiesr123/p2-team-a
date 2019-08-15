@@ -28,8 +28,7 @@ function AppRouter() {
           </header>
           <div id='content'>
             <Switch>
-                <Route path="/hot/" component={HotItems} />
-                <Route exact path="/" component={Home} />
+                <Route exact path="/" component={HotItems} />
                 <Route exact path="/browse" component={Browse} />
                 <PrivateRoute exact path="/userinfo" component={UserInfo} />
                 <PrivateRoute exact path="/purchase" component={Purchase} />

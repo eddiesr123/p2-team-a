@@ -1,26 +1,14 @@
-import Item1 from '../SignUp.png'
-//import Item2 from '../../images/item2.jpg'
-//import Item3 from '../../images/item3.jpg'
-//import Item4 from '../../images/item4.jpg'
-//import Item5 from '../../images/item5.jpg'
-//import Item6 from '../../images/item6.jpg'
-import { ADD_TO_CART,REMOVE_ITEM,SUB_QUANTITY,ADD_QUANTITY,ADD_SHIPPING } from '../actions/action-types/cart-actions'
+import { ADD_TO_CART,REMOVE_ITEM,SUB_QUANTITY,ADD_QUANTITY,ADD_SHIPPING, GET_PRODUCTS } from '../actions/action-types/cart-actions';
 import { ICartState } from '.';
 
 
 const initState: ICartState = {
-    items: [
-        {id:1,title:'Item-1', desc: "Costume of Doom", price:110,img:Item1},
-        {id:2,title:'Item-2', desc: "Costume of Doom", price:80,img: Item1},
-        {id:3,title:'Item-3', desc: "Costume of Doom",price:120,img: Item1},
-        {id:4,title:'Item-4', desc: "Costume of Doom", price:260,img:Item1},
-        {id:5,title:'Item-5', desc: "Costume of Doom", price:160,img: Item1},
-        {id:6,title:'Item-6', desc: "Costume of Doom",price:90,img: Item1},
-    ],
+    items: [],
     addedItems:[],
     total: 0,
     totalItems: 0,
     checkedBox: false,
+    stateCheck: false,
 
 }
 const cartReducer= (state = initState, action: any)=>{
@@ -32,7 +20,7 @@ const cartReducer= (state = initState, action: any)=>{
          let existed_item= state.addedItems.find((item: any)=> action.id === item.id)
          if(existed_item)
          {
-            addedItem.quantity += 1 
+            addedItem.quantity += 1
              return{
                 ...state,
                  total: state.total + addedItem.price,
@@ -128,6 +116,17 @@ const cartReducer= (state = initState, action: any)=>{
             checkedBox: false
         }
   }
+
+    if(action.type=== GET_PRODUCTS) {
+
+            return {
+                
+                
+                    ...state,
+                        items: action.items,
+                        stateCheck: true
+            }
+        }
     
   else{
     return state
