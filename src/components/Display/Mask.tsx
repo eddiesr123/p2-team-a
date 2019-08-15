@@ -5,7 +5,7 @@ export class Mask extends React.Component<any, any> {
     render() {
         return(
             <div className="mask-div" id="mask-female-div">
-                <img className="masks" id="mask-green-female"  width="50%"
+                <img className="masks" id="mask-green-female"  width="100%"
                     //src={require(this.props.mask)} alt="mask" />
                     //src={require('../../images/alphas/mask-green-female.png')} alt="mask" />
                     src={imgMap[this.props.mask]} alt="mask" />

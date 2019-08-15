@@ -2,8 +2,11 @@
     text-align: center;
 }
 .card-img-top{
-    width : 5rem;
-    height : 5rem;
+    width : 50% !important;
+    height : 50% !important;
+    text-align: center;
+    margin: auto;
+    padding-top: 20px;
 }
 .catalog-card{
     padding-top: 3rem;
