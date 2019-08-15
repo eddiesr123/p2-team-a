@@ -16,6 +16,7 @@ console.log(files);
 
 // for each image file, create an object with the data for that item
 const make = async (files) => {
+    itemMap = {}
     for (let file of files) {
         if (!file.includes('.png')) continue;
         let myItem = {
@@ -26,9 +27,15 @@ const make = async (files) => {
             "clothingType": null,
             "user": null
         }
+
         myItem.imgPath += file;
         myItem.thumbnailPath += file;
         myItem.name = (file.substring(0, file.length - 4)).split('-').join(' ');
+
+        itemMap = {
+            ...itemMap,
+            [myItem.imgPath]: `require(${myItem.imgPath})`
+        }
 
         if (file.includes('suit')) {
             myItem.clothingType = 'suit'
@@ -42,12 +49,13 @@ const make = async (files) => {
             myItem.clothingType = 'gloves'
             myItem.price = 300.00
         }
-        console.log(myItem);
+        //console.log(myItem);
         await axios.post('http://localhost:8080/items/', myItem)
     }
+    console.log(itemMap)
 }
 
-make(files);
-// send a post request to add that item to the database
+itemMap = make(files);
 
-// send a few get requests to make sure that the items were added
+// output item map to load files on startup
+console.log(itemMap);
