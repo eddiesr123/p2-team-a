@@ -8,17 +8,18 @@ export const userService = {
 };
 
 async function signup(user: any) {
+    const { username, firstName, lastName, email, password } = user;
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ user })
+        body: JSON.stringify({ username, firstName, lastName, email, password })
     };
-
+    console.log('doning the signup');
     return await fetch(`${api_url}/signup`, requestOptions)
+        .then((res) => {console.log(res); return res;})
         .then(handleResponse)
+        .then(response => response.json())
         .then(user => {
-            // store user details and jwt token in local storage to keep user logged in between page refreshes
-            localStorage.setItem('user', JSON.stringify(user));
             return user;
         });
 }
@@ -35,7 +36,6 @@ async function signin(user: any) {
         .then(handleResponse)
         .then(response => response.json())
         .then(user => {
-            localStorage.setItem('user', JSON.stringify(user));
             return user;
         });
 }

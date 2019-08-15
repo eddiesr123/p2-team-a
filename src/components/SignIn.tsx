@@ -48,8 +48,12 @@ class SignIn extends React.Component<any, ISignInState> {
     this.state = {
       user: {
         username: '',
+        firstName: '',
+        lastName: '',
+        email: '',
         password: '',
-      },
+        creditCard: ''
+    },
       loggingIn: false,
       loggedIn: false,
       submitted: false

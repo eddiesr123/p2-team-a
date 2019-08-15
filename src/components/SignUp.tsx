@@ -10,23 +10,24 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
+import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
 const styles = {
-  avatar:{
+  avatar: {
     marginTop: 70,
     width: 100,
     height: 100,
   },
-  paper:{
+  paper: {
     margin: 10,
   },
   form: {
     width: 'auto', // Fix IE 11 issue.
     marginTop: 30,
-   } 
+  }
 };
 
 export interface ISignUpProps {
@@ -50,6 +51,7 @@ class SignUp extends React.Component<any, ISignUpState> {
         email: '',
         password: ''
       },
+      signuping: false,
       submitted: false
     }
 
@@ -68,17 +70,17 @@ class SignUp extends React.Component<any, ISignUpState> {
     });
   }
 
-  handleSubmit(event: any) {
-    event.preventDefault();
-    this.setState({ submitted: true });
+  async handleSubmit(event: any) {
+    event.preventDefault(); //prevents text from being cleared
+    this.setState({ ...this.state, submitted: true });
     const { user } = this.state;
-    if (user.username && user.firstname && user.lastname && user.email && user.password) {
-    this.props.signup(user);
+    if (user.username && user.firstName && user.lastName && user.email && user.password) {
+      this.props.signup(user);
     }
   }
 
   render() {
-    const { classes } = this.props;
+    const { signuping, classes } = this.props;
     const { user } = this.state;
     return (
       <Container component="main" maxWidth="xs">
@@ -87,10 +89,10 @@ class SignUp extends React.Component<any, ISignUpState> {
             <Avatar src={Skull} className={classes.avatar} />
           </Grid>
           <div className={classes.paper}>
-          <Typography component="h1" variant="h5" align="center">
-            Sign up
+            <Typography component="h1" variant="h5" align="center">
+              Sign up
         </Typography>
-         </div>
+          </div>
           <form className={classes.form} noValidate onSubmit={this.handleSubmit}>
             <Grid container spacing={2}>
               <Grid item xs={12}>
@@ -175,6 +177,7 @@ class SignUp extends React.Component<any, ISignUpState> {
             >
               Sign Up
             </Button>
+            {signuping}
             <Grid container justify="flex-end">
               <Grid item>
                 <Link href="/login" variant="body2">
@@ -184,14 +187,16 @@ class SignUp extends React.Component<any, ISignUpState> {
             </Grid>
           </form>
         </div>
+        <Box mt={5}>
+        </Box>
       </Container>
     );
   }
 }
 
 function mapStateToProps(state: IState) {
-  const { user, submitted } = state.signup;
-  return { user, submitted };
+  const { user, signuping, submitted } = state.signup;
+  return { user, signuping, submitted };
 }
 
 const actionCreators = {
