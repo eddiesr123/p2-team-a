@@ -88,6 +88,7 @@ const mapStateToProps = (state: IState)=>{
         items: state.cart.addedItems,
     }
 }
+
 const mapDispatchToProps = (dispatch: any)=>{
     return{
         removeItem: (id: any)=>{dispatch(removeItem(id))},

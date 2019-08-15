@@ -1,5 +1,6 @@
 import { userConstants } from '../constants/user.constants';
 import { ISignUpState } from './index'
+
 // Add reducer to combined reducer file
 const initState: ISignUpState ={
   user:{
@@ -11,6 +12,7 @@ const initState: ISignUpState ={
  },
     submitted: false
 }
+
  const signupReducer = (state = initState, action: any) => {
   switch (action.type) {
     case userConstants.SIGNUP_REQUEST:
