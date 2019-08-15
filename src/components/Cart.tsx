@@ -40,11 +40,11 @@ class Cart extends React.Component<any, ICartProps>{
                        
                         <li className="collection-item avatar" key={item.id}>
                                     <div className="item-img"> 
-                                        <img src={item.img} alt={item.img} className=""/>
+                                        <img src={item.imgPath} alt={item.imgPath} className=""/>
                                     </div>
                                 
                                     <div className="item-desc">
-                                        <span className="title">{item.title}</span>
+                                        <span className="title">{item.name}</span>
                                         <p>{item.desc}</p>
                                         <p><b>Price: {item.price}$</b></p> 
                                         <p>
@@ -88,6 +88,7 @@ const mapStateToProps = (state: IState)=>{
         items: state.cart.addedItems,
     }
 }
+
 const mapDispatchToProps = (dispatch: any)=>{
     return{
         removeItem: (id: any)=>{dispatch(removeItem(id))},

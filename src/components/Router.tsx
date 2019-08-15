@@ -1,5 +1,8 @@
 import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { Route, Switch } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { userActions } from '../actions/user.actions';
+import { IState, ISignInState } from '../reducers';
 import Home from './Home';
 import Browse from './Browse';
 import UserInfo from './UserInfo';
@@ -7,16 +10,21 @@ import Purchase from './Purchase';
 import Checkout from './Checkout';
 import Navbar from './Navbar';
 import SignUp from './SignUp';
-import Login from './Login';
+import SignIn from './SignIn';
 import HotItems from "./HotItems";
-import PrivateRoute from './PrivateRoute';
+//import PrivateRoute from './PrivateRoute';
 import notFoundPage from './NotFound';
 import Cart from "./Cart";
+import Logout from "./Logout";
 
+export interface ISignInProps {
+  // read in data from state store
+  signin: ISignInState,
+}
 
-function AppRouter() {
-  return (
-    <BrowserRouter>
+class AppRouter extends React.Component<ISignInProps, ISignInState> {
+  public render() {
+    return (
       <div>
         <div>
           <header className="App-header">
@@ -28,22 +36,34 @@ function AppRouter() {
           </header>
           <div id='content'>
             <Switch>
-                <Route path="/hot/" component={HotItems} />
+                <Route path="/hot" component={HotItems} />
                 <Route exact path="/" component={Home} />
                 <Route exact path="/browse" component={Browse} />
-                <PrivateRoute exact path="/userinfo" component={UserInfo} />
-                <PrivateRoute exact path="/purchase" component={Purchase} />
+                <Route exact path="/userinfo" component={UserInfo} />
+                <Route exact path="/purchase" component={Purchase} />
                 <Route exact path="/checkout" component={Checkout} />
                 <Route path="/cart" component={Cart}/>
                 <Route exact path="/register" component={SignUp} />
-                <Route exact path="/login" component={Login} />
+                <Route exact path="/login" component={SignIn} />
+                <Route exact path="/logout" component={Logout} />
                 <Route component={notFoundPage} />
-            </Switch>
+            </Switch> 
           </div>
         </div>
       </div>
-    </BrowserRouter >
   );
 }
+}
 
-export default AppRouter;
+// read state-store values into state-component values
+const mapStateToProps = (state: IState) => {
+  return {
+    signin: state.signin
+  }
+}
+
+const actionCreators = {
+  signin: userActions.signin,
+}
+
+export default connect(mapStateToProps, actionCreators)(AppRouter);

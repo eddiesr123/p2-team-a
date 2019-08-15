@@ -1,7 +1,7 @@
 
 
 import React from 'react';
-import { Theme, withStyles, makeStyles } from '@material-ui/core/styles';
+import { Theme, withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -47,9 +47,9 @@ class Review extends React.Component<any> {
         <List disablePadding>
           {this.props.items.map((item: any) => (
             <ListItem className={classes.listItem} key={item.id}>
-              <ListItemText primary={item.title} secondary={item.desc} />
-              Quantity:<ListItemText primary={item.quantity} />
-              <Typography variant="body2">{item.price}</Typography>
+              <ListItemText primary={item.name} secondary={item.desc} />
+              <i>Quantity:</i><ListItemText primary={item.quantity} />
+              <Typography variant="body2">${item.price}</Typography>
             </ListItem>
           ))}
           <ListItem className={classes.listItem}>
