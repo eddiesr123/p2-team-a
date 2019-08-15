@@ -36,8 +36,7 @@ class AppRouter extends React.Component<ISignInProps, ISignInState> {
           </header>
           <div id='content'>
             <Switch>
-                <Route path="/hot" component={HotItems} />
-                <Route exact path="/" component={Home} />
+                <Route exact path="/" component={HotItems} />
                 <Route exact path="/browse" component={Browse} />
                 <Route exact path="/userinfo" component={UserInfo} />
                 <Route exact path="/purchase" component={Purchase} />
