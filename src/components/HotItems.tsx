@@ -62,8 +62,8 @@ import Axios from 'axios';
 
         return(
             <div className="container">
-                <h3 className="center">Our items</h3>
-                <div className="box">
+                <h3 className="center" id="home-main-title">Our items</h3>
+                <div className="box" id="items-of-hot">
                     {itemList}
                 </div>
             </div>

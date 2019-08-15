@@ -1,3 +1,17 @@
 .card-item{
-    width: 10rem;
+    text-align: center;
+}
+.card-img-top{
+    width : 50% !important;
+    height : 50% !important;
+    text-align: center;
+    margin: auto;
+    padding-top: 20px;
+}
+.catalog-card{
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    padding-left: 0;
+    padding-right: 0; 
+    margin: 0;
 }

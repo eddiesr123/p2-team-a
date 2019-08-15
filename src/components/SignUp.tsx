@@ -91,7 +91,7 @@ class SignUp extends React.Component<any, ISignUpState> {
           <div className={classes.paper}>
             <Typography component="h1" variant="h5" align="center">
               Sign up
-        </Typography>
+            </Typography>
           </div>
           <form className={classes.form} noValidate onSubmit={this.handleSubmit}>
             <Grid container spacing={2}>
