@@ -47,9 +47,9 @@ class Review extends React.Component<any> {
         <List disablePadding>
           {this.props.items.map((item: any) => (
             <ListItem className={classes.listItem} key={item.id}>
-              <ListItemText primary={item.title} secondary={item.desc} />
-              Quantity:<ListItemText primary={item.quantity} />
-              <Typography variant="body2">{item.price}</Typography>
+              <ListItemText primary={item.name} secondary={item.desc} />
+              <i>Quantity:</i><ListItemText primary={item.quantity} />
+              <Typography variant="body2">${item.price}</Typography>
             </ListItem>
           ))}
           <ListItem className={classes.listItem}>
