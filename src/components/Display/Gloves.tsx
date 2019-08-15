@@ -10,4 +10,4 @@ export class Gloves extends React.Component<any, any> {
             </div>
         )
     }
-}
+}//hello
