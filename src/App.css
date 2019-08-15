@@ -162,13 +162,17 @@ body {
   box-shadow: 1px 1px 2px rgb(255, 166, 0);
   background: rgba(255, 166, 0, 0.1) !important;
 }
+#hot-card-div link, #hot-card-div span {
+  
+}
 #items-of-hot {
   color: black;
   text-shadow: 1px 1px 2px rgb(255, 166, 0);
   font-weight: bold !important;
+  text-align:center !important;
 }
-#hot-card-div button {
-  margin-left: 6px;
+#hot-card-div * {
+  text-align: center;
 }
 #home-main-title {  
   text-shadow: 2px 1px 1px rgb(255, 166, 0) !important;
@@ -182,3 +186,6 @@ body {
 #sign-up-div input {
   border: 1px solid rgb(255, 166, 0) !important;
 } 
+.hot-card-content {
+  text-align: left !important;
+}
