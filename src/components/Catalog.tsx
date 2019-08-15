@@ -42,27 +42,27 @@ export class Catalog extends React.Component<any, ICatalogProps> {
                             <div className="tab-pane fade show active p-12" id="one" role="tabpanel" aria-labelledby="one-tab">
                                 <div className="container">
                                     <div className="row f-box">
-                                        <CatalogCard updateDisplay={this.props.updateSuit} pathToImg={'../images/alphas/bodysuit-blue-female.png'} imgObj={require('../images/alphas/bodysuit-blue-female.png')} />
-                                        <CatalogCard updateDisplay={this.props.updateSuit} pathToImg={'../images/alphas/bodysuit-black-female.png'} imgObj={require('../images/alphas/bodysuit-black-female.png')} />
-                                        <CatalogCard updateDisplay={this.props.updateSuit} pathToImg={'../images/alphas/bodysuit-red-female.png'} imgObj={require('../images/alphas/bodysuit-red-female.png')} />
-                                        <CatalogCard updateDisplay={this.props.updateSuit} pathToImg={'../images/alphas/bodysuit-green-female.png'} imgObj={require('../images/alphas/bodysuit-green-female.png')}/>
+                                        <CatalogCard name="Blue suit of Doom"price="500" updateDisplay={this.props.updateSuit} pathToImg={'../images/alphas/bodysuit-blue-female.png'} imgObj={require('../images/alphas/bodysuit-blue-female.png')} />
+                                        <CatalogCard name="Dark Doom Suit"price="200"updateDisplay={this.props.updateSuit} pathToImg={'../images/alphas/bodysuit-black-female.png'} imgObj={require('../images/alphas/bodysuit-black-female.png')} />
+                                        <CatalogCard name="Doom n Bloom"price="120"updateDisplay={this.props.updateSuit} pathToImg={'../images/alphas/bodysuit-red-female.png'} imgObj={require('../images/alphas/bodysuit-red-female.png')} />
+                                        <CatalogCard name="Doomination"price="50"updateDisplay={this.props.updateSuit} pathToImg={'../images/alphas/bodysuit-green-female.png'} imgObj={require('../images/alphas/bodysuit-green-female.png')}/>
                                     </div>
                                 </div>
                             </div>
                             <div className="tab-pane fade p-12" id="two" role="tabpanel" aria-labelledby="two-tab">
                                 <div className="container">
                                     <div className="row f-box">
-                                        <CatalogCard updateDisplay={this.props.updateMask} pathToImg={'../images/alphas/mask-blue-female.png'} imgObj={require('../images/alphas/mask-blue-female.png')} />
-                                        <CatalogCard updateDisplay={this.props.updateMask} pathToImg={'../images/alphas/mask-black-female.png'} imgObj={require('../images/alphas/mask-black-female.png')} />
-                                        <CatalogCard updateDisplay={this.props.updateMask} pathToImg={'../images/alphas/mask-green-female.png'} imgObj={require('../images/alphas/mask-green-female.png')} />
-                                        <CatalogCard updateDisplay={this.props.updateMask} pathToImg={'../images/alphas/mask-red-female.png'} imgObj={require('../images/alphas/mask-red-female.png')} />
+                                        <CatalogCard name="Blue Mask of Doom"price="500"updateDisplay={this.props.updateMask} pathToImg={'../images/alphas/mask-blue-female.png'} imgObj={require('../images/alphas/mask-blue-female.png')} />
+                                        <CatalogCard name="Doomagedon Mask"price="500"updateDisplay={this.props.updateMask} pathToImg={'../images/alphas/mask-black-female.png'} imgObj={require('../images/alphas/mask-black-female.png')} />
+                                        <CatalogCard name="Doomy Mask"price="500"updateDisplay={this.props.updateMask} pathToImg={'../images/alphas/mask-green-female.png'} imgObj={require('../images/alphas/mask-green-female.png')} />
+                                        <CatalogCard name="Here comes the Doom"price="500"updateDisplay={this.props.updateMask} pathToImg={'../images/alphas/mask-red-female.png'} imgObj={require('../images/alphas/mask-red-female.png')} />
                                     </div>
                                 </div>
                             </div>
                             <div className="tab-pane fade p-12" id="three" role="tabpanel" aria-labelledby="three-tab">
                                 <div className="container">
                                     <div className="row f-box">
-                                        <CatalogCard updateDisplay={this.props.updateGloves} pathToImg={'../images/alphas/gloves-female.png'} imgObj={require('../images/alphas/gloves-female.png')} />
+                                        <CatalogCard name="Doom Gloves"price="500"updateDisplay={this.props.updateGloves} pathToImg={'../images/alphas/gloves-female.png'} imgObj={require('../images/alphas/gloves-female.png')} />
                                     </div>
                                 </div>
                             </div>
