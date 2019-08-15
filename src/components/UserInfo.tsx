@@ -6,26 +6,16 @@ import { userService } from '../services/user.service';
 
 export interface IUserProps {
     // read in data from state store
-    userinfo: IUserState,
-    orders: any,
-    user: any,
-    name: any,
-    classes: any
+    user: IUserState,
+    //orders: any,
+    //user: any,
+    //name: any,
+    //classes: any
 }
 
 class UserInfo extends React.Component<any, IUserState> {
   constructor(props: any) {
     super(props);
-
-    this.state = {
-      user: {
-        username: '',
-        firstname: '',
-        lastname: '',
-        email: '',
-        cardnumber: '' 
-      },
-    }
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -46,35 +36,34 @@ handleSubmit(event: any) {
   event.preventDefault();
   //this.setState({ submitting: true });
   const { user } = this.state;
-  if (user.username && user.firstname && user.lastname && user.email && user.password && user.cardnumber) {
+  if (user.username && user.firstName && user.lastName && user.email && user.password && user.creditCard) {
     userService.changeInfo(user);
   }
 }
 
 render() {
-const { pristine, reset, submitting } = this.props; 
-
+const { pristine, submitting, user } = this.props; 
 return (
   <div>
     <h1 className="title">Personal information</h1>
     <form onSubmit={this.handleSubmit}>
       <div>
-        <input type="text" placeholder = {`${this.state.user.username}`} name="username" onChange={this.handleChange} />
+        <input type="text" placeholder = {`${user.username}`} name="username" onChange={this.handleChange} />
       </div>
       <div>
-        <input type="text" placeholder = {`${this.state.user.password}`} name="password" onChange={this.handleChange} />
+        <input type="text" placeholder = {`${user.password}`} name="password" onChange={this.handleChange} />
       </div>
       <div>
-        <input type="text" placeholder = {`${this.state.user.firstName}`} name="firstName" onChange={this.handleChange} />
+        <input type="text" placeholder = {`${user.firstName}`} name="firstName" onChange={this.handleChange} />
       </div>
       <div>
-        <input type="text" placeholder = {`${this.state.user.lastName}`} name="lastName" onChange={this.handleChange} />
+        <input type="text" placeholder = {`${user.lastName}`} name="lastName" onChange={this.handleChange} />
       </div>
       <div>
-        <input type="text" placeholder = {`${this.state.user.email}`} name="email" onChange={this.handleChange} />
+        <input type="text" placeholder = {`${user.email}`} name="email" onChange={this.handleChange} />
       </div>
       <div>
-        <input type="text" placeholder = {`${this.state.user.cardnumber}`} name="cardnumber" onChange={this.handleChange} max="16" />
+        <input type="text" placeholder = {`${user.creditCard}`} name="creditCard" onChange={this.handleChange} max="16" />
       </div>
       <div>
         <button type="submit" disabled={pristine || submitting}>Update</button>

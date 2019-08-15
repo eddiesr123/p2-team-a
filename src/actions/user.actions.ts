@@ -41,7 +41,7 @@ function signin(user: any) {
             .then(
                 user => { 
                     dispatch(success(user));  
-                    history.push('/');         
+                    history.push('/');
                 },
                 error => {
                     dispatch(failure(error.toString()));
