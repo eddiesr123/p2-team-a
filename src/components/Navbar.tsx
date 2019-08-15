@@ -13,7 +13,7 @@ export interface INavbarProps {
 
 
 ///For shopping cart icon: <i class="fas fa-shopping-cart"></i>
-export class Navbar extends React.Component<any, any> {
+export class Navbar extends React.Component<any, INavbarState> {
   render() {
     return (
         <nav className="navbar navbar-expand-lg navbar-dark fixed-top bg-dark" role="navigation">
