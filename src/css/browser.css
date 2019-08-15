@@ -1,3 +1,7 @@
 .card-item{
     width: 10rem;
 }
+.card-img-top{
+    width : 5rem;
+    height : 5rem;
+}

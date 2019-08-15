@@ -3,7 +3,8 @@ import mask from "../../images/alphas/mask-green-female.png";
 
 const imgMap: any = {'../../images/alphas/mask-black-female.png': require('../../images/alphas/mask-black-female.png'),
                     '../../images/alphas/mask-blue-female.png': require('../../images/alphas/mask-blue-female.png'),
-                    '../../images/alphas/mask-green-female.png': require('../../images/alphas/mask-green-female.png')}
+                    '../../images/alphas/mask-green-female.png': require('../../images/alphas/mask-green-female.png'),
+                    '../../images/alphas/mask-red-female.png': require('../../images/alphas/mask-red-female.png')}
 
 export class Mask extends React.Component<any, any> {
     render() {

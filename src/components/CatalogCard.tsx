@@ -11,7 +11,7 @@ export default class ItemCardComponent extends React.Component<any, any> {
                 <h5 className="card-title">Item Name</h5>
                 <div>price</div>
                 <a href="#" className="btn btn-primary"><i className="fas fa-plus"></i></a>
-                <a href="#" className="btn btn-primary" onClick={()=>(this.props.updateSuit("../" + this.props.pathToImg))}><i className="far fa-eye"></i></a>
+                <a href="#" className="btn btn-primary" onClick={()=>(this.props.updateDisplay("../" + this.props.pathToImg,this.props))}><i className="far fa-eye"></i></a>
             </div>
       </div>
       </div>

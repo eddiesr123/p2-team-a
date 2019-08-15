@@ -27,13 +27,13 @@ export class Catalog extends React.Component<any, ICatalogProps> {
                         <div className="card-header tab-card-header">
                             <ul className="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
                                 <li className="nav-item">
-                                    <a className="nav-link" id="one-tab" data-toggle="tab" href="#one" role="tab" aria-controls="One" aria-selected="true"><i className="fab fa-redhat"></i></a>
+                                    <a className="nav-link" id="one-tab" data-toggle="tab" href="#one" role="tab" aria-controls="One" aria-selected="true"><i className="fas fa-tshirt"></i></a>
                                 </li>
                                 <li className="nav-item">
                                     <a className="nav-link" id="two-tab" data-toggle="tab" href="#two" role="tab" aria-controls="Two" aria-selected="false"><i className="fas fa-mask"></i></a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" id="three-tab" data-toggle="tab" href="#three" role="tab" aria-controls="Three" aria-selected="false"><i className="fas fa-tshirt"></i></a>
+                                    <a className="nav-link" id="three-tab" data-toggle="tab" href="#three" role="tab" aria-controls="Three" aria-selected="false"><i className="fas fa-mitten"></i></a>
                                 </li>
                                 <li className="nav-item">
                                     <a className="nav-link" id="four-tab" data-toggle="tab" href="#four" role="tab" aria-controls="Four" aria-selected="false"><i className="fas fa-archway"></i></a>
@@ -48,33 +48,34 @@ export class Catalog extends React.Component<any, ICatalogProps> {
                             <div className="tab-pane fade show active p-12" id="one" role="tabpanel" aria-labelledby="one-tab">
                                 <div className="container">
                                     <div className="row">
-                                        <CatalogCard updateSuit={this.props.updateSuit} pathToImg={'../images/alphas/bodysuit-blue-female.png'} imgObj={require('../images/alphas/bodysuit-blue-female.png')} /><CatalogCard updateSuit={this.props.updateSuit} pathToImg={'../images/alphas/bodysuit-black-female.png'} imgObj={require('../images/alphas/bodysuit-black-female.png')} /><CatalogCard updateSuit={this.props.updateSuit} pathToImg={'../images/alphas/bodysuit-red-female.png'} imgObj={require('../images/alphas/bodysuit-red-female.png')} /><CatalogCard updateSuit={this.props.updateSuit} pathToImg={'../images/alphas/bodysuit-green-female.png'} imgObj={require('../images/alphas/bodysuit-green-female.png')}/>
+                                        <CatalogCard updateDisplay={this.props.updateSuit} pathToImg={'../images/alphas/bodysuit-blue-female.png'} imgObj={require('../images/alphas/bodysuit-blue-female.png')} />
+                                        <CatalogCard updateSuit={this.props.updateSuit} pathToImg={'../images/alphas/bodysuit-black-female.png'} imgObj={require('../images/alphas/bodysuit-black-female.png')} />
+                                        <CatalogCard updateSuit={this.props.updateSuit} pathToImg={'../images/alphas/bodysuit-red-female.png'} imgObj={require('../images/alphas/bodysuit-red-female.png')} />
+                                        <CatalogCard updateSuit={this.props.updateSuit} pathToImg={'../images/alphas/bodysuit-green-female.png'} imgObj={require('../images/alphas/bodysuit-green-female.png')}/>
                                     </div>
                                 </div>
-                                <PaginationComponent />
                             </div>
                             <div className="tab-pane fade p-12" id="two" role="tabpanel" aria-labelledby="two-tab">
                                 <div className="container">
                                     <div className="row">
-                                    <CatalogCard /><CatalogCard /><CatalogCard /><CatalogCard />
+                                        <CatalogCard updateDisplay={this.props.updateMask} pathToImg={'../images/alphas/mask-blue-female.png'} imgObj={require('../images/alphas/mask-blue-female.png')} />
+                                        <CatalogCard updateDisplay={this.props.updateMask} pathToImg={'../images/alphas/mask-black-female.png'} imgObj={require('../images/alphas/mask-black-female.png')} />
+                                        <CatalogCard updateDisplay={this.props.updateMask} pathToImg={'../images/alphas/mask-green-female.png'} imgObj={require('../images/alphas/mask-green-female.png')} />
+                                        <CatalogCard updateDisplay={this.props.updateMask} pathToImg={'../images/alphas/mask-red-female.png'} imgObj={require('../images/alphas/mask-red-female.png')} />
                                     </div>
                                 </div>
-                                <PaginationComponent />
                             </div>
                             <div className="tab-pane fade p-12" id="three" role="tabpanel" aria-labelledby="three-tab">
                                 <h5 className="card-title">Torso</h5>
                                 <p className="card-text">torso things</p>
-                                <PaginationComponent />
                             </div>
                             <div className="tab-pane fade p-12" id="four" role="tabpanel" aria-labelledby="four-tab">
                                 <h5 className="card-title">Tab Card four</h5>
                                 <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <PaginationComponent />
                             </div>
                             <div className="tab-pane fade p-12" id="five" role="tabpanel" aria-labelledby="five-tab">
                                 <h5 className="card-title">Tab Card five</h5>
                                 <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <PaginationComponent />
                             </div>
                         </div>
                     </div>
@@ -98,8 +99,8 @@ const mapDispatchToProps = (dispatch: any) => {
     return {
         updateCartCount: updateCartCount,
         updateSuit: (suit: any) => { dispatch(catalogActions.updateSuit(suit)) },
-        updateGloves: catalogActions.updateGloves,
-        updateMask: catalogActions.updateMask
+        updateGloves: (gloves: any) => { dispatch(catalogActions.updateGloves(gloves)) },
+        updateMask: (mask: any) => { dispatch(catalogActions.updateMask(mask)) }
     }
 }
 

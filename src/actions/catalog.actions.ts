@@ -23,3 +23,6 @@ function updateMask(image: any) {
 function updateGloves(image: any) {
     return { type: catalogConstants.UPDATE_GLOVES,image };
 }
+function updateDisplay(image:any, props: any){
+    console.log(props);
+}
