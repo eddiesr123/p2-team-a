@@ -18,7 +18,7 @@ export class Display extends React.Component<any, IDisplayProps> {
         <Bodysuit suit = {this.props.suit} />
         <Mask mask = {this.props.mask} />
         <Gloves gloves = {this.props.gloves} />
-        <span>{this.props.suit}</span>
+        {/*<span>{this.props.suit}</span> */}
       </div>
     );
   }

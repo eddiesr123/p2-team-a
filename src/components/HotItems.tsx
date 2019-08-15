@@ -19,7 +19,7 @@ import Button from 'react-bootstrap/Button'
         let itemList = this.props.items.map((item: any) => {
             return(
                 <div className="card hot-card" style={{alignItems: "center"}} key={item.id}>
-                        <div >
+                        <div id="hot-card-div">
                             <Avatar src={item.img} alt={item.title} style={{margin: 10, width: 100, height: 100,}}/>
                             <span className="card-title">{item.title}</span>
                             <Link to="/hot">
@@ -38,8 +38,8 @@ import Button from 'react-bootstrap/Button'
 
         return(
             <div className="container">
-                <h3 className="center">Our items</h3>
-                <div className="box">
+                <h3 className="center" id="home-main-title">Our items</h3>
+                <div className="box" id="items-of-hot">
                     {itemList}
                 </div>
             </div>
