@@ -25,6 +25,7 @@ const styles = (theme: Theme) => withStyles({
     flexDirection: 'column',
     alignItems: 'center',
   },
+  
   form: {
     width: '100%', // Fix IE 11 issue.
     marginTop: theme.spacing(3),
@@ -98,7 +99,7 @@ class SignUp extends React.Component<any, ISignUpState> {
     const { user } = this.state;
     return (
       <Container component="main" maxWidth="xs">
-        <div className={classes.paper}>
+        <div className={classes.paper} id="sign-up-div">
           <Grid container justify="center" alignItems="center">
             <Avatar src={Skull} className={classes.bigAvatar} />
           </Grid>

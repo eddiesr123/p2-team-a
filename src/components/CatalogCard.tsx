@@ -6,7 +6,7 @@ export default class ItemCardComponent extends React.Component<any, any> {
         return ( 
         <div className="col-3">
         <div className="card card-item" >
-            <img className="card-img-top set-img-card" src={this.props.imgObj} alt="Card image cap"/>
+            <img className="card-img-top set-img-card" id="cards" src={this.props.imgObj} alt="Card image cap"/>
             <div className="card-body">
                 <h5 className="card-title">Item Name</h5>
                 <div>price</div>
