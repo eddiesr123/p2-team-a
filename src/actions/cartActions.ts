@@ -1,4 +1,5 @@
-import { ADD_TO_CART,REMOVE_ITEM,SUB_QUANTITY,ADD_QUANTITY,GET_PRODUCTS/*ADD_SHIPPING*/} from './action-types/cart-actions'
+import { ADD_TO_CART,REMOVE_ITEM,SUB_QUANTITY,ADD_QUANTITY,GET_PRODUCTS,/*ADD_SHIPPING*/
+RESET_STATE} from './action-types/cart-actions'
 import { alertActions } from './alert.actions';
 
 //add cart action
@@ -33,11 +34,17 @@ export const addQuantity=(id: any)=>{
 
 
 export const getProducts=(items: any) => {
-        return{
-            type: GET_PRODUCTS,
-            items
-        }
+    return{
+        type: GET_PRODUCTS,
+        items
     }
+}
+
+export const resetState=()=>{
+    return{
+        type: RESET_STATE
+    }
+}
 
 
 /*
