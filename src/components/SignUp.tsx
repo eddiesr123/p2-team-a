@@ -84,14 +84,14 @@ class SignUp extends React.Component<any, ISignUpState> {
     const { user } = this.state;
     return (
       <Container component="main" maxWidth="xs">
-        <div className={classes.paper} id="sign-up-div">
+        <div>
           <Grid container justify="center" alignItems="center">
             <Avatar src={Skull} className={classes.avatar} />
           </Grid>
           <div className={classes.paper}>
             <Typography component="h1" variant="h5" align="center">
               Sign up
-        </Typography>
+            </Typography>
           </div>
           <form className={classes.form} noValidate onSubmit={this.handleSubmit}>
             <Grid container spacing={2}>

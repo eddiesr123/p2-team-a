@@ -1,5 +1,7 @@
 import React from 'react';
-import imgMap from '../../images/items-map'
+
+//import gloves from "../../images/alphas/gloves-female.png";
+const imgMap: any = {'../../images/alphas/gloves-female.png': require('../../images/alphas/gloves-female.png')}
 
 export class Gloves extends React.Component<any, any> {
     render() {
