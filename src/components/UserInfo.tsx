@@ -75,7 +75,7 @@ class UserInfo extends React.Component<any, IUserState> {
   }
 
   render() {
-    const { classes, submitting, user, updateUser } = this.props;
+    const { classes, updateUser, user } = this.props;
     return (
       <Container component="main" maxWidth="xs">
         <div>
@@ -85,7 +85,7 @@ class UserInfo extends React.Component<any, IUserState> {
           <div className={classes.paper}>
             <Typography component="h1" variant="h5" align="center">
               Personal information
-      </Typography>
+        </Typography>
           </div>
           <form className={classes.form} noValidate onSubmit={this.handleSubmit}>
             <Grid container spacing={2}>
@@ -95,7 +95,7 @@ class UserInfo extends React.Component<any, IUserState> {
                   required
                   fullWidth
                   id="username"
-                  label={this.props.signin.user.username}
+                  label={user.username}
                   name="username"
                   value={updateUser.username}
                   onChange={this.handleChange}
@@ -179,8 +179,7 @@ class UserInfo extends React.Component<any, IUserState> {
               color="primary"
             >
               Update
-          </Button>
-            {submitting}
+            </Button>
           </form>
         </div>
         <Box mt={5}>
@@ -189,6 +188,7 @@ class UserInfo extends React.Component<any, IUserState> {
     );
   }
 }
+
 
 function mapStateToProps(state: IState) {
   const { updateUser, updating, submitted } = state.updateUser;
