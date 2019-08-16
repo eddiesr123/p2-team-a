@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addToCart, addQuantity, getProducts } from '../actions/cartActions';
 import { IState, ICartState } from '../reducers';
-import { Avatar} from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Axios from 'axios';
+import itemsMap from '../images/items-map';
 
 
  class HotItems extends React.Component<any>{
@@ -18,7 +18,7 @@ import Axios from 'axios';
 
 
     componentDidMount() {
-        if(!this.props.stateCheck) {
+        if(this.props.stateCheck) {
         const url = `http://localhost:8080/items/`;
         Axios.get(url).then(payload => {
             console.log(payload);
@@ -27,11 +27,12 @@ import Axios from 'axios';
                 return item;
             });
             console.log(items);
-            this.props.getProducts(items.slice(0,6));
+            this.props.getProducts(items.slice(53,59));
             
-        })
+        });
         }
     }
+
 
 
 
@@ -43,7 +44,7 @@ import Axios from 'axios';
                 <div className="card hot-card" style={{alignItems: "center"}} key={item.id}>
                         <div >
                             <div className="item-img">
-                            <img src={item.imgPath} alt={item.name} style={{margin: 10, width: 100, height: 125,}}/>
+                            <img src={itemsMap[item.imgPath]} alt={item.name} style={{margin: 10, width: 100, height: 125,}}/>
                             </div>
                             <span className="card-title">{item.name}</span>
                             <Link to="/">

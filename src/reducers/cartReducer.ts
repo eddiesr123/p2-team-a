@@ -8,7 +8,7 @@ const initState: ICartState = {
     total: 0,
     totalItems: 0,
     checkedBox: false,
-    stateCheck: false,
+    stateCheck: true,
 
 }
 const cartReducer= (state = initState, action: any)=>{
@@ -118,10 +118,16 @@ const cartReducer= (state = initState, action: any)=>{
     }
 
     if(action.type=== GET_PRODUCTS) {
-        return {
-            ...state,
-            items: action.items,
-            stateCheck: true
+        if(state.stateCheck=== true) {
+            return {
+                ...state,
+                items: action.items,
+                stateCheck: false
+            }
+        } else {
+            return {
+                ...state
+            }
         }
     }
 

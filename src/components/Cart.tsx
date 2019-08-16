@@ -5,6 +5,7 @@ import { removeItem,addQuantity,subtractQuantity} from '../actions/cartActions'
 import Total from './Total';
 import { IState, ICartState } from '../reducers';
 import '../css/fontawesome-free-5.10.1-web/fontawesome-free-5.10.1-web/css/all.css';
+import itemsMap from '../images/items-map';
 
 
 export interface ICartProps { 
@@ -40,7 +41,7 @@ class Cart extends React.Component<any, ICartProps>{
                        
                         <li className="collection-item avatar" key={item.id}>
                                     <div className="item-img"> 
-                                        <img src={item.imgPath} alt={item.imgPath} className=""/>
+                                        <img src={itemsMap[item.imgPath]} alt={item.imgPath} className=""/>
                                     </div>
                                 
                                     <div className="item-desc">
