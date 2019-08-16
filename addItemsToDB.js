@@ -34,7 +34,7 @@ const make = async (files) => {
 
         itemMap = {
             ...itemMap,
-            [myItem.imgPath]: `require(${myItem.imgPath})`
+            [myItem.imgPath]: [`require('${myItem.imgPath}')`, `require('${myItem.thumbnailPath}')`]
         }
 
         if (file.includes('suit')) {
@@ -49,7 +49,7 @@ const make = async (files) => {
             myItem.clothingType = 'gloves'
             myItem.price = 300.00
         }
-        //console.log(myItem);
+        console.log(myItem);
         await axios.post('http://localhost:8080/items/', myItem)
     }
     console.log(itemMap)

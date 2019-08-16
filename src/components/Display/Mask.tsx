@@ -1,5 +1,4 @@
 import React from 'react';
-import mask from "../../images/alphas/mask-green-female.png";
 
 const imgMap: any = {'../../images/alphas/mask-black-female.png': require('../../images/alphas/mask-black-female.png'),
                     '../../images/alphas/mask-blue-female.png': require('../../images/alphas/mask-blue-female.png'),
