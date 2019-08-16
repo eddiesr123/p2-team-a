@@ -15,10 +15,10 @@ export default class ItemCardComponent extends React.Component<any, any> {
                                     <span className="btn btn-outline-secondary no-pad disabled">$ {this.props.price}</span>
                                 </div>
                                 <div className="col-sm-4 col-md-12 no-pad col-lg-4">
-                                    <a href="#" className="btn btn-outline-secondary no-pad"><i className="fas fa-plus"></i></a>
+                                    <span className="btn btn-outline-secondary no-pad"><i className="fas fa-plus"></i></span>
                                 </div>
                                 <div className="col-sm-4 col-md-12 no-pad col-lg-4">
-                                    <a href="#" className="btn btn-outline-secondary no-pad" onClick={() => (this.props.updateDisplay("../" + this.props.pathToImg, this.props))}><i className="far fa-eye"></i></a>
+                                    <span className="btn btn-outline-secondary no-pad" onClick={() => (this.props.updateDisplay("../" + this.props.pathToImg, this.props))}><i className="far fa-eye"></i></span>
                                 </div>
                             </div>
                         </div>
