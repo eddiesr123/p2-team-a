@@ -7,17 +7,27 @@ import { ICatalogState, IState } from '../reducers';
 import { updateCartCount } from '../actions/navbar.actions';
 import { catalogActions } from '../actions/catalog.actions';
 import { connect } from 'react-redux';
+import Axios from 'axios';
 //import '../css/browsercss';
 export interface ICatalogProps {
     catalogCard: ICatalogState,
     updateSuit: (image: String) => void,
     updateMask: (image: String) => void,
     updateGloves: (image: String) => void;
+    masks: any,
+    gloves: any,
+    suits:any,
 }
 //axios.data
 export class Catalog extends React.Component<any, ICatalogProps> {
-    componentDidMount() {
-        // let allmasks = await axios.get('http://localhost:8080/items/');
+    async componentDidMount() {
+        let masksRes = await Axios.get('http://localhost:8080/items/type/mask');
+        let masks = masksRes.data
+        let glovesRes = await Axios.get('http://localhost:8080/items/type/gloves');
+        let gloves = await glovesRes.data;
+        let suitsRes = await Axios.get('http://localhost:8080/items/type/suit');
+        let suits = suitsRes.data;
+        this.setState({ masks:masks.slice(0,4), gloves:gloves.slice(0,4), suits:suits.slice(0,4)});
     }
     render() {
         return (<div className="container card-container">
