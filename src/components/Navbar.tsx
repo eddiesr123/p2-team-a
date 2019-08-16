@@ -4,6 +4,7 @@ import { INavbarState, IState } from '../reducers'
 import { updateCartCount } from '../actions/navbar.actions'
 import { connect } from "react-redux"
 import '../css/fontawesome-free-5.10.1-web/fontawesome-free-5.10.1-web/css/all.css';
+import Logout from "./Logout";
 
 export interface INavbarProps { 
   // read in data from state store
@@ -52,7 +53,7 @@ export class Navbar extends React.Component<any, INavbarState> {
                 {!this.props.signin.loggedIn ?
                   <Link className="nav-link" to="/login">Sign in</Link>
                   :
-                  <Link className="nav-link" to="/logout">logout</Link>
+                  <Logout />
                 }
                 </li>
                 <li className="divider-vertical nav-item" />

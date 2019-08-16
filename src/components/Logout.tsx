@@ -2,37 +2,45 @@ import React from 'react';
 import { Redirect } from "react-router";
 import { IState, ISignInState } from '../reducers';
 import { userActions } from '../actions/user.actions';
+import { IState } from '../reducers';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { userConstants } from '../constants/user.constants';
 
-export interface ISignInProps {
-    user: ISignInState
+export interface ILogoutProps {
+    logout: () => void
 }
 
-class Logout extends React.Component<any, ISignInState> {
-    constructor(props: any) {
-        super(props);
-    }
-    componentDidMount() {
-    // reset login status
-    this.props.logout();
-    }
+export interface ILogoutState {
+    // this component does not have any internal state
+}
+
+class Logout extends React.Component<ILogoutProps, ILogoutState> {
 
     render() {
         return (
             <div>
-                <Redirect to="/" />
+                <Link to="/" className="nav-link" onClick={() => this.props.logout() } >Logout</Link>
             </div >
         );
     }
 }
 
+// no state to keep track of for the logout component
 const mapStateToProps = (state: IState) => {
-    const { user } = state.signin;
-    return { user };
-  }
-
-const actionCreators = {
-    logout: userActions.logout
+    return {}
 }
 
-export default connect(mapStateToProps, actionCreators)(Logout);
+const logout = () => {
+    let action: any = {};
+    action.type = userConstants.LOGOUT;
+    return action;
+}
+
+const mapDispatchToProps = (dispatch: any) => {
+    return {
+        logout: () => dispatch(logout())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Logout);

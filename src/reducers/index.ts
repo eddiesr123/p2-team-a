@@ -87,4 +87,3 @@ export const state = combineReducers<IState>({
     catalog: catalogReducer,
     updateUser: updateReducer
 });
-

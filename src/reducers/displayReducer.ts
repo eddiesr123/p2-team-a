@@ -1,5 +1,3 @@
-import { IDisplayProps } from "../components/Display/Display";
-import { emptyStatement } from "@babel/types";
 import { IDisplayState } from ".";
 
 //create initialState variable from the IDisplayState
@@ -10,5 +8,4 @@ export const displayReducer = (state = initialState, action: any) => {
     default:
       return initialState;
   }
-  return state;
 };
