@@ -132,20 +132,21 @@ body {
 
 .bodysuits {
   position: absolute;
-  top: auto;
+  top: 10px;
   left: 0.3%;
   z-index: 1;
 }
 
 .masks {
   position: absolute;
-  top: auto;
+  top: 10px;
   left: 0.3%;
   z-index: 2;
 }
+
 .gloves {
   position: absolute;
-  top: auto;
+  top: 10px;
   left: 0.3%;
   z-index: 3;
 }
@@ -161,11 +162,12 @@ body {
   border: 20px solid rgba(0,0,0,.125);
   background: rgba(255,255,255, 0.9) !important;
   border-radius: 6px;
-  min-height: 520px;
+  min-height: 560px;
 }
 .hot-card  {
   margin-bottom: 8px;
   border: 2px solid rgb(0,0,0,0.125)!important;
+  background: rgb(0,0,0,0.125) !important;
 }
 
 #items-of-hot {
@@ -179,6 +181,7 @@ body {
 }
 #hot-card-button {
   text-align: center !important;
+  text-shadow: 2px 1px 2px rgb(255, 166, 0);
 }
 #home-main-title {  
   text-shadow: 2px 1px 1px rgb(255, 166, 0) !important;
@@ -276,4 +279,5 @@ body {
 
 .hot-card-content {
   text-align: left !important;
+  font-weight: bold;
 }
