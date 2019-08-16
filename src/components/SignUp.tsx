@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { userActions } from '../actions/user.actions';
 import { IState, ISignUpState } from '../reducers';
+import { Redirect } from 'react-router';
 import Skull from '../SignUp.png';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -78,6 +79,9 @@ class SignUp extends React.Component<any, ISignUpState> {
   }
 
   render() {
+    if (this.state.submitted) {
+      return <Redirect to="/" />;
+    }
     const { signuping, classes } = this.props;
     const { user } = this.state;
     return (

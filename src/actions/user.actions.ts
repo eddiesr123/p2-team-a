@@ -1,7 +1,6 @@
 import { userConstants } from '../constants/user.constants';
 import { userService } from '../services/user.service';
 import { alertActions } from '../actions/alert.actions';
-import { createBrowserHistory } from 'history';
 
 export const userActions = {
     signup,
@@ -10,8 +9,6 @@ export const userActions = {
     logout
 };
 
-const history = createBrowserHistory({forceRefresh: true});
-
 function signup(user: any) {
     return (dispatch: any) => {
         dispatch(request({ user }));
@@ -19,7 +16,6 @@ function signup(user: any) {
             .then(
                 user => { 
                     dispatch(success(user));    
-                    history.push('/');
                     dispatch(alertActions.success('Registration successful'));       
                 },
                 error => {
@@ -41,7 +37,6 @@ function signin(user: any) {
             .then(
                 user => { 
                     dispatch(success(user));  
-                    history.push('/');
                 },
                 error => {
                     dispatch(failure(error.toString()));
@@ -62,7 +57,6 @@ function changeInfo(user : any) {
             .then(
                 user => {
                     dispatch(success(user));    
-                    history.push('/');
                     dispatch(alertActions.success('Registration successful')); 
                 },       
                 error => {
