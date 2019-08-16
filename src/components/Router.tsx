@@ -3,7 +3,6 @@ import { Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { userActions } from '../actions/user.actions';
 import { IState, ISignInState } from '../reducers';
-import Home from './Home';
 import Browse from './Browse';
 import UserInfo from './UserInfo';
 import Purchase from './Purchase';
@@ -35,7 +34,7 @@ class AppRouter extends React.Component<ISignInProps, ISignInState> {
             </nav>
           </header>
           <div id='content'>
-            <Switch>
+          <Switch>
                 <Route exact path="/" component={HotItems} />
                 <Route exact path="/browse" component={Browse} />
                 <Route exact path="/userinfo" component={UserInfo} />

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { userActions } from '../actions/user.actions';
 import { IState, IUserState } from '../reducers';
-import Skull from '../SignUp.png';
+import Skull from '../Login.png';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
@@ -14,7 +14,7 @@ import Container from '@material-ui/core/Container';
 
 export interface IUserProps {
     // read in data from state store
-    user: IUserState,
+    updateUser: IUserState,
     classes: any
 }
 
@@ -36,6 +36,19 @@ const styles = {
 class UserInfo extends React.Component<any, IUserState> {
     constructor(props: any) {
       super(props);
+
+      this.state = {
+        updateUser: {
+          username: '',
+          firstName: '',
+          lastName: '',
+          email: '',
+          password: '',
+          creditCard:''
+        },
+        updating: false,
+        submitted: false
+      }
   
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
@@ -43,10 +56,10 @@ class UserInfo extends React.Component<any, IUserState> {
 
   handleChange(event: any) {
     const { name, value } = event.target;
-    const { user } = this.state;
+    const { updateUser } = this.state;
     this.setState({
-      user: {
-        ...user,
+        updateUser: {
+        ...updateUser,
         [name]: value
       }
     });
@@ -55,14 +68,14 @@ class UserInfo extends React.Component<any, IUserState> {
   handleSubmit(event: any) {
     event.preventDefault();
     //this.setState({ submitting: true });
-    const { user } = this.state;
-    if (user.username && user.firstName && user.lastName && user.email && user.password && user.creditCard) {
-        this.props.changeInfo(user);
+    const { updateUser } = this.state;
+    if (updateUser.username && updateUser.firstName && updateUser.lastName && updateUser.email && updateUser.password && updateUser.creditCard) {
+        this.props.changeInfo(updateUser);
     }
   }
 
   render(){
-  const { classes, submitting, user } = this.props;
+  const { classes, submitting, user, updateUser } = this.props;
   return (
     <Container component="main" maxWidth="xs">
       <div>
@@ -82,9 +95,9 @@ class UserInfo extends React.Component<any, IUserState> {
                 required
                 fullWidth
                 id="username"
-                label="Username"
+                label={this.props.signin.user.username}
                 name="username"
-                value={user.username}
+                value={updateUser.username}
                 onChange={this.handleChange}
                 autoComplete="username"
               />
@@ -93,13 +106,13 @@ class UserInfo extends React.Component<any, IUserState> {
               <TextField
                 autoComplete="fname"
                 name="firstName"
-                value={user.firstname}
+                value={updateUser.firstname}
                 onChange={this.handleChange}
                 variant="outlined"
                 required
                 fullWidth
                 id="firstName"
-                label="First Name"
+                label={this.props.signin.user.firstname}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -108,9 +121,9 @@ class UserInfo extends React.Component<any, IUserState> {
                 required
                 fullWidth
                 id="lastName"
-                label="Last Name"
+                label={this.props.signin.user.lastname}
                 name="lastName"
-                value={user.lastname}
+                value={updateUser.lastname}
                 onChange={this.handleChange}
                 autoComplete="lname"
               />
@@ -121,9 +134,9 @@ class UserInfo extends React.Component<any, IUserState> {
                 required
                 fullWidth
                 id="email"
-                label="Email Address"
+                label={this.props.signin.user.email}
                 name="email"
-                value={user.email}
+                value={updateUser.email}
                 onChange={this.handleChange}
                 autoComplete="email"
               />
@@ -134,12 +147,26 @@ class UserInfo extends React.Component<any, IUserState> {
                 required
                 fullWidth
                 name="password"
-                value={user.password}
+                value={this.props.signin.user.password}
                 onChange={this.handleChange}
                 label="Password"
                 type="password"
                 id="password"
                 autoComplete="current-password"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                name="creditCard"
+                value={updateUser.creditCard}
+                onChange={this.handleChange}
+                label={this.props.signin.user.creditCard}
+                type="password"
+                id="creditCard"
+                autoComplete="creditCard"
               />
             </Grid>
             <Grid item xs={12}>
@@ -164,8 +191,8 @@ class UserInfo extends React.Component<any, IUserState> {
 }
 
 function mapStateToProps(state: IState) {
-       const { user } = state.signin;
-   return { user };
+       const { updateUser, updating, submitted } = state.updateUser;
+   return { updateUser, updating, submitted };
  }
 
  const actionCreators = {

@@ -1,29 +1,17 @@
 import React from 'react';
 import { Redirect } from "react-router";
-import { IState, IUserState } from '../reducers';
+import { IState, ISignInState } from '../reducers';
 import { userActions } from '../actions/user.actions';
 import { connect } from 'react-redux';
 
-export interface ILogoutProps {
-    user: IUserState
+export interface ISignInProps {
+    user: ISignInState
 }
 
-class Logout extends React.Component<any, IUserState> {
+class Logout extends React.Component<any, ISignInState> {
     constructor(props: any) {
         super(props);
-    
-        this.state = {
-            user: {
-                username: '',
-                password: '',
-                firstName: '',
-                lastName: '',
-                email: '',
-                creditCard: '' 
-              }
-            }
-        }
-
+    }
     componentDidMount() {
     // reset login status
     this.props.logout();

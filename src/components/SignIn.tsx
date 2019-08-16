@@ -26,7 +26,7 @@ const styles = {
   },
   form: {
     width: 'auto', // Fix IE 11 issue.
-    marginTop: 10,
+    marginTop: 10
   }
 };
 

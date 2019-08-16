@@ -5,6 +5,7 @@ import signinReducer from "./signin.reducer";
 import cartReducer from "./cartReducer";
 import { displayReducer } from "./displayReducer"; 
 import { catalogReducer } from "./catalog.reducer";
+import updateReducer from './update.reducer';
 
 export interface INavbarState {
     cartCount: number
@@ -45,15 +46,18 @@ export interface ISignInState {
 }
 
 export interface IUserState {
-    user: {
+    updateUser: {
         username: string,
         firstName: string,
         lastName: string,
         email: string,
         password: string,
         creditCard: string
-    };
-}
+    },
+      updating: boolean,
+      submitted: boolean
+    }
+
 
 export interface ICatalogState {
     gloves:any,
@@ -70,7 +74,8 @@ export interface IState {
     signup: ISignUpState,
     signin: ISignInState,
     display: IDisplayState,
-    catalog: ICatalogState
+    catalog: ICatalogState,
+    updateUser: IUserState
 };
 
 export const state = combineReducers<IState>({
@@ -79,6 +84,7 @@ export const state = combineReducers<IState>({
     signup: signupReducer,
     signin: signinReducer,
     display: displayReducer,
-    catalog: catalogReducer
+    catalog: catalogReducer,
+    updateUser: updateReducer
 });
 
