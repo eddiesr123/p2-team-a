@@ -49,10 +49,6 @@ const make = async files => {
         myItem.name = "Suit of Ashes"; break;
       case "mask grey male":
         myItem.name = "Mask of Ashes"; break;
-      case "bodysuit blue male":
-        myItem.name = "The Blue Flyer"; break;
-      case "mask blue male":
-        myItem.name = "SkyMask of Blue"; break;
       case "bodysuit green female":
         myItem.name = "Green Cobra Suit"; break;
       case "bodysuit green male":
