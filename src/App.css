@@ -86,7 +86,6 @@ nav#navbar:after {
 body {
   background-color: rgba(0, 0, 0, 0.5);
   min-height: 75rem;
-  overflow: hidden;
   /*padding-top: 4.5rem;
   /*background: linear-gradient(#333, black) ; */
 }
