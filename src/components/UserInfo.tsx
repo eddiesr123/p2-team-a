@@ -75,7 +75,7 @@ class UserInfo extends React.Component<any, IUserState> {
   }
 
   render(){
-  const { classes, submitting, user, updateUser } = this.props;
+  const { classes, updateUser, user } = this.props;
   return (
     <Container component="main" maxWidth="xs">
       <div>
@@ -95,7 +95,7 @@ class UserInfo extends React.Component<any, IUserState> {
                 required
                 fullWidth
                 id="username"
-                label={this.props.signin.user.username}
+                label={user.username}
                 name="username"
                 value={updateUser.username}
                 onChange={this.handleChange}
@@ -180,7 +180,6 @@ class UserInfo extends React.Component<any, IUserState> {
           >
             Update
           </Button>
-          {submitting}
         </form>
       </div>
       <Box mt={5}>
