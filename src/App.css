@@ -158,9 +158,9 @@ body {
 }
 .hot-card  {
   margin-bottom: 8px;
-  border: 2px solid black!important;
-  box-shadow: 1px 1px 2px rgb(255, 166, 0);
-  background: rgba(255, 166, 0, 0.1) !important;
+  border: 2px solid rgb(0,0,0,0.125)!important;
+  
+  
 }
 
 #items-of-hot {
@@ -170,7 +170,10 @@ body {
   text-align:center !important;
 }
 #hot-card-div * {
-  text-align: center;
+  text-align: center !important;
+}
+#hot-card-button {
+  text-align: center !important;
 }
 #home-main-title {  
   text-shadow: 2px 1px 1px rgb(255, 166, 0) !important;
