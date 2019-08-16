@@ -57,20 +57,26 @@ function signin(user: any) {
 
 function changeInfo(user : any) {
     return ( dispatch : any) => {
-        dispatch(request());
-
+        dispatch(request({ user }));
         userService.changeInfo(user)
             .then(
-                user => dispatch(success(user)),
-                error => dispatch(failure(error.toString()))
-            );
-    };
+                user => {
+                    dispatch(success(user));    
+                    history.push('/');
+                    dispatch(alertActions.success('Registration successful')); 
+                },       
+                error => {
+                    dispatch(failure(error.toString()));
+                    dispatch(alertActions.error(error.toString()));
+                }
+                );
+        };
 
-    function request() { return { type: userConstants.USERINFO_REQUEST } }
-    function success(user: any) { return { type: userConstants.USERINFO_SUCCESS, user } }
-    function failure(error: any) { return { type: userConstants.USERINFO_FAILURE, error } }
+    function request(user: any) { return { type: userConstants.UPDATE_REQUEST, user } }
+    function success(user: any) { return { type: userConstants.UPDATE_SUCCESS, user } }
+    function failure(error: any) { return { type: userConstants.UPDATE_FAILURE, error } }
+
 }
-
 
 function logout() {
     userService.logout();

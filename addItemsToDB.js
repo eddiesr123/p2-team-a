@@ -76,9 +76,9 @@ const make = async files => {
     }
 
     itemMap = {
-      ...itemMap,
-      [myItem.imgPath]: `require(${myItem.imgPath})`
-    };
+        ...itemMap,
+        [myItem.imgPath]: [`require('${myItem.imgPath}')`, `require('${myItem.thumbnailPath}')`]
+    }
 
     if (file.includes("suit")) {
       myItem.clothingType = "suit";

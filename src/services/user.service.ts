@@ -14,7 +14,6 @@ async function signup(user: any) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, firstName, lastName, email, password })
     };
-    console.log('doning the signup');
     return await fetch(`${api_url}/signup`, requestOptions)
         .then((res) => {console.log(res); return res;})
         .then(handleResponse)
@@ -31,7 +30,6 @@ async function signin(user: any) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password })
     };
-
     return await fetch(`${api_url}/signin`, requestOptions)
         .then(handleResponse)
         .then(response => response.json())
@@ -40,6 +38,22 @@ async function signin(user: any) {
         });
 }
 
+async function changeInfo(user: any) {
+    const { username, firstName, lastName, email, password } = user;
+    const requestOptions = {
+        method: 'UPDATE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, firstName, lastName, email, password })
+    };
+
+    return await fetch(`${api_url}/userinfo`, requestOptions)
+        .then(handleResponse)
+        .then(response => response.json())
+        .then(user => {
+            return user;
+    });
+
+}
 
 async function handleResponse(response: any) {
 
@@ -54,31 +68,8 @@ async function handleResponse(response: any) {
     return response;
 }
 
-async function changeInfo(user: any) {
-    const requestOptions = {
-        method: 'UPDATE',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ user })
-    };
-
-    return await fetch(`${api_url}/userinfo`, requestOptions).then(handleResponseFetch);
-}
-
 function logout() {
+    console.log('exectuing logout function');
     // remove user from local storage to log user out
-    localStorage.removeItem('user');
-}
-
-
-async function handleResponseFetch(response: any) {
-    const user = await response.json();
-    if (!response.ok) {
-        if (response.status === 404) {
-
-        }
-
-        const error = (response && response.message) || response.statusText;
-        return Promise.reject(error);
-    }
-    return user;
+    // localStorage.removeItem('user');
 }

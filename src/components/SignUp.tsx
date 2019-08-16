@@ -6,8 +6,6 @@ import Skull from '../SignUp.png';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
@@ -93,7 +91,7 @@ class SignUp extends React.Component<any, ISignUpState> {
               Sign up
             </Typography>
           </div>
-          <form className={classes.form} noValidate onSubmit={this.handleSubmit}>
+          <form className={classes.form} onSubmit={this.handleSubmit}>
             <Grid container spacing={2}>
               <Grid item xs={12}>
                 <TextField
@@ -163,10 +161,6 @@ class SignUp extends React.Component<any, ISignUpState> {
                 />
               </Grid>
               <Grid item xs={12}>
-                <FormControlLabel
-                  control={<Checkbox value="remember" color="primary" />}
-                  label="Remember me"
-                />
               </Grid>
             </Grid>
             <Button
