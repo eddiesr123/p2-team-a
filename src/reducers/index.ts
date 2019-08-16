@@ -3,7 +3,7 @@ import { navbarReducer } from "./navbar.reducer";
 import signupReducer from "./signup.reducer";
 import signinReducer from "./signin.reducer";
 import cartReducer from "./cartReducer";
-import { displayReducer } from "./displayReducer"; 
+import { displayReducer } from "./displayReducer";
 import { catalogReducer } from "./catalog.reducer";
 import updateReducer from './update.reducer';
 
@@ -12,37 +12,35 @@ export interface INavbarState {
 };
 
 export interface ICartState {
-        items: {
-        }[];
-        addedItems: any[];
-        total: number;
-        totalItems: number;
-        checkedBox: boolean;
-        stateCheck: boolean;
-
+    items: any;
+    addedItems: any[];
+    total: number;
+    totalItems: number;
+    checkedBox: boolean;
+    stateCheck: boolean;
 };
 
 export interface ISignUpState {
-     user: any;
-     signuping: boolean;
-     submitted: boolean;
+    user: any;
+    signuping: boolean;
+    submitted: boolean;
 };
 
 export interface IDisplayState {
 };
 
 export interface ISignInState {
-     user: {
+    user: {
         username: string,
         firstName: string,
         lastName: string,
         email: string,
         password: string,
         creditCard: string
-    }; 
-     loggingIn: boolean;
-     loggedIn: boolean;
-     submitted: boolean;
+    };
+    loggingIn: boolean;
+    loggedIn: boolean;
+    submitted: boolean;
 }
 
 export interface IUserState {
@@ -54,15 +52,15 @@ export interface IUserState {
         password: string,
         creditCard: string
     },
-      updating: boolean,
-      submitted: boolean
-    }
+    updating: boolean,
+    submitted: boolean
+}
 
 
 export interface ICatalogState {
-    gloves:any,
-    mask:any,
-    suit:any
+    gloves: any,
+    mask: any,
+    suit: any
 };
 
 
