@@ -1,4 +1,5 @@
 import React from 'react';
+import bodysuit from "../../images/alphas/bodysuit-green-female.png";
 //import imgMap from '../../images/items-map'
 
 const imgMap: any = {'../../images/alphas/bodysuit-green-female.png': require('../../images/alphas/bodysuit-green-female.png'), 
