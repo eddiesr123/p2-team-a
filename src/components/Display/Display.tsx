@@ -3,7 +3,6 @@ import { Bodysuit } from "./Bodysuit";
 import { Mask } from "./Mask";
 import { Gloves } from "./Gloves";
 import { IDisplayState, IState } from "../../reducers";
-import { any } from "prop-types";
 import { connect } from "react-redux";
 
 

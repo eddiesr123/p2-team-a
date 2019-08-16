@@ -1,7 +1,6 @@
 import React from 'react';
 import '../css/fontawesome-free-5.10.1-web/fontawesome-free-5.10.1-web/css/all.css';
 import '../css/browser.css';
-import PaginationComponent from './Pagination.component';
 import CatalogCard from './CatalogCard';
 import { ICatalogState, IState } from '../reducers';
 import { updateCartCount } from '../actions/navbar.actions';

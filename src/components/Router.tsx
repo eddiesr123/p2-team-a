@@ -3,7 +3,6 @@ import { Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { userActions } from '../actions/user.actions';
 import { IState, ISignInState } from '../reducers';
-import Home from './Home';
 import Browse from './Browse';
 import UserInfo from './UserInfo';
 import Purchase from './Purchase';

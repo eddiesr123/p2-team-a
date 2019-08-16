@@ -79,6 +79,6 @@ export const state = combineReducers<IState>({
     signup: signupReducer,
     signin: signinReducer,
     display: displayReducer,
-    catalog: catalogReducer
+    catalog: catalogReducer,
 });
 
