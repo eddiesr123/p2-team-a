@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { Redirect, Route } from 'react-router';
+import {Redirect, Route } from 'react-router';
 
-const PrivateRoute = ({component, isAuthenticated, ...rest}: any) => {
+const PrivateRoute = ({component, loggedIn, ...rest}: any) => {
   const routeComponent = (props: any) => (
-    isAuthenticated
+          loggedIn
           ? React.createElement(component, props)
-          : <Redirect to={{pathname: '/'}}/>
+          : <Redirect to={{pathname: '/login'}}/>
   );
   return <Route {...rest} render={routeComponent}/>;
 };

@@ -66,7 +66,7 @@ export class Navbar extends React.Component<any, INavbarState> {
                 </li> 
               </ul>            
             </div>
-        </nav>
+        </nav>  
     );
   }
 }
