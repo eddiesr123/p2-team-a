@@ -1,7 +1,4 @@
 import React from 'react';
-import { Redirect } from "react-router";
-import { IState, ISignInState } from '../reducers';
-import { userActions } from '../actions/user.actions';
 import { IState } from '../reducers';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
