@@ -1,5 +1,5 @@
-import React from 'react'
-import { connect } from 'react-redux'
+import React from 'react';
+import { connect } from 'react-redux';
 import { IState } from '../reducers';
 import { Link } from "react-router-dom";
 //import { addShipping } from './actions/cartActions'

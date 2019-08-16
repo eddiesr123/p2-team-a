@@ -9,6 +9,7 @@ class Submit extends React.Component<any>{
     
     handleClick = ()=>{
         this.props.resetState();
+        localStorage.removeItem('reduxPersist:cart');
     }
 
     render(){
