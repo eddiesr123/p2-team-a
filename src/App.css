@@ -85,8 +85,6 @@ nav#navbar:after {
 }
 body {
   background-color: rgba(0, 0, 0, 0.5);
-  min-height: 75rem;
-  /*padding-top: 4.5rem;
   /*background: linear-gradient(#333, black) ; */
 }
 .form-group input,
@@ -265,6 +263,7 @@ body {
   .notfound .notfound-404 {
     height: 122px;
     line-height: 122px;
+    overflow: hidden;
   }
 
   .notfound .notfound-404 h1 {
