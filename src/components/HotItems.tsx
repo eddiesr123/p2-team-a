@@ -29,6 +29,7 @@ class HotItems extends React.Component<any> {
     }
     
     render() {
+      console.log(this.props.items);
         let itemList = this.props.items.map((item: any) => {
           return (
             <div
@@ -39,22 +40,23 @@ class HotItems extends React.Component<any> {
               <div id="hot-card-div">
                 <Avatar
                   src={item.img}
-                  alt={item.title}
+                  alt={item.name}
                   style={{ margin: 10, width: 100, height: 100 }}
                 />
-                <Link to="/hot">
-                  <Button
-                    id="hot-card-button"
-                    variant="dark"
-                    onClick={() => this.handleClick(item.id)}
-                  >
-                    add
+                <div>
+                  <Link to="/hot">
+                    <Button
+                      id="hot-card-button"
+                      variant="dark"
+                      onClick={() => this.handleClick(item.id)}
+                  >add
                   </Button>
                 </Link>
+                </div>
               </div>
     
               <div className="hot-card-content">
-                <span className="card-title">{item.title}</span><br />
+                <span className="card-title">{item.name}</span><br />
                 {`Price: ${item.price}`}
                 <br />
                 {`Quantity: ${item.quantity||0}`}
