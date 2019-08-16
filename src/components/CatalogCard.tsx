@@ -11,14 +11,14 @@ export default class ItemCardComponent extends React.Component<any, any> {
                         <h5 className="card-title">{this.props.name}</h5>
                         <div className="container">
                             <div className="row">
-                                <div className="col-sm-4 col-md-12 col-lg-4">
-                                    <a href="#" className="btn btn-outline-secondary diabled">$ {this.props.price}</a>
+                                <div className="col-sm-4 col-md-12 no-pad col-lg-4">
+                                    <a className="btn btn-outline-secondary no-pad disabled">$ {this.props.price}</a>
                                 </div>
-                                <div className="col-sm-4 col-md-12 col-lg-4">
-                                    <a href="#" className="btn btn-outline-secondary"><i className="fas fa-plus"></i></a>
+                                <div className="col-sm-4 col-md-12 no-pad col-lg-4">
+                                    <a href="#" className="btn btn-outline-secondary no-pad"><i className="fas fa-plus"></i></a>
                                 </div>
-                                <div className="col-sm-4 col-md-12 col-lg-4">
-                                    <a href="#" className="btn btn-outline-secondary" onClick={() => (this.props.updateDisplay("../" + this.props.pathToImg, this.props))}><i className="far fa-eye"></i></a>
+                                <div className="col-sm-4 col-md-12 no-pad col-lg-4">
+                                    <a href="#" className="btn btn-outline-secondary no-pad" onClick={() => (this.props.updateDisplay("../" + this.props.pathToImg, this.props))}><i className="far fa-eye"></i></a>
                                 </div>
                             </div>
                         </div>
