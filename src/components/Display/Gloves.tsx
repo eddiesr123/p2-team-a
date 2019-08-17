@@ -1,6 +1,5 @@
 import React from 'react';
 
-//import gloves from "../../images/alphas/gloves-female.png";
 const imgMap: any = {'../../images/alphas/gloves-female.png': require('../../images/alphas/gloves-female.png'),
                      '../../images/defaults/empty-female-gloves.png': require('../../images/defaults/empty-female-gloves.png')}
 

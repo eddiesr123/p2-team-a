@@ -42,7 +42,7 @@ class HotItems extends React.Component<any> {
           key={item.id}>
           <div id="hot-card-div">
             <img
-              src={itemsMap[item.imgPath]&&itemsMap[item.imgPath][1]} alt={item.name} style={{ margin: 10, width: 100, height: 125, }} />
+              src={itemsMap[item.imgPath]&&itemsMap[item.imgPath][1]} alt={item.name} style={{ margin: 14, }} />
             <div>
               <Link to="/">
                 <Button
