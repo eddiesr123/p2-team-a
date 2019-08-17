@@ -15,6 +15,7 @@ export interface INavbarProps {
 
 ///For shopping cart icon: <i class="fas fa-shopping-cart"></i>
 export class Navbar extends React.Component<any, INavbarState> {
+  
   render() {
     return (
         <nav className="navbar navbar-expand-lg navbar-dark fixed-top bg-dark" role="navigation">
@@ -31,33 +32,33 @@ export class Navbar extends React.Component<any, INavbarState> {
               {/*links */}
               <ul className="navbar-nav mr-auto">
                 <li className="divider-vertical nav-item" />
-                <li> 
-                  <Link className="nav-link" to="/" id="navbar-home-btn">Home</Link>
+                <li className="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show"> 
+                  <Link className="nav-link" to="/" id="navbar-home-btn" >Home</Link>
                 </li>
-                <li className="divider-vertical nav-item" />
-                <li>
-                  <Link className="nav-link" to="/browse">Browse</Link>
+                <li className="divider-vertical nav-item" data-toggle="collapse" data-target=".navbar-collapse.show"/>
+                <li className="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
+                  <Link className="nav-link" to="/browse" >Browse</Link>
                 </li>
               </ul>
               <ul className="navbar-nav">  
-                <li className="divider-vertical nav-item" />
-                <li>
+                <li className="divider-vertical nav-item" data-toggle="collapse" data-target=".navbar-collapse.show"/>
+                <li className="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
                 {!this.props.signin.loggedIn ?
-                  <Link className="nav-link" to="/register">Sign up</Link>
+                  <Link className="nav-link" to="/register" >Sign up</Link>
                   :
-                  <Link className="nav-link" to="/userinfo">{this.props.signin.user.username}, </Link>
+                  <Link className="nav-link" to="/userinfo" >{this.props.signin.user.username}, </Link>
                 }
                 </li>
-                <li className="divider-vertical nav-item" />
-                <li>
+                <li className="divider-vertical nav-item" data-toggle="collapse" data-target=".navbar-collapse.show"/>
+                <li className="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
                 {!this.props.signin.loggedIn ?
-                  <Link className="nav-link" to="/login">Sign in</Link>
+                  <Link className="nav-link" to="/login" >Sign in</Link>
                   :
                   <Logout />
                 }
                 </li>
-                <li className="divider-vertical nav-item" />
-                <li>
+                <li className="divider-vertical nav-item" data-toggle="collapse" data-target=".navbar-collapse.show"/>
+                <li className="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
                   <Link className="nav-link" to="/cart" id="navbar-cart-link">
                     <i className="fas fa-shopping-cart" id="navbar-cart-icon">
                       <span className="icons" id="text-for-shoppingcart">{this.props.total}</span>
@@ -66,7 +67,7 @@ export class Navbar extends React.Component<any, INavbarState> {
                 </li> 
               </ul>            
             </div>
-        </nav>
+        </nav>  
     );
   }
 }

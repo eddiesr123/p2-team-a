@@ -27,7 +27,28 @@ export class Catalog extends React.Component<any, ICatalogProps> {
         let suitsRes = await Axios.get('http://localhost:8080/items/type/suit');
         let suits = suitsRes.data;
         this.setState({ masks:masks.slice(0,4), gloves:gloves.slice(0,4), suits:suits.slice(0,4)});
+        console.log(suits);
     }
+    /**
+     handleClick = (id: any)=>{
+        this.props.addToCart(id);
+    }
+
+    componentDidMount() {
+        if(!this.props.stateCheck) {
+            const url = `http://localhost:8080/items/`;
+            Axios.get(url).then(payload => {
+                console.log(payload);
+
+                const items = payload.data.map((item: any) => {
+                    return item;
+                });
+                console.log(items);
+                this.props.getProducts(items.slice(0,6));
+            })
+        }
+    }
+     */
     render() {
         return (<div className="container card-container">
             <div className="row" >
@@ -50,16 +71,17 @@ export class Catalog extends React.Component<any, ICatalogProps> {
                         <div className="tab-content" id="myTabContent">
                             <div className="tab-pane fade show active p-12" id="one" role="tabpanel" aria-labelledby="one-tab">
                                 <div className="container">
+                                <h5 className="card-title no-pad" >Bodysuits</h5>
                                     <div className="row f-box">
                                         <CatalogCard 
-                                            name="Blue suit of Doom"
+                                            name="Doomsday Blue"
                                             price="500" updateDisplay={this.props.updateSuit} 
                                             pathToThumb= "../images/thumbnails/bodysuit-blue-female.png"
                                             thumbObj={require('../images/thumbnails/bodysuit-blue-female.png')}
                                             pathToImg={'../images/alphas/bodysuit-blue-female.png'} 
                                             imgObj={require('../images/alphas/bodysuit-blue-female.png')} />
                                         <CatalogCard 
-                                            name="Dark Doom Suit"
+                                            name="Suit of Shadows"
                                             price="200"
                                             pathToThumb= "../images/thumbnails/bodysuit-black-female.png"
                                             thumbObj={require('../images/thumbnails/bodysuit-black-female.png')}
@@ -67,7 +89,7 @@ export class Catalog extends React.Component<any, ICatalogProps> {
                                             pathToImg={'../images/alphas/bodysuit-black-female.png'} 
                                             imgObj={require('../images/alphas/bodysuit-black-female.png')} />
                                         <CatalogCard 
-                                            name="Doom n Bloom"
+                                            name="Suit of Flames"
                                             price="120"
                                             pathToThumb= "../images/thumbnails/bodysuit-red-female.png"
                                             thumbObj={require('../images/thumbnails/bodysuit-red-female.png')}
@@ -75,7 +97,7 @@ export class Catalog extends React.Component<any, ICatalogProps> {
                                             pathToImg={'../images/alphas/bodysuit-red-female.png'} 
                                             imgObj={require('../images/alphas/bodysuit-red-female.png')} />
                                         <CatalogCard 
-                                            name="Doomination"
+                                            name="Green Mamba"
                                             price="50"
                                             pathToThumb= "../images/thumbnails/bodysuit-green-female.png"
                                             thumbObj={require('../images/thumbnails/bodysuit-green-female.png')}
@@ -87,9 +109,10 @@ export class Catalog extends React.Component<any, ICatalogProps> {
                             </div>
                             <div className="tab-pane fade p-12" id="two" role="tabpanel" aria-labelledby="two-tab">
                                 <div className="container">
+                                    <h5 className="card-title no-pad" >Masks</h5>
                                     <div className="row f-box">
                                         <CatalogCard 
-                                            name="Blue Mask of Doom"
+                                            name="Doomsday Blue"
                                             price="500"
                                             pathToThumb= "../images/thumbnails/mask-blue-female.png"
                                             thumbObj={require('../images/thumbnails/mask-blue-female.png')}
@@ -97,7 +120,7 @@ export class Catalog extends React.Component<any, ICatalogProps> {
                                             pathToImg={'../images/alphas/mask-blue-female.png'} 
                                             imgObj={require('../images/alphas/mask-blue-female.png')} />
                                         <CatalogCard 
-                                            name="Doomagedon Mask"
+                                            name="Shadow Mask"
                                             price="500"
                                             pathToThumb= "../images/thumbnails/mask-black-female.png"
                                             thumbObj={require('../images/thumbnails/mask-black-female.png')}
@@ -105,7 +128,7 @@ export class Catalog extends React.Component<any, ICatalogProps> {
                                             pathToImg={'../images/alphas/mask-black-female.png'} 
                                             imgObj={require('../images/alphas/mask-black-female.png')} />
                                         <CatalogCard 
-                                            name="Doomy Mask"
+                                            name="Mamba Mask"
                                             price="500"
                                             pathToThumb= "../images/thumbnails/mask-green-female.png"
                                             thumbObj={require('../images/thumbnails/mask-green-female.png')}
@@ -113,7 +136,7 @@ export class Catalog extends React.Component<any, ICatalogProps> {
                                             pathToImg={'../images/alphas/mask-green-female.png'} 
                                             imgObj={require('../images/alphas/mask-green-female.png')} />
                                         <CatalogCard 
-                                            name="Here comes the Doom"
+                                            name="Mask of Fury"
                                             price="500"
                                             pathToThumb= "../images/thumbnails/mask-red-female.png"
                                             thumbObj={require('../images/thumbnails/mask-red-female.png')}
@@ -125,9 +148,10 @@ export class Catalog extends React.Component<any, ICatalogProps> {
                             </div>
                             <div className="tab-pane fade p-12" id="three" role="tabpanel" aria-labelledby="three-tab">
                                 <div className="container">
+                                <h5 className="card-title no-pad glove-align">Gloves</h5>
                                     <div className="row f-box">
                                         <CatalogCard 
-                                            name="Doom Gloves"
+                                            name="Super Gloves"
                                             price="500"
                                             pathToThumb= "../images/thumbnails/gloves-female.png"
                                             thumbObj={require('../images/thumbnails/gloves-female.png')}

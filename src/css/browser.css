@@ -9,11 +9,19 @@
     padding-top: 20px;
 }
 .catalog-card{
-    padding-top: 3rem;
+    padding-top: 0rem;
     padding-bottom: 3rem;
     padding-left: 0;
     padding-right: 0; 
     margin: 0;
+}
+.card-title {
+    text-align: center;
+    padding-top: .5rem;
+    padding-bottom: .2rem;
+}
+.glove-align {
+    text-align: left !important;
 }
 .no-pad {
     padding-left: 0 !important;

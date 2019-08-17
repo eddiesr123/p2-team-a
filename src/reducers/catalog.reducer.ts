@@ -3,8 +3,8 @@ import { ICatalogState } from '.';
 
 
 const initialState: ICatalogState = {
-    gloves:'../../images/alphas/gloves-female.png',
-    mask:'../../images/alphas/mask-black-female.png',
+    gloves:'../../images/defaults/empty-female-gloves.png',
+    mask:'../../images/defaults/empty-female-mask.png',
     suit:'../../images/alphas/bodysuit-green-female.png',
 };
 export const catalogReducer = (state = initialState, action:any) => {

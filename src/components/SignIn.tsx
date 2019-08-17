@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { userActions } from '../actions/user.actions';
 import { IState, ISignInState } from '../reducers';
+import { Redirect } from 'react-router';
 import Skull from '../Login.png';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -76,15 +77,18 @@ class SignIn extends React.Component<any, ISignInState> {
 
   async handleSubmit(event: any) {
     event.preventDefault(); //prevents text from being cleared
-    this.setState({ submitted: true });
     const { user } = this.state;
     if (user.username && user.password) {
       this.props.signin(user) 
+      this.setState({ submitted: true });
     }
   }
 
   render() {
-    const { loggingIn, classes } = this.props;
+    if (this.state.submitted) {
+      return <Redirect to="/" />;
+    }
+    const { classes } = this.props;
     const { user } = this.state;
     return (
       <Container component="main" maxWidth="xs">
@@ -97,7 +101,7 @@ class SignIn extends React.Component<any, ISignInState> {
               Sign in
         </Typography>
           </div>
-          <form className={classes.form} onSubmit={this.handleSubmit}>
+          <form className={classes.form} onSubmit={this.handleSubmit} >
             <TextField
               variant="outlined"
               margin="normal"
@@ -128,7 +132,7 @@ class SignIn extends React.Component<any, ISignInState> {
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
             />
-            <Button
+            <Button 
               type="submit"
               fullWidth
               variant="contained"
@@ -136,7 +140,6 @@ class SignIn extends React.Component<any, ISignInState> {
             >
               Sign In
           </Button>
-            {loggingIn}
             <Grid container>
               <Grid item xs>
                 <Link href="#" variant="body2">
