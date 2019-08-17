@@ -37,21 +37,14 @@ class UserInfo extends React.Component<any, IUserState> {
   constructor(props: any) {
     super(props);
 
-    this.state = {
-      updateUser: {
-        username: '',
-        firstName: '',
-        lastName: '',
-        email: '',
-        password: '',
-        creditCard: ''
-      },
-      updating: false,
-      submitted: false
-    }
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+      this.state = {
+        updateUser: this.props.user,
+        updating: false,
+        submitted: false
+      }
+  
+      this.handleChange = this.handleChange.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event: any) {
@@ -74,104 +67,98 @@ class UserInfo extends React.Component<any, IUserState> {
     }
   }
 
-  render() {
-    const { classes, updateUser, user } = this.props;
-    return (
-      <Container component="main" maxWidth="xs">
-        <div>
-          <Grid container justify="center" alignItems="center">
-            <Avatar src={Skull} className={classes.avatar} />
-          </Grid>
-          <div className={classes.paper}>
-            <Typography component="h1" variant="h5" align="center">
-              Personal information
-        </Typography>
-          </div>
-          <form className={classes.form} noValidate onSubmit={this.handleSubmit}>
-            <Grid container spacing={2}>
-              <Grid item xs={12}>
-                <TextField
-                  variant="outlined"
-                  required
-                  fullWidth
-                  id="username"
-                  label={user.username}
-                  name="username"
-                  value={updateUser.username}
-                  onChange={this.handleChange}
-                  autoComplete="username"
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  autoComplete="fname"
-                  name="firstName"
-                  value={updateUser.firstname}
-                  onChange={this.handleChange}
-                  variant="outlined"
-                  required
-                  fullWidth
-                  id="firstName"
-                  label={this.props.signin.user.firstname}
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  variant="outlined"
-                  required
-                  fullWidth
-                  id="lastName"
-                  label={this.props.signin.user.lastname}
-                  name="lastName"
-                  value={updateUser.lastname}
-                  onChange={this.handleChange}
-                  autoComplete="lname"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  variant="outlined"
-                  required
-                  fullWidth
-                  id="email"
-                  label={this.props.signin.user.email}
-                  name="email"
-                  value={updateUser.email}
-                  onChange={this.handleChange}
-                  autoComplete="email"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  variant="outlined"
-                  required
-                  fullWidth
-                  name="password"
-                  value={this.props.signin.user.password}
-                  onChange={this.handleChange}
-                  label="Password"
-                  type="password"
-                  id="password"
-                  autoComplete="current-password"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  variant="outlined"
-                  required
-                  fullWidth
-                  name="creditCard"
-                  value={updateUser.creditCard}
-                  onChange={this.handleChange}
-                  label={this.props.signin.user.creditCard}
-                  type="password"
-                  id="creditCard"
-                  autoComplete="creditCard"
-                />
-              </Grid>
-              <Grid item xs={12}>
-              </Grid>
+  render(){
+  const { classes, user} = this.props;
+  const { updateUser } = this.state;
+  return (
+    <Container component="main" maxWidth="xs">
+      <div>
+        <Grid container justify="center" alignItems="center">
+          <Avatar src={Skull} className={classes.avatar} />
+        </Grid>
+        <div className={classes.paper}>
+          <Typography component="h1" variant="h5" align="center">
+            Personal information
+      </Typography>
+        </div>
+        <form className={classes.form} noValidate onSubmit={this.handleSubmit}>
+          <Grid container spacing={2}>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                fullWidth
+                id="username"
+                label="Username"
+                name="username"
+                value={updateUser.username}
+                onChange={this.handleChange}
+                autoComplete="username"
+              />
             </Grid>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                autoComplete="fname"
+                name="firstName"
+                value={updateUser.firstName}
+                onChange={this.handleChange}
+                variant="outlined"
+                fullWidth
+                id="firstName"
+                label="First name"
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                variant="outlined"
+                fullWidth
+                id="lastName"
+                label="Last name"
+                name="lastName"
+                value={updateUser.lastName}
+                onChange={this.handleChange}
+                autoComplete="lname"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                fullWidth
+                id="email"
+                label="Email"
+                name="email"
+                value={updateUser.email}
+                onChange={this.handleChange}
+                autoComplete="email"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                fullWidth
+                name="password"
+                value={updateUser.password}
+                onChange={this.handleChange}
+                label="Password"
+                type="password"
+                id="password"
+                autoComplete="current-password"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                fullWidth
+                name="creditCard"
+                value={updateUser.creditCard}
+                onChange={this.handleChange}
+                label="Credit number"
+                id="creditCard"
+                autoComplete="creditCard"
+              />
+            </Grid>
+            <Grid item xs={12}>
+            </Grid>
+          </Grid>
             <Button
               type="submit"
               fullWidth
@@ -189,15 +176,13 @@ class UserInfo extends React.Component<any, IUserState> {
   }
 }
 
-
 function mapStateToProps(state: IState) {
-  const { updateUser, updating, submitted } = state.updateUser;
-  return { updateUser, updating, submitted };
-}
+       const { user, submitted } = state.signin;
+   return { user, submitted };
+ }
 
-const actionCreators = {
-  changeInfo: userActions.changeInfo,
-  logout: userActions.logout
-};
+ const actionCreators = {
+       changeInfo: userActions.changeInfo
+ };
 
 export default connect(mapStateToProps, actionCreators)(withStyles(styles)(UserInfo))
