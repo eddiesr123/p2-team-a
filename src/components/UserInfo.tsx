@@ -68,7 +68,7 @@ class UserInfo extends React.Component<any, IUserState> {
   }
 
   render(){
-  const { classes, user} = this.props;
+  const { classes } = this.props;
   const { updateUser } = this.state;
   return (
     <Container component="main" maxWidth="xs">
