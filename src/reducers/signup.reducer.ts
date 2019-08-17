@@ -23,7 +23,7 @@ const initState: ISignUpState ={
     case userConstants.SIGNUP_FAILURE:
         return { ...state, submitted: false, signuping: false};
     default:
-      return initState
+      return state
   }
 }
 

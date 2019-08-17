@@ -24,7 +24,7 @@ const initState: IUserState ={
     case userConstants.UPDATE_FAILURE:
         return { ...state, updating: false, submitted: false};
     default:
-      return initState
+      return state
   }
 }
 

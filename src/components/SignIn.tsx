@@ -43,9 +43,6 @@ class SignIn extends React.Component<any, ISignInState> {
   constructor(props: any) {
     super(props);
 
-    // reset login status
-    this.props.logout();
-
     this.state = {
       user: {
         username: '',

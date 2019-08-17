@@ -38,14 +38,7 @@ class UserInfo extends React.Component<any, IUserState> {
       super(props);
 
       this.state = {
-        updateUser: {
-          username: '',
-          firstName: '',
-          lastName: '',
-          email: '',
-          password: '',
-          creditCard:''
-        },
+        updateUser: this.props.user,
         updating: false,
         submitted: false
       }
@@ -75,7 +68,8 @@ class UserInfo extends React.Component<any, IUserState> {
   }
 
   render(){
-  const { classes, updateUser, user } = this.props;
+  const { classes, user} = this.props;
+  const { updateUser } = this.state;
   return (
     <Container component="main" maxWidth="xs">
       <div>
@@ -92,10 +86,9 @@ class UserInfo extends React.Component<any, IUserState> {
             <Grid item xs={12}>
               <TextField
                 variant="outlined"
-                required
                 fullWidth
                 id="username"
-                label={user.username}
+                label="Username"
                 name="username"
                 value={updateUser.username}
                 onChange={this.handleChange}
@@ -106,24 +99,22 @@ class UserInfo extends React.Component<any, IUserState> {
               <TextField
                 autoComplete="fname"
                 name="firstName"
-                value={updateUser.firstname}
+                value={updateUser.firstName}
                 onChange={this.handleChange}
                 variant="outlined"
-                required
                 fullWidth
                 id="firstName"
-                label={this.props.signin.user.firstname}
+                label="First name"
               />
             </Grid>
             <Grid item xs={12} sm={6}>
               <TextField
                 variant="outlined"
-                required
                 fullWidth
                 id="lastName"
-                label={this.props.signin.user.lastname}
+                label="Last name"
                 name="lastName"
-                value={updateUser.lastname}
+                value={updateUser.lastName}
                 onChange={this.handleChange}
                 autoComplete="lname"
               />
@@ -131,10 +122,9 @@ class UserInfo extends React.Component<any, IUserState> {
             <Grid item xs={12}>
               <TextField
                 variant="outlined"
-                required
                 fullWidth
                 id="email"
-                label={this.props.signin.user.email}
+                label="Email"
                 name="email"
                 value={updateUser.email}
                 onChange={this.handleChange}
@@ -144,10 +134,9 @@ class UserInfo extends React.Component<any, IUserState> {
             <Grid item xs={12}>
               <TextField
                 variant="outlined"
-                required
                 fullWidth
                 name="password"
-                value={this.props.signin.user.password}
+                value={updateUser.password}
                 onChange={this.handleChange}
                 label="Password"
                 type="password"
@@ -158,13 +147,11 @@ class UserInfo extends React.Component<any, IUserState> {
             <Grid item xs={12}>
               <TextField
                 variant="outlined"
-                required
                 fullWidth
                 name="creditCard"
                 value={updateUser.creditCard}
                 onChange={this.handleChange}
-                label={this.props.signin.user.creditCard}
-                type="password"
+                label="Credit number"
                 id="creditCard"
                 autoComplete="creditCard"
               />
@@ -190,13 +177,12 @@ class UserInfo extends React.Component<any, IUserState> {
 }
 
 function mapStateToProps(state: IState) {
-       const { updateUser, updating, submitted } = state.updateUser;
-   return { updateUser, updating, submitted };
+       const { user, submitted } = state.signin;
+   return { user, submitted };
  }
 
  const actionCreators = {
-       changeInfo: userActions.changeInfo,
-       logout: userActions.logout
+       changeInfo: userActions.changeInfo
  };
 
 export default connect(mapStateToProps, actionCreators)(withStyles(styles)(UserInfo))
