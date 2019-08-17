@@ -93,7 +93,7 @@ const make = async files => {
       myItem.price = 300.0;
     }
     console.log(myItem);
-    //await axios.post('http://localhost:8080/items/', myItem)
+    await axios.post('http://localhost:8080/items/', myItem)
   }
   console.log(itemMap);
 };

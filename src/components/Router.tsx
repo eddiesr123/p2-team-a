@@ -66,7 +66,7 @@ const mapStateToProps = (state: IState) => {
 }
 
 const actionCreators = {
-  signin: userActions.signin,
+  //signin: userActions.signin,
 }
 
 export default connect(mapStateToProps, actionCreators)(AppRouter);
