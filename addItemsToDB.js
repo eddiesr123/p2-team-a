@@ -37,38 +37,24 @@ const make = async files => {
     // Place switch below
 
     switch (myItem.name) {
-      case "gloves male":
-        myItem.name = "Super Gloves"; break;
       case "gloves female":
         myItem.name = "Gloves of Power"; break;
-      case "bodysuit red male":
-        myItem.name = "Suit of Flames"; break;
-      case "mask red male":
-        myItem.name = "Mask of Fury"; break;
-      case "bodysuit grey male":
-        myItem.name = "Suit of Ashes"; break;
-      case "mask grey male":
-        myItem.name = "Mask of Ashes"; break;
       case "bodysuit green female":
-        myItem.name = "Green Cobra Suit"; break;
-      case "bodysuit green male":
         myItem.name = "Green Mamba Suit"; break;
-      case "mask green male":
-        myItem.name = "Green Mamba Mask"; break;
       case "mask green female":
-        myItem.name = "Green Cobra Mask"; break;
+        myItem.name = "Green Mamba Mask"; break;
       case "bodysuit blue female":
         myItem.name = "Doomsday Blue Suit"; break;
       case "mask blue female":
         myItem.name = "Doomsday Blue Mask"; break;
       case "bodysuit black female":
-        myItem.name = "Dark Shadow Suit"; break;
+        myItem.name = "Suit of Shadows"; break;
       case "mask black female":
-        myItem.name = "Dark Shadow Mask"; break;
+        myItem.name = "Shadow Mask"; break;
       case "bodysuit red female":
-        myItem.name = "Red Rage Suit"; break;
+        myItem.name = "Suit of Flames"; break;
       case "mask red female":
-        myItem.name = "Red Rage Mask"; break;
+        myItem.name = "Mask of Fury"; break;
     }
 
     itemMap = {

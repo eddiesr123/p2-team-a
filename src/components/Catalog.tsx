@@ -80,7 +80,7 @@ export class Catalog extends React.Component<any, ICatalogProps> {
                                             pathToImg={'../images/alphas/bodysuit-blue-female.png'} 
                                             imgObj={require('../images/alphas/bodysuit-blue-female.png')} />
                                         <CatalogCard 
-                                            name="Dark Shadow"
+                                            name="Suit of Shadow"
                                             price="200"
                                             pathToThumb= "../images/thumbnails/bodysuit-black-female.png"
                                             thumbObj={require('../images/thumbnails/bodysuit-black-female.png')}
