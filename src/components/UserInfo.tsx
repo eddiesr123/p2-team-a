@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { userActions } from '../actions/user.actions';
-import { IState, IUserState, ISignInState } from '../reducers';
+import { IState, IUserState } from '../reducers';
 import Skull from '../Login.png';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -14,7 +14,6 @@ import Container from '@material-ui/core/Container';
 
 export interface IUserProps {
   // read in data from state store
-  signin: ISignInState
   updateUser: IUserState,
   classes: any
 }
@@ -76,8 +75,7 @@ class UserInfo extends React.Component<any, IUserState> {
   }
 
   render() {
-    const { classes, updateUser} = this.props;
-    const { user } = this.props.signin;
+    const { classes, updateUser, user } = this.props;
     return (
       <Container component="main" maxWidth="xs">
         <div>
@@ -193,9 +191,8 @@ class UserInfo extends React.Component<any, IUserState> {
 
 
 function mapStateToProps(state: IState) {
-  const signin = state.signin;
   const { updateUser, updating, submitted } = state.updateUser;
-  return { signin, updateUser, updating, submitted };
+  return { updateUser, updating, submitted };
 }
 
 const actionCreators = {

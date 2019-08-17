@@ -3,13 +3,13 @@ import { ISignInState } from './index'
 
 const initState: ISignInState = {
   user: {
-      username: '',
-      firstName: '',
-      lastName: '',
-      email: '',
-      password: '',
-      creditCard: ''
-},
+    username: '',
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+    creditCard: ''
+  },
   loggingIn: false,
   loggedIn: false,
   submitted: false
@@ -17,13 +17,13 @@ const initState: ISignInState = {
 
 interface Action {
   type: any,
-  user: any, 
+  user: any,
 }
 
-const signinReducer = (state:ISignInState = initState, action: Action) => {
+const signinReducer = (state: ISignInState = initState, action: Action) => {
   switch (action.type) {
     case userConstants.SIGNIN_REQUEST:
-      return { ...state, ...action.user, loggingIn: true, submitted: true };
+      return { ...action.user, loggingIn: true, loggedIn: false, submitted: true };
     case userConstants.SIGNIN_SUCCESS:
       return { ...state, user: action.user, loggingIn: false, loggedIn: true, submitted: true };
     case userConstants.SIGNIN_FAILURE:

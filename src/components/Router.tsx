@@ -1,8 +1,7 @@
 import React from "react";
 import { Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { userActions } from '../actions/user.actions';
-import { IState, ISignInState } from '../reducers';
+import { IState } from '../reducers';
 import Browse from './Browse';
 import UserInfo from './UserInfo';
 import Purchase from './Purchase';
@@ -18,15 +17,15 @@ import Logout from "./Logout";
 
 export interface ISignInProps {
   // read in data from state store
-  signin: ISignInState,
+  loggedIn: boolean,
 }
 
 const style = {
   height: '56px'
 };
 
-class AppRouter extends React.Component<ISignInProps, ISignInState> {
-  public render() {
+class AppRouter extends React.Component<ISignInProps> {
+  render() {
     return (
       <div>
         <div>
@@ -40,9 +39,9 @@ class AppRouter extends React.Component<ISignInProps, ISignInState> {
           </header>
           <div id='content'>
           <Switch>
-                <PrivateRoute path='/userinfo' loggedIn={this.props.signin.loggedIn} component={UserInfo} />
-                <PrivateRoute path='/purchase' loggedIn={this.props.signin.loggedIn} component={Purchase} />
-                <PrivateRoute path='/logout' loggedIn={this.props.signin.loggedIn} component={Logout} />
+                <PrivateRoute path='/userinfo' isAuthenticated={this.props.loggedIn} component={UserInfo} />
+                <PrivateRoute path='/purchase' isAuthenticated={this.props.loggedIn} component={Purchase} />
+                <PrivateRoute path='/logout' isAuthenticated={this.props.loggedIn} component={Logout} />
                 <Route exact path="/" component={HotItems} />
                 <Route exact path="/browse" component={Browse} />
                 <Route exact path="/cart" component={Cart}/>
@@ -59,14 +58,8 @@ class AppRouter extends React.Component<ISignInProps, ISignInState> {
 }
 
 // read state-store values into state-component values
-const mapStateToProps = (state: IState) => {
-  return {
-    signin: state.signin
-  }
-}
+const mapStateToProps = (state: IState): ISignInProps =>({
+    loggedIn: state.signin.loggedIn
+});
 
-const actionCreators = {
-  //signin: userActions.signin,
-}
-
-export default connect(mapStateToProps, actionCreators)(AppRouter);
+export default connect(mapStateToProps)(AppRouter);
