@@ -150,6 +150,9 @@ body {
 #display-id {
   text-align: center;
 }
+.bodysuits,.gloves,.masks{
+  width: 100%; 
+}
 #right-col {
   border: 20px solid rgba(0,0,0,.125);
   background: rgba(255,255,255, 0.9) !important;
