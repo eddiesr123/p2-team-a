@@ -25,7 +25,7 @@ class HotItems extends React.Component<any> {
           return item;
         });
         console.log(items);
-        this.props.getProducts(items.slice(0, 6));
+        this.props.getProducts(items.slice(0, 9));
 
       });
     }
