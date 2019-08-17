@@ -71,6 +71,7 @@ export class Catalog extends React.Component<any, ICatalogProps> {
                         <div className="tab-content" id="myTabContent">
                             <div className="tab-pane fade show active p-12" id="one" role="tabpanel" aria-labelledby="one-tab">
                                 <div className="container">
+                                <h5 className="card-title no-pad" >Bodysuits</h5>
                                     <div className="row f-box">
                                         <CatalogCard 
                                             name="Doomsday Blue"
@@ -80,7 +81,7 @@ export class Catalog extends React.Component<any, ICatalogProps> {
                                             pathToImg={'../images/alphas/bodysuit-blue-female.png'} 
                                             imgObj={require('../images/alphas/bodysuit-blue-female.png')} />
                                         <CatalogCard 
-                                            name="Suit of Shadow"
+                                            name="Suit of Shadows"
                                             price="200"
                                             pathToThumb= "../images/thumbnails/bodysuit-black-female.png"
                                             thumbObj={require('../images/thumbnails/bodysuit-black-female.png')}
@@ -108,6 +109,7 @@ export class Catalog extends React.Component<any, ICatalogProps> {
                             </div>
                             <div className="tab-pane fade p-12" id="two" role="tabpanel" aria-labelledby="two-tab">
                                 <div className="container">
+                                    <h5 className="card-title no-pad" >Masks</h5>
                                     <div className="row f-box">
                                         <CatalogCard 
                                             name="Doomsday Blue"
@@ -146,6 +148,7 @@ export class Catalog extends React.Component<any, ICatalogProps> {
                             </div>
                             <div className="tab-pane fade p-12" id="three" role="tabpanel" aria-labelledby="three-tab">
                                 <div className="container">
+                                <h5 className="card-title no-pad glove-align">Gloves</h5>
                                     <div className="row f-box">
                                         <CatalogCard 
                                             name="Super Gloves"
