@@ -58,13 +58,13 @@ const make = async files => {
       case "mask green female":
         myItem.name = "Green Cobra Mask"; break;
       case "bodysuit blue female":
-        myItem.name = "Suit of the Blue Eagle"; break;
+        myItem.name = "Doomsday Blue Suit"; break;
       case "mask blue female":
-        myItem.name = "Blue Eagle Mask"; break;
+        myItem.name = "Doomsday Blue Mask"; break;
       case "bodysuit black female":
-        myItem.name = "The Black Suit"; break;
+        myItem.name = "Dark Shadow Suit"; break;
       case "mask black female":
-        myItem.name = "The Black Mask"; break;
+        myItem.name = "Dark Shadow Mask"; break;
       case "bodysuit red female":
         myItem.name = "Red Rage Suit"; break;
       case "mask red female":

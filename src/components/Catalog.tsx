@@ -73,14 +73,14 @@ export class Catalog extends React.Component<any, ICatalogProps> {
                                 <div className="container">
                                     <div className="row f-box">
                                         <CatalogCard 
-                                            name="Blue suit of Doom"
+                                            name="Doomsday Blue"
                                             price="500" updateDisplay={this.props.updateSuit} 
                                             pathToThumb= "../images/thumbnails/bodysuit-blue-female.png"
                                             thumbObj={require('../images/thumbnails/bodysuit-blue-female.png')}
                                             pathToImg={'../images/alphas/bodysuit-blue-female.png'} 
                                             imgObj={require('../images/alphas/bodysuit-blue-female.png')} />
                                         <CatalogCard 
-                                            name="Dark Doom Suit"
+                                            name="Dark Shadow"
                                             price="200"
                                             pathToThumb= "../images/thumbnails/bodysuit-black-female.png"
                                             thumbObj={require('../images/thumbnails/bodysuit-black-female.png')}
@@ -88,7 +88,7 @@ export class Catalog extends React.Component<any, ICatalogProps> {
                                             pathToImg={'../images/alphas/bodysuit-black-female.png'} 
                                             imgObj={require('../images/alphas/bodysuit-black-female.png')} />
                                         <CatalogCard 
-                                            name="Doom n Bloom"
+                                            name="Suit of Flames"
                                             price="120"
                                             pathToThumb= "../images/thumbnails/bodysuit-red-female.png"
                                             thumbObj={require('../images/thumbnails/bodysuit-red-female.png')}
@@ -96,7 +96,7 @@ export class Catalog extends React.Component<any, ICatalogProps> {
                                             pathToImg={'../images/alphas/bodysuit-red-female.png'} 
                                             imgObj={require('../images/alphas/bodysuit-red-female.png')} />
                                         <CatalogCard 
-                                            name="Doomination"
+                                            name="Green Mamba"
                                             price="50"
                                             pathToThumb= "../images/thumbnails/bodysuit-green-female.png"
                                             thumbObj={require('../images/thumbnails/bodysuit-green-female.png')}
@@ -110,7 +110,7 @@ export class Catalog extends React.Component<any, ICatalogProps> {
                                 <div className="container">
                                     <div className="row f-box">
                                         <CatalogCard 
-                                            name="Blue Mask of Doom"
+                                            name="Doomsday Blue"
                                             price="500"
                                             pathToThumb= "../images/thumbnails/mask-blue-female.png"
                                             thumbObj={require('../images/thumbnails/mask-blue-female.png')}
@@ -118,7 +118,7 @@ export class Catalog extends React.Component<any, ICatalogProps> {
                                             pathToImg={'../images/alphas/mask-blue-female.png'} 
                                             imgObj={require('../images/alphas/mask-blue-female.png')} />
                                         <CatalogCard 
-                                            name="Doomagedon Mask"
+                                            name="Shadow Mask"
                                             price="500"
                                             pathToThumb= "../images/thumbnails/mask-black-female.png"
                                             thumbObj={require('../images/thumbnails/mask-black-female.png')}
@@ -126,7 +126,7 @@ export class Catalog extends React.Component<any, ICatalogProps> {
                                             pathToImg={'../images/alphas/mask-black-female.png'} 
                                             imgObj={require('../images/alphas/mask-black-female.png')} />
                                         <CatalogCard 
-                                            name="Doomy Mask"
+                                            name="Mamba Mask"
                                             price="500"
                                             pathToThumb= "../images/thumbnails/mask-green-female.png"
                                             thumbObj={require('../images/thumbnails/mask-green-female.png')}
@@ -134,7 +134,7 @@ export class Catalog extends React.Component<any, ICatalogProps> {
                                             pathToImg={'../images/alphas/mask-green-female.png'} 
                                             imgObj={require('../images/alphas/mask-green-female.png')} />
                                         <CatalogCard 
-                                            name="Here comes the Doom"
+                                            name="Mask of Fury"
                                             price="500"
                                             pathToThumb= "../images/thumbnails/mask-red-female.png"
                                             thumbObj={require('../images/thumbnails/mask-red-female.png')}
@@ -148,7 +148,7 @@ export class Catalog extends React.Component<any, ICatalogProps> {
                                 <div className="container">
                                     <div className="row f-box">
                                         <CatalogCard 
-                                            name="Doom Gloves"
+                                            name="Super Gloves"
                                             price="500"
                                             pathToThumb= "../images/thumbnails/gloves-female.png"
                                             thumbObj={require('../images/thumbnails/gloves-female.png')}

@@ -159,10 +159,10 @@ body {
   text-align: center;
 }
 #right-col {
-  border: 20px solid rgba(0,0,0,.125);
+  border: 20px solid rgba(0,0,0,.2);
   background: rgba(255,255,255, 0.9) !important;
   border-radius: 6px;
-  min-height: 560px;
+  min-height: 520px;
 }
 .hot-card  {
   margin-bottom: 8px;
@@ -280,4 +280,7 @@ body {
 .hot-card-content {
   text-align: left !important;
   font-weight: bold;
+}
+.tab-content {
+  background: rgba(0,0,0,.2);
 }
