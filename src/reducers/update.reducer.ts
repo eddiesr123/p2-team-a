@@ -9,7 +9,7 @@ const initState: IUserState ={
         lastName: '',
         email: '',
         password: '',
-        creditCard: ''
+        creditCard: {}
     },
       updating: false,
       submitted: false

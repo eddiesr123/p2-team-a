@@ -40,11 +40,12 @@ async function signin(user: any) {
 
 async function changeInfo(user: any) {
     const { username, firstName, lastName, email, password } = user;
+    const creditCard = { number: user.creditCard };
     const requestOptions = {
-        method: 'UPDATE',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, firstName, lastName, email, password })
-    };
+        method: 'PUT',
+        headers: { 'Authorization' : user.token, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, firstName, lastName, email, password, creditCard })
+    }; console.log(requestOptions);
 
     return await fetch(`${api_url}/userinfo`, requestOptions)
         .then(handleResponse)
@@ -58,9 +59,8 @@ async function changeInfo(user: any) {
 async function handleResponse(response: any) {
 
     if (!response.ok) {
-        if (response.status === 404) {
-            // auto logout if 404 response returned from api
-            logout();
+        if (response.status === 401) {
+           alert('Token invalid!');
         }
         const error = response && (response.message || response.statusText);
         return Promise.reject(error);

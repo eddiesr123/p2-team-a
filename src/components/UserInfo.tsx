@@ -62,7 +62,8 @@ class UserInfo extends React.Component<any, IUserState> {
     event.preventDefault();
     //this.setState({ submitting: true });
     const { updateUser } = this.state;
-    if (updateUser.username && updateUser.firstName && updateUser.lastName && updateUser.email && updateUser.password && updateUser.creditCard) {
+    if (updateUser.username && updateUser.firstName && updateUser.lastName
+          && updateUser.email && updateUser.password && updateUser.creditCard) {
       this.props.changeInfo(updateUser);
     }
   }
