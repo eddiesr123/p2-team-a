@@ -17,17 +17,23 @@ const initState: IUserState ={
         }
     },
       updating: false,
+      updated: false,
       submitted: false
 };
 
- const updateReducer = (state = initState, action: any) => {
+interface Action {
+    type: any,
+    user: any,
+  }
+
+ const updateReducer = (state: IUserState = initState, action: Action) => {
   switch (action.type) {
     case userConstants.UPDATE_REQUEST:
-        return { ...state, updating: true, submitted: true };
+        return { ...action.user, updating: true, updated: false, submitted: true };
     case userConstants.UPDATE_SUCCESS:
-        return { ...state, updating: false, submitted: false};
+        return { ...state, user: action.user, updating: false, updated: true, submitted: false};
     case userConstants.UPDATE_FAILURE:
-        return { ...state, updating: false, submitted: false};
+        return { ...state, updating: false, updated: false, submitted: false};
     default:
       return state
   }

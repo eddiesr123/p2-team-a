@@ -58,6 +58,7 @@ export interface IUserState {
     }
 },
     updating: boolean,
+    updated: boolean,
     submitted: boolean
 }
 

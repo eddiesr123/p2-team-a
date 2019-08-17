@@ -67,7 +67,7 @@ function changeInfo(user : any) {
         };
 
     function request(user: any) { return { type: userConstants.UPDATE_REQUEST, user } }
-    function success(user: any) { return { type: userConstants.UPDATE_SUCCESS, user } }
+    function success(user: any) { return { type: userConstants.SIGNIN_SUCCESS, user } }
     function failure(error: any) { return { type: userConstants.UPDATE_FAILURE, error } }
 
 }

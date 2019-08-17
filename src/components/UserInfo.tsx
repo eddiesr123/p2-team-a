@@ -53,6 +53,7 @@ class UserInfo extends React.Component<any, any> {
         }
       },
         updating: false,
+        updated: false,
         submitted: false
       }
   
@@ -128,6 +129,7 @@ class UserInfo extends React.Component<any, any> {
               <TextField
                 variant="outlined"
                 fullWidth
+                required
                 id="username"
                 label="Username"
                 name="username"
@@ -140,6 +142,7 @@ class UserInfo extends React.Component<any, any> {
               <TextField
                 autoComplete="fname"
                 name="firstName"
+                required
                 value={updateUser.firstName}
                 defaultValue={this.props.user.firstName}
                 onChange={this.handleChange}
@@ -153,6 +156,7 @@ class UserInfo extends React.Component<any, any> {
               <TextField
                 variant="outlined"
                 fullWidth
+                required
                 id="lastName"
                 label={"Last name"}
                 name="lastName"
@@ -165,6 +169,7 @@ class UserInfo extends React.Component<any, any> {
               <TextField
                 variant="outlined"
                 fullWidth
+                required
                 id="email"
                 label="Email"
                 name="email"
@@ -177,6 +182,7 @@ class UserInfo extends React.Component<any, any> {
               <TextField
                 variant="outlined"
                 fullWidth
+                required
                 name="password"
                 value={updateUser.password}
                 defaultValue={this.props.user.password}
@@ -256,8 +262,8 @@ class UserInfo extends React.Component<any, any> {
 }
 
 function mapStateToProps(state: IState) {
-       const { user, submitted } = state.signin;
-   return { user, submitted };
+       const { user } = state.signin;
+   return { user };
  }
 
  const actionCreators = {
