@@ -46,7 +46,7 @@ export class Navbar extends React.Component<any, INavbarState> {
                 {!this.props.signin.loggedIn ?
                   <Link className="nav-link" to="/register" >Sign up</Link>
                   :
-                  <Link className="nav-link" to="/userinfo" >{this.props.signin.user.username}, </Link>
+                  <Link className="nav-link" to="/userinfo" >{this.props.signin.user.username} </Link>
                 }
                 </li>
                 <li className="divider-vertical nav-item" data-toggle="collapse" data-target=".navbar-collapse.show"/>
