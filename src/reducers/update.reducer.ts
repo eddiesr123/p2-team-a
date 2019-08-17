@@ -9,11 +9,16 @@ const initState: IUserState ={
         lastName: '',
         email: '',
         password: '',
-        creditCard: {}
+        creditCard: {
+        number: '',
+        address: '',
+        securityCode: '',
+        expiration: ''
+        }
     },
       updating: false,
       submitted: false
-}
+};
 
  const updateReducer = (state = initState, action: any) => {
   switch (action.type) {

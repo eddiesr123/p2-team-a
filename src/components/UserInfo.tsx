@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { userActions } from '../actions/user.actions';
-import { IState, IUserState } from '../reducers';
+import { IState } from '../reducers';
 import Skull from '../Login.png';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -14,7 +14,7 @@ import Container from '@material-ui/core/Container';
 
 export interface IUserProps {
   // read in data from state store
-  updateUser: IUserState,
+  updateUser: any,
   classes: any
 }
 
@@ -33,24 +33,50 @@ const styles = {
   }
 };
 
-class UserInfo extends React.Component<any, IUserState> {
+class UserInfo extends React.Component<any, any> {
   constructor(props: any) {
     super(props);
 
       this.state = {
-        updateUser: this.props.user,
+        //updateUser: this.props.user,
+        updateUser: {
+          // username: '',
+          // firstName: '',
+          // lastName: '',
+          // email: '',
+          // password: '',
+          creditCard: {
+          // number: '',
+          // address: '',
+          // securityCode: '',
+          // expiration: ''
+        }
+      },
         updating: false,
         submitted: false
       }
   
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
+      this.handleChangeCreditCard = this.handleChangeCreditCard.bind(this);
+  }
+
+  componentDidMount(){
+    this.setState({
+      ...this.state, 
+      updateUser: {
+        ...this.state.updateUser, 
+        ...this.props.user, 
+        creditCard: { ...this.props.user.creditCard} 
+      },
+    })
   }
 
   handleChange(event: any) {
     const { name, value } = event.target;
     const { updateUser } = this.state;
     this.setState({
+      ...this.state, 
       updateUser: {
         ...updateUser,
         [name]: value
@@ -58,12 +84,26 @@ class UserInfo extends React.Component<any, IUserState> {
     });
   }
 
+  handleChangeCreditCard(event:any) { 
+    const { name, value } = event.target;
+    const updatedCreditCard:any = {...this.state.updateUser.creditCard}
+    updatedCreditCard[name] = value;
+    this.setState({ 
+      ...this.state, 
+      updateUser: {
+        ...this.state.updateUser, 
+        creditCard: updatedCreditCard
+      }
+    })
+  }
+
   handleSubmit(event: any) {
     event.preventDefault();
     //this.setState({ submitting: true });
+    console.log(this.state.updateUser)
     const { updateUser } = this.state;
     if (updateUser.username && updateUser.firstName && updateUser.lastName
-          && updateUser.email && updateUser.password && updateUser.creditCard) {
+          && updateUser.email && updateUser.password) {
       this.props.changeInfo(updateUser);
     }
   }
@@ -92,8 +132,8 @@ class UserInfo extends React.Component<any, IUserState> {
                 label="Username"
                 name="username"
                 value={updateUser.username}
+                defaultValue={this.props.user.username}
                 onChange={this.handleChange}
-                autoComplete="username"
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -101,11 +141,12 @@ class UserInfo extends React.Component<any, IUserState> {
                 autoComplete="fname"
                 name="firstName"
                 value={updateUser.firstName}
+                defaultValue={this.props.user.firstName}
                 onChange={this.handleChange}
                 variant="outlined"
                 fullWidth
                 id="firstName"
-                label="First name"
+                label={"First name"}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -113,11 +154,11 @@ class UserInfo extends React.Component<any, IUserState> {
                 variant="outlined"
                 fullWidth
                 id="lastName"
-                label="Last name"
+                label={"Last name"}
                 name="lastName"
                 value={updateUser.lastName}
                 onChange={this.handleChange}
-                autoComplete="lname"
+                defaultValue={this.props.user.lastName}
               />
             </Grid>
             <Grid item xs={12}>
@@ -128,8 +169,8 @@ class UserInfo extends React.Component<any, IUserState> {
                 label="Email"
                 name="email"
                 value={updateUser.email}
+                defaultValue={this.props.user.email}
                 onChange={this.handleChange}
-                autoComplete="email"
               />
             </Grid>
             <Grid item xs={12}>
@@ -138,28 +179,63 @@ class UserInfo extends React.Component<any, IUserState> {
                 fullWidth
                 name="password"
                 value={updateUser.password}
+                defaultValue={this.props.user.password}
                 onChange={this.handleChange}
                 label="Password"
                 type="password"
                 id="password"
-                autoComplete="current-password"
               />
             </Grid>
             <Grid item xs={12}>
               <TextField
                 variant="outlined"
                 fullWidth
-                name="creditCard"
-                value={updateUser.creditCard}
-                onChange={this.handleChange}
+                name="number"
+                value={updateUser.creditCard.number}
+                defaultValue={this.props.user.creditCard&&this.props.user.creditCard.number}
+                onChange={this.handleChangeCreditCard}
                 label="Credit number"
-                id="creditCard"
-                autoComplete="creditCard"
+                id="number"
+              />
+              </Grid>
+              <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                fullWidth
+                name="address"
+                value={updateUser.creditCard.address}
+                defaultValue={this.props.user.creditCard&&this.props.user.creditCard.address}
+                onChange={this.handleChangeCreditCard}
+                label="Address"
+                id="address"
+              />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+              <TextField
+                variant="outlined"
+                fullWidth
+                name="expiration"
+                value={updateUser.creditCard.expiration}
+                defaultValue={this.props.user.creditCard&&this.props.user.creditCard.expiration}
+                onChange={this.handleChangeCreditCard}
+                label="Exp"
+                id="expiration"
+              />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+              <TextField
+                variant="outlined"
+                fullWidth
+                name="securityCode"
+                value={updateUser.creditCard.securityCode}
+                defaultValue={this.props.user.creditCard&&this.props.user.creditCard.securityCode}
+                onChange={this.handleChangeCreditCard}
+                label="CVV"
+                type="password"
+                id="securityCode"
               />
             </Grid>
             <Grid item xs={12}>
-            </Grid>
-          </Grid>
             <Button
               type="submit"
               fullWidth
@@ -168,6 +244,8 @@ class UserInfo extends React.Component<any, IUserState> {
             >
               Update
             </Button>
+             </Grid>
+            </Grid>
           </form>
         </div>
         <Box mt={5}>

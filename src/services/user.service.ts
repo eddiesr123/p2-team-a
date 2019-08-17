@@ -42,7 +42,7 @@ async function signin(user: any) {
 
 async function changeInfo(user: any) {
     const { username, firstName, lastName, email, password } = user;
-    const creditCard = { number: user.creditCard };
+    const creditCard = user.creditCard;
     const body = { username, firstName, lastName, email, password, creditCard }
     let config: any = {
         method: "put",

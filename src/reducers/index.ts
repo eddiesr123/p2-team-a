@@ -36,7 +36,7 @@ export interface ISignInState {
         lastName: string,
         email: string,
         password: string,
-        creditCard: string
+        creditCard: any
     };
     loggingIn: boolean;
     loggedIn: boolean;
@@ -50,8 +50,13 @@ export interface IUserState {
         lastName: string,
         email: string,
         password: string,
-        creditCard: any
-    },
+    creditCard: {
+        number: string,
+        address: string,
+        securityCode: string,
+        expiration: string
+    }
+},
     updating: boolean,
     submitted: boolean
 }
