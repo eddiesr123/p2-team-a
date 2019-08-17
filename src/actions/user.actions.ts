@@ -57,7 +57,7 @@ function changeInfo(user : any) {
             .then(
                 user => {
                     dispatch(success(user));    
-                    dispatch(alertActions.success('Registration successful')); 
+                    dispatch(alertActions.success('Information has been updated! >:)')); 
                 },       
                 error => {
                     dispatch(failure(error.toString()));

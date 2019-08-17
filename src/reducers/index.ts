@@ -50,7 +50,7 @@ export interface IUserState {
         lastName: string,
         email: string,
         password: string,
-        creditCard: string
+        creditCard: any
     },
     updating: boolean,
     submitted: boolean
