@@ -27,7 +27,28 @@ export class Catalog extends React.Component<any, ICatalogProps> {
         let suitsRes = await Axios.get('http://localhost:8080/items/type/suit');
         let suits = suitsRes.data;
         this.setState({ masks:masks.slice(0,4), gloves:gloves.slice(0,4), suits:suits.slice(0,4)});
+        console.log(suits);
     }
+    /**
+     handleClick = (id: any)=>{
+        this.props.addToCart(id);
+    }
+
+    componentDidMount() {
+        if(!this.props.stateCheck) {
+            const url = `http://localhost:8080/items/`;
+            Axios.get(url).then(payload => {
+                console.log(payload);
+
+                const items = payload.data.map((item: any) => {
+                    return item;
+                });
+                console.log(items);
+                this.props.getProducts(items.slice(0,6));
+            })
+        }
+    }
+     */
     render() {
         return (<div className="container card-container">
             <div className="row" >

@@ -3,6 +3,7 @@ import { IState } from '../reducers';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { userConstants } from '../constants/user.constants';
+import { RESET_STATE } from '../actions/action-types/cart-actions';
 
 export interface ILogoutProps {
     logout: () => void
@@ -34,9 +35,18 @@ const logout = () => {
     return action;
 }
 
+const clearCart = () => {
+    let action: any = {}
+    action.type = RESET_STATE
+    return action
+}
+
 const mapDispatchToProps = (dispatch: any) => {
     return {
-        logout: () => dispatch(logout())
+        logout: () => {
+            dispatch(logout()); 
+            dispatch(clearCart());
+        }
     }
 }
 

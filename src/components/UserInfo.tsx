@@ -13,29 +13,29 @@ import { withStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
 export interface IUserProps {
-    // read in data from state store
-    updateUser: IUserState,
-    classes: any
+  // read in data from state store
+  updateUser: IUserState,
+  classes: any
 }
 
 const styles = {
-    avatar: {
-      marginTop: 70,
-      width: 100,
-      height: 100,
-    },
-    paper: {
-      margin: 10,
-    },
-    form: {
-      width: 'auto', // Fix IE 11 issue.
-      marginTop: 30,
-    }
-  };
+  avatar: {
+    marginTop: 70,
+    width: 100,
+    height: 100,
+  },
+  paper: {
+    margin: 10,
+  },
+  form: {
+    width: 'auto', // Fix IE 11 issue.
+    marginTop: 30,
+  }
+};
 
 class UserInfo extends React.Component<any, IUserState> {
-    constructor(props: any) {
-      super(props);
+  constructor(props: any) {
+    super(props);
 
       this.state = {
         updateUser: this.props.user,
@@ -51,19 +51,19 @@ class UserInfo extends React.Component<any, IUserState> {
     const { name, value } = event.target;
     const { updateUser } = this.state;
     this.setState({
-        updateUser: {
+      updateUser: {
         ...updateUser,
         [name]: value
       }
     });
   }
-  
+
   handleSubmit(event: any) {
     event.preventDefault();
     //this.setState({ submitting: true });
     const { updateUser } = this.state;
     if (updateUser.username && updateUser.firstName && updateUser.lastName && updateUser.email && updateUser.password && updateUser.creditCard) {
-        this.props.changeInfo(updateUser);
+      this.props.changeInfo(updateUser);
     }
   }
 
@@ -159,21 +159,21 @@ class UserInfo extends React.Component<any, IUserState> {
             <Grid item xs={12}>
             </Grid>
           </Grid>
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-          >
-            Update
-          </Button>
-        </form>
-      </div>
-      <Box mt={5}>
-      </Box>
-    </Container>
-  );
-}
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+            >
+              Update
+            </Button>
+          </form>
+        </div>
+        <Box mt={5}>
+        </Box>
+      </Container>
+    );
+  }
 }
 
 function mapStateToProps(state: IState) {

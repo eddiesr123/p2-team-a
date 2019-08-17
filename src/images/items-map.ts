@@ -1,4 +1,6 @@
-const imgMap = {
+let imgMap:any;
+
+imgMap = {
   './src/images/alphas/bodysuit-black-female.png': [
     require('./alphas/bodysuit-black-female.png'),
     require('./thumbnails/bodysuit-black-female.png')
@@ -23,14 +25,6 @@ const imgMap = {
     require('./alphas/bodysuit-grey-male.png'),
     require('./thumbnails/bodysuit-grey-male.png')
   ],
-  './src/images/alphas/bodysuit-purple-female.png': [
-    require('./alphas/bodysuit-purple-female.png'),
-    require('./thumbnails/bodysuit-purple-female.png')
-  ],
-  './src/images/alphas/bodysuit-purple-male.png': [
-    require('./alphas/bodysuit-purple-male.png'),
-    require('./thumbnails/bodysuit-purple-male.png')
-  ],
   './src/images/alphas/bodysuit-red-female.png': [
     require('./alphas/bodysuit-red-female.png'),
     require('./thumbnails/bodysuit-red-female.png')
@@ -38,22 +32,6 @@ const imgMap = {
   './src/images/alphas/bodysuit-red-male.png': [
     require('./alphas/bodysuit-red-male.png'),
     require('./thumbnails/bodysuit-red-male.png')
-  ],
-  './src/images/alphas/empty-female-mask.png': [
-    require('./alphas/empty-female-mask.png'),
-    require('./thumbnails/empty-female-mask.png')
-  ],
-  './src/images/alphas/empty-female-suit.png': [
-    require('./alphas/empty-female-suit.png'),
-    require('./thumbnails/empty-female-suit.png')
-  ],
-  './src/images/alphas/empty-male-mask.png': [
-    require('./alphas/empty-male-mask.png'),
-    require('./thumbnails/empty-male-mask.png')
-  ],
-  './src/images/alphas/empty-male-suit.png': [
-    require('./alphas/empty-male-suit.png'),
-    require('./thumbnails/empty-male-suit.png')
   ],
   './src/images/alphas/gloves-female.png': [
     require('./alphas/gloves-female.png'),

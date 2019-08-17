@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import React from 'react';
+import { connect } from 'react-redux';
 import { IState } from '../reducers';
 import { Link } from "react-router-dom";
 //import { addShipping } from './actions/cartActions'
@@ -7,59 +7,59 @@ import { Link } from "react-router-dom";
 
 export class Total extends React.Component<any>{
 
-    handleChecked = (e: any)=>{
-        if(e.target.checked){
+    handleChecked = (e: any) => {
+        if (e.target.checked) {
             this.props.addShipping();
         }
-        else{
+        else {
             this.props.substractShipping();
         }
     }
 
     componentDidMount() {
-        if(this.props.checked) {
-             this.props.substractShipping();
+        if (this.props.checked) {
+            this.props.substractShipping();
         }
     }
 
-    render(){
-  
-        return(
+    render() {
+
+        return (
             <div className="container">
                 <div className="collection">
                     <li className="collection-item">
-                            <label>
-                                <input type="checkbox" ref="shipping" onChange= {this.handleChecked} />
-                                <span>Expedited Shipping(+6$)</span>
-                            </label>
+                        <label>
+                            <input type="checkbox" ref="shipping" onChange={this.handleChecked} />
+                            <span>Expedited Shipping(+6$)</span>
+                        </label>
+                    </li>
+                    <li className="collection-item"><b>Total: {this.props.total} $</b></li>
+                </div>
+                <div className="checkout">
+                    <ul className="nav navbar-nav navbar-right">
+                        <li className="nav-item">
+                            <Link style={{ textShadow: "1.5px 1.5px 0 #000" }} className="nav-link" to="/checkout" id="navbar-cart-btn">Checkout</Link>
                         </li>
-                        <li className="collection-item"><b>Total: {this.props.total} $</b></li>
-                    </div>
-                    <div className="checkout">
-                        <ul className="nav navbar-nav navbar-right">
-                            <li className="nav-item">
-                                <Link style={{textShadow:"1.5px 1.5px 0 #000"}}className="nav-link" to="/checkout" id="navbar-cart-btn">Checkout</Link> 
-                            </li>
-                        </ul>  
-                    </div>
-                 </div>
+                    </ul>
+                </div>
+            </div>
         )
     }
 }
 
-const mapStateToProps = (state: IState)=>{
-    return{
+const mapStateToProps = (state: IState) => {
+    return {
         addedItems: state.cart.addedItems,
         total: state.cart.total,
         checked: state.cart.checkedBox
     }
 }
 
-const mapDispatchToProps = (dispatch: any)=>{
-    return{
-        addShipping: ()=>{dispatch({type: 'ADD_SHIPPING'})},
-        substractShipping: ()=>{dispatch({type: 'SUB_SHIPPING'})}
+const mapDispatchToProps = (dispatch: any) => {
+    return {
+        addShipping: () => { dispatch({ type: 'ADD_SHIPPING' }) },
+        substractShipping: () => { dispatch({ type: 'SUB_SHIPPING' }) }
     }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(Total)
+export default connect(mapStateToProps, mapDispatchToProps)(Total)
