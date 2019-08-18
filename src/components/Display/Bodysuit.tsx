@@ -11,7 +11,7 @@ export class Bodysuit extends React.Component<any, any> {
         return(
             <div className="bodysuits-div" id="bodysuit-div">
                 <img className="bodysuits" id="bodysuit-green-female" width="100%" 
-                    src={imgMap[this.props.suit]} alt="bodysuit" />
+                    src={imgMap[this.props.suit] || this.props.suit} alt="bodysuit" />
             </div>
         )
     }

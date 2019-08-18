@@ -1,4 +1,4 @@
-import { ADD_TO_CART,REMOVE_ITEM,SUB_QUANTITY,ADD_QUANTITY,ADD_SHIPPING, GET_PRODUCTS, RESET_STATE } from '../actions/action-types/cart-actions';
+import { ADD_TO_CART,REMOVE_ITEM,SUB_QUANTITY,ADD_QUANTITY,ADD_SHIPPING, GET_PRODUCTS, RESET_STATE, INPUT_UPDATE, INPUT_UPDATE2, GET_ORDER } from '../actions/action-types/cart-actions';
 import { ICartState } from '.';
 
 
@@ -9,7 +9,24 @@ const initState: ICartState = {
     totalItems: 0,
     checkedBox: false,
     stateCheck: true,
-
+    shipping: {
+        firstName: 'John',
+        lastName: 'Doe',
+        address1: '1 Main Street',
+        address2: '',
+        city: 'Tampa',
+        state: 'Florida',
+        zip: '33612',
+        country: 'USA'
+    },
+    payment: {
+        cardName: 'John Smith',
+        cardNumber: 'xxx-xxx-xxx-3456',
+        expDate: '04/2024',
+        cvv: '123'
+    },
+    inputValue: '',
+    order: {}
 }
 const cartReducer= (state = initState, action: any)=>{
    
@@ -131,9 +148,38 @@ const cartReducer= (state = initState, action: any)=>{
         }
     }
 
+    if(action.type=== GET_ORDER) {
+        return {
+            ...state,
+            order: action.order
+        }
+    }
+
     if(action.type=== RESET_STATE) {
         return {
             ...initState,
+        }
+    }
+
+    if (action.type=== INPUT_UPDATE) {
+        const { name, value } = action.inputValue;
+        return {
+            ...state,
+            shipping: {
+                ...state.shipping,
+                [name]: value
+            }
+        }
+    }
+
+    if (action.type=== INPUT_UPDATE2) {
+        const { name, value } = action.inputValue2;
+        return {
+            ...state,
+            payment: {
+                ...state.payment,
+                [name]: value
+            }
         }
     }
     

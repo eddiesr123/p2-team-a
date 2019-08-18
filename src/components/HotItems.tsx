@@ -24,17 +24,14 @@ class HotItems extends React.Component<any> {
         const items = payload.data.map((item: any) => {
           return item;
         });
-        console.log(items);
-        this.props.getProducts(items.slice(53, 59));
-
+        this.props.getProducts(items.slice(0,9));
       });
     }
   }
 
   render() {
-    console.log(this.props.items);
 
-    let itemList = this.props.items.map((item: any) => {
+    let itemList = this.props.items.slice(0,6).map((item: any) => {
       return (
         <div
           className="card hot-card"
@@ -42,7 +39,7 @@ class HotItems extends React.Component<any> {
           key={item.id}>
           <div id="hot-card-div">
             <img
-              src={itemsMap[item.imgPath]&&itemsMap[item.imgPath][1]} alt={item.name} style={{ margin: 10, width: 100, height: 125, }} />
+              src={itemsMap[item.imgPath]&&itemsMap[item.imgPath][1]} alt={item.name} style={{ margin: 10, width: 125, height: 100, }} />
             <div>
               <Link to="/">
                 <Button

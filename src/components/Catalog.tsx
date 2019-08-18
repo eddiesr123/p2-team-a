@@ -7,6 +7,9 @@ import { updateCartCount } from '../actions/navbar.actions';
 import { catalogActions } from '../actions/catalog.actions';
 import { connect } from 'react-redux';
 import Axios from 'axios';
+import itemsMap from '../images/items-map';
+import { getProducts } from '../actions/cartActions';
+
 //import '../css/browsercss';
 export interface ICatalogProps {
     catalogCard: ICatalogState,
@@ -19,6 +22,7 @@ export interface ICatalogProps {
 }
 //axios.data
 export class Catalog extends React.Component<any, ICatalogProps> {
+   /*
     async componentDidMount() {
         let masksRes = await Axios.get('http://localhost:8080/items/type/mask');
         let masks = masksRes.data
@@ -29,28 +33,30 @@ export class Catalog extends React.Component<any, ICatalogProps> {
         this.setState({ masks:masks.slice(0,4), gloves:gloves.slice(0,4), suits:suits.slice(0,4)});
         console.log(suits);
     }
-    /**
-     handleClick = (id: any)=>{
-        this.props.addToCart(id);
-    }
+    */
 
-    componentDidMount() {
-        if(!this.props.stateCheck) {
-            const url = `http://localhost:8080/items/`;
-            Axios.get(url).then(payload => {
-                console.log(payload);
 
-                const items = payload.data.map((item: any) => {
-                    return item;
-                });
-                console.log(items);
-                this.props.getProducts(items.slice(0,6));
-            })
-        }
+   componentDidMount() {
+    if (this.props.stateCheck) {
+      const url = `http://localhost:8080/items/`;
+      Axios.get(url).then(payload => {
+        console.log(payload);
+
+        const items = payload.data.map((item: any) => {
+          return item;
+        });
+        this.props.getProducts(items.slice(0,9));
+      });
     }
-     */
+  }
+
+
     render() {
-        return (<div className="container card-container">
+        let allSuits = this.props.suits;
+       
+        return (
+        <div className="container card-container">
+            {!this.props.stateCheck &&
             <div className="row" >
                 <div className="col-12">
                     <div className="card tab-card">
@@ -67,42 +73,34 @@ export class Catalog extends React.Component<any, ICatalogProps> {
                                 </li>
                             </ul>
                         </div>
-
                         <div className="tab-content" id="myTabContent">
                             <div className="tab-pane fade show active p-12" id="one" role="tabpanel" aria-labelledby="one-tab">
                                 <div className="container">
                                     <div className="row f-box">
                                         <CatalogCard 
                                             name="Blue suit of Doom"
-                                            price="500" updateDisplay={this.props.updateSuit} 
-                                            pathToThumb= "../images/thumbnails/bodysuit-blue-female.png"
-                                            thumbObj={require('../images/thumbnails/bodysuit-blue-female.png')}
-                                            pathToImg={'../images/alphas/bodysuit-blue-female.png'} 
-                                            imgObj={require('../images/alphas/bodysuit-blue-female.png')} />
+                                            price="500" updateDisplay={this.props.updateSuit}
+                                            thumbObj={itemsMap[allSuits[1].imgPath][1]}
+                                            pathToImg={itemsMap[allSuits[1].imgPath][0]}
+                                            itemId={allSuits[1].id} />
                                         <CatalogCard 
                                             name="Dark Doom Suit"
-                                            price="200"
-                                            pathToThumb= "../images/thumbnails/bodysuit-black-female.png"
-                                            thumbObj={require('../images/thumbnails/bodysuit-black-female.png')}
-                                            updateDisplay={this.props.updateSuit} 
-                                            pathToImg={'../images/alphas/bodysuit-black-female.png'} 
-                                            imgObj={require('../images/alphas/bodysuit-black-female.png')} />
+                                            price="200" updateDisplay={this.props.updateSuit}
+                                            thumbObj={itemsMap[allSuits[0].imgPath][1]}
+                                            pathToImg={itemsMap[allSuits[0].imgPath][0]} 
+                                            itemId={allSuits[0].id}/>
                                         <CatalogCard 
                                             name="Doom n Bloom"
-                                            price="120"
-                                            pathToThumb= "../images/thumbnails/bodysuit-red-female.png"
-                                            thumbObj={require('../images/thumbnails/bodysuit-red-female.png')}
-                                            updateDisplay={this.props.updateSuit} 
-                                            pathToImg={'../images/alphas/bodysuit-red-female.png'} 
-                                            imgObj={require('../images/alphas/bodysuit-red-female.png')} />
-                                        <CatalogCard 
+                                            price="120" updateDisplay={this.props.updateSuit}
+                                            thumbObj={itemsMap[allSuits[3].imgPath][1]}
+                                            pathToImg={itemsMap[allSuits[3].imgPath][0]} 
+                                            itemId={allSuits[3].id}/>
+                                        <CatalogCard
                                             name="Doomination"
-                                            price="50"
-                                            pathToThumb= "../images/thumbnails/bodysuit-green-female.png"
-                                            thumbObj={require('../images/thumbnails/bodysuit-green-female.png')}
-                                            updateDisplay={this.props.updateSuit} 
-                                            pathToImg={'../images/alphas/bodysuit-green-female.png'} 
-                                            imgObj={require('../images/alphas/bodysuit-green-female.png')}/>
+                                            price="50" updateDisplay={this.props.updateSuit}
+                                            thumbObj={itemsMap[allSuits[2].imgPath][1]}
+                                            pathToImg={itemsMap[allSuits[2].imgPath][0]} 
+                                            itemId={allSuits[2].id}/>
                                     </div>
                                 </div>
                             </div>
@@ -162,6 +160,7 @@ export class Catalog extends React.Component<any, ICatalogProps> {
                     </div>
                 </div>
             </div>
+            } 
         </div>
         )
     }
@@ -170,9 +169,11 @@ export class Catalog extends React.Component<any, ICatalogProps> {
 // read state-store values into state-component values
 const mapStateToProps = (state: IState) => {
     return {
+        suits: state.cart.items.slice(0,4),
         catalog: state.catalog,
         addedItems: state.cart.addedItems,
-        total: state.cart.totalItems
+        total: state.cart.totalItems,
+        stateCheck: state.cart.stateCheck
     }
 }
 
@@ -181,7 +182,8 @@ const mapDispatchToProps = (dispatch: any) => {
         updateCartCount: updateCartCount,
         updateSuit: (suit: any) => { dispatch(catalogActions.updateSuit(suit)) },
         updateGloves: (gloves: any) => { dispatch(catalogActions.updateGloves(gloves)) },
-        updateMask: (mask: any) => { dispatch(catalogActions.updateMask(mask)) }
+        updateMask: (mask: any) => { dispatch(catalogActions.updateMask(mask)) },
+        getProducts: (items: any) => { dispatch(getProducts(items)) }
     }
 }
 

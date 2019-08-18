@@ -18,6 +18,26 @@ export interface ICartState {
     totalItems: number;
     checkedBox: boolean;
     stateCheck: boolean;
+
+    shipping: {
+        firstName: string;
+        lastName: string;
+        address1: string;
+        address2: string;
+        city: string;
+        state: string;
+        zip: string;
+        country: string;
+    };
+    payment: {
+        cardName: string;
+        cardNumber: string;
+        expDate: string;
+        cvv: string;
+    };
+        inputValue: any;
+        order: {};
+    
 };
 
 export interface ISignUpState {

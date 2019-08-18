@@ -24,9 +24,9 @@ const signinReducer = (state = initState, action: any) => {
     case userConstants.SIGNIN_FAILURE:
       return { ...state, loggingIn: false, loggedIn: false, submitted: false };
     case userConstants.LOGOUT:
-      return { ...initState, loggingIn: false, loggedIn: false, submitted: false };
+      return { ...state, loggingIn: false, loggedIn: false, submitted: false };
     default:
-      return initState
+      return state
   }
 }
 

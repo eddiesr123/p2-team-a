@@ -1,7 +1,15 @@
 import React from 'react';
 import '../css/fontawesome-free-5.10.1-web/fontawesome-free-5.10.1-web/css/all.css';
+import { connect } from 'react-redux';
+import { addToCart } from '../actions/cartActions';
+import { IState } from '../reducers';
 
-export default class ItemCardComponent extends React.Component<any, any> {
+class ItemCardComponent extends React.Component<any, any> {
+
+    handleClick = (id: any) => {
+        this.props.addToCart(id);
+      }
+
     render() {
         return (
             <div className="col-sm-12 col-md-3 col-lg-3 catalog-card">
@@ -15,10 +23,10 @@ export default class ItemCardComponent extends React.Component<any, any> {
                                     <span className="btn btn-outline-secondary no-pad disabled">$ {this.props.price}</span>
                                 </div>
                                 <div className="col-sm-4 col-md-12 no-pad col-lg-4">
-                                    <span className="btn btn-outline-secondary no-pad"><i className="fas fa-plus"></i></span>
+                                    <span className="btn btn-outline-secondary no-pad" onClick={() => this.handleClick(this.props.itemId)}><i className="fas fa-plus"></i></span>
                                 </div>
                                 <div className="col-sm-4 col-md-12 no-pad col-lg-4">
-                                    <span className="btn btn-outline-secondary no-pad" onClick={() => (this.props.updateDisplay("../" + this.props.pathToImg, this.props))}><i className="far fa-eye"></i></span>
+                                    <span className="btn btn-outline-secondary no-pad" onClick={() => (this.props.updateDisplay(this.props.pathToImg))}><i className="far fa-eye"></i></span>
                                 </div>
                             </div>
                         </div>
@@ -28,3 +36,19 @@ export default class ItemCardComponent extends React.Component<any, any> {
         )
     }
 }
+
+const mapStateToProps = (state: IState) => {
+    return {
+      items: state.cart.items
+    }
+  }
+  
+  const mapDispatchToProps = (dispatch: any) => {
+  
+    return {
+      addToCart: (id: any) => { dispatch(addToCart(id)) }
+    }
+  }
+  
+  export default connect(mapStateToProps, mapDispatchToProps)(ItemCardComponent);
+  

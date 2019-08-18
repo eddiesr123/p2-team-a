@@ -1,6 +1,8 @@
 import {
-    ADD_TO_CART, REMOVE_ITEM, SUB_QUANTITY, ADD_QUANTITY, GET_PRODUCTS,/*ADD_SHIPPING*/
-    RESET_STATE
+    ADD_TO_CART, REMOVE_ITEM, SUB_QUANTITY, ADD_QUANTITY, GET_PRODUCTS, INPUT_UPDATE, /*ADD_SHIPPING*/
+    RESET_STATE,
+    INPUT_UPDATE2,
+    GET_ORDER
 } from './action-types/cart-actions'
 
 //add cart action
@@ -41,21 +43,29 @@ export const getProducts = (items: any) => {
     }
 }
 
+export const getOrder = (order: any) => {
+    return {
+        type: GET_ORDER,
+        order
+    }
+}
+
 export const resetState = () => {
     return {
         type: RESET_STATE
     }
 }
 
-
-/*
-export const getProducts =
-    (id: number, name: string, price: number, imgPath: string, thumbnailPath: string, clothingType: string, user: string) => (dispatch: any) => {
-        dispatch({
-            payload: {
-                id, name, price, imgPath, thumbnailPath, clothingType, user
-            },
-            type: GET_PRODUCTS
-        });
+export const inputUpdate = (inputValue: any) => {
+    return {
+        type: INPUT_UPDATE,
+        inputValue
     }
-    */
+}
+
+export const inputUpdate2 = (inputValue2: any) => {
+    return {
+        type: INPUT_UPDATE2,
+        inputValue2
+    }
+}

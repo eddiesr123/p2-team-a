@@ -10,6 +10,7 @@ import AddressForm from './checkout-dependencies/addressform';
 import PaymentForm from './checkout-dependencies/paymentform';
 import Review from './checkout-dependencies/review';
 import Submit from './checkout-dependencies/Submit';
+import Order from './Order';
 
 const useStyles = makeStyles(theme => ({
   appBar: {
@@ -75,6 +76,7 @@ export default function Checkout() {
     setActiveStep(activeStep - 1);
   };
 
+
   return (
       <React.Fragment>
         <main className={classes.layout}>
@@ -95,10 +97,7 @@ export default function Checkout() {
                   <Typography variant="h5" gutterBottom>
                     Thank you for your order.
                   </Typography>
-                  <Typography variant="subtitle1">
-                    Your order number is #2001539. We have emailed your order confirmation, and will
-                    send you an update when your order has shipped.
-                  </Typography>
+                  <Order />
                 </React.Fragment>
               ) : (
                 <React.Fragment>
