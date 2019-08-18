@@ -167,6 +167,12 @@ body {
   border-radius: 6px;
   min-height: 520px;
 }
+@media screen and (max-width: 768px) {
+  #right-col {
+    border: 0;
+  }
+}
+
 .hot-card  {
   margin-bottom: 8px;
   border: 2px solid rgb(0,0,0,0.125)!important;

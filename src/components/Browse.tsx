@@ -11,7 +11,6 @@ function Browse() {
             <div className="row">
                 <div className="col-sm-12 col-md-12 col-lg-9" id="left-col"><Catalog></Catalog></div>
                 <div className="col-sm-12 col-md-12 col-lg-3" id="right-col"><Display/></div>
-
             </div>
         </div>  
     )

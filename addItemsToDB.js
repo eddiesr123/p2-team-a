@@ -40,11 +40,11 @@ const make = async files => {
       case "gloves female":
         myItem.name = "Gloves of Power"; break;
       case "bodysuit green female":
-        myItem.name = "Green Mamba Suit"; break;
+        myItem.name = "Green Mamba"; break;
       case "mask green female":
         myItem.name = "Green Mamba Mask"; break;
       case "bodysuit blue female":
-        myItem.name = "Doomsday Blue Suit"; break;
+        myItem.name = "Doomsday Blue"; break;
       case "mask blue female":
         myItem.name = "Doomsday Blue Mask"; break;
       case "bodysuit black female":
@@ -75,7 +75,7 @@ const make = async files => {
       myItem.price = 300.0;
     }
     console.log(myItem);
-    //await axios.post('http://localhost:8080/items/', myItem)
+    await axios.post('http://localhost:8080/items/', myItem)
   }
   console.log(itemMap);
 };
