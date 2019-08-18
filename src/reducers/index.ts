@@ -5,6 +5,7 @@ import signinReducer from "./signin.reducer";
 import cartReducer from "./cartReducer";
 import { displayReducer } from "./displayReducer";
 import { catalogReducer } from "./catalog.reducer";
+import { alertReducer } from './alert.reducer';
 import updateReducer from './update.reducer';
 
 export interface INavbarState {
@@ -69,7 +70,10 @@ export interface ICatalogState {
     suit: any
 };
 
-
+export interface IAlertState { 
+    type: any,
+    message: String
+}
 // Composed state of all substates
 // means that to access clicks -> state.clicker.clicks
 export interface IState {
@@ -79,7 +83,8 @@ export interface IState {
     signin: ISignInState,
     display: IDisplayState,
     catalog: ICatalogState,
-    updateUser: IUserState
+    updateUser: IUserState,
+    alert: IAlertState
 };
 
 export const state = combineReducers<IState>({
@@ -89,5 +94,6 @@ export const state = combineReducers<IState>({
     signin: signinReducer,
     display: displayReducer,
     catalog: catalogReducer,
-    updateUser: updateReducer
+    updateUser: updateReducer,
+    alert: alertReducer
 });

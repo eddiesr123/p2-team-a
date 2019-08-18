@@ -15,16 +15,21 @@ import notFoundPage from './NotFound';
 import Cart from "./Cart";
 import Logout from "./Logout";
 
-export interface ISignInProps {
+export interface IAppRouterProps {
   // read in data from state store
   loggedIn: boolean,
+  alert: String
+}
+export interface IAlertProps { 
+  alert: any
 }
 
 const style = {
   height: '56px'
 };
 
-class AppRouter extends React.Component<ISignInProps> {
+class AppRouter extends React.Component<IAppRouterProps, any> {
+  
   render() {
     return (
       <div>
@@ -58,8 +63,13 @@ class AppRouter extends React.Component<ISignInProps> {
 }
 
 // read state-store values into state-component values
-const mapStateToProps = (state: IState): ISignInProps => ({
-  loggedIn: state.signin.loggedIn
+const mapStateToProps = (state: IState): IAppRouterProps => ({
+  loggedIn: state.signin.loggedIn,
+  alert: state.alert.message
 });
 
-export default connect(mapStateToProps)(AppRouter);
+const mapDispatchToProps = (state:any): IAlertProps => ({ 
+  alert:state
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(AppRouter);

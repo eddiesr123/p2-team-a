@@ -19,24 +19,8 @@ export interface ICatalogProps {
     gloves: any,
     suits:any,
 }
-//axios.data
-/**
- * pathToThumb= {itemsMap[allSuits[0].imgPath[1]]}
-                                            thumbObj={itemsMap[require(allSuits[0].imgPath[1])]}
-                                            pathToImg={itemsMap[allSuits[0].imgPath[0]]} 
-                                            imgObj={itemsMap[require(allSuits[0].imgPath[0])]}
- */
 export class Catalog extends React.Component<any, ICatalogProps> {
-    /*async componentDidMount() {
-        let masksRes = await Axios.get('http://localhost:8080/items/type/mask');
-        let masks = masksRes.data
-        let glovesRes = await Axios.get('http://localhost:8080/items/type/gloves');
-        let gloves = await glovesRes.data;
-        let suitsRes = await Axios.get('http://localhost:8080/items/type/suit');
-        let suits = suitsRes.data;
-        this.setState({ masks:masks.slice(0,4), gloves:gloves.slice(0,4), suits:suits.slice(0,4)});
-        console.log(this.state.gloves[0].name);
-    }*/
+   
     componentDidMount() {
         if (this.props.stateCheck) {
           const url = `http://localhost:8080/items/`;
@@ -52,6 +36,9 @@ export class Catalog extends React.Component<any, ICatalogProps> {
           });
         }
       }
+
+
+      
     render() {
         let allGloves = this.props.gloves;
         let allMasks= this.props.masks;
@@ -88,8 +75,7 @@ export class Catalog extends React.Component<any, ICatalogProps> {
                                             price= {allSuits[1].price} updateDisplay={this.props.updateSuit} 
                                             thumbObj={itemsMap[allSuits[1].imgPath][1]}
                                             pathToImg={itemsMap[allSuits[1].imgPath][0]} 
-                                            itemId = {allSuits[1].id}
-                                            />
+                                            itemId = {allSuits[1].id}/>
                                         <CatalogCard 
                                             name= {allSuits[0].name}
                                             price= {allSuits[0].price} updateDisplay={this.props.updateSuit} 

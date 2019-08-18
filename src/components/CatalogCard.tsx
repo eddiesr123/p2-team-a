@@ -33,12 +33,12 @@ class ItemCardComponent extends React.Component<any, any> {
             </div>
         )
     }
-}
+} // maps the store information (item objects) onto the properties of the component
 const mapStateToProps = (state: IState) => {
     return{
         items:state.cart.items
     }
-}
+} // maps the actions (add to cart action) onto the properties of the object
 const mapDispatchToProps = (dispatch: any) =>{
     return{
         addToCart: (id:any) => {dispatch(addToCart(id))}

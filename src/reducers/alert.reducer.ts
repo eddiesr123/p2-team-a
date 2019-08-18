@@ -1,6 +1,12 @@
 import { alertConstants } from '../constants/alert.constants';
 
-export function alert(state = {}, action: any) {
+import { IAlertState } from './index'
+const initState: IAlertState = {
+  type: '',
+  message: ''
+}
+
+export const alertReducer = (state = initState, action: any) => {
   switch (action.type) {
     case alertConstants.SUCCESS:
       return {
@@ -13,7 +19,7 @@ export function alert(state = {}, action: any) {
         message: action.message
       };
     case alertConstants.CLEAR:
-      return {};
+      return initState;
     default:
       return state
   }
