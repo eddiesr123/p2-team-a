@@ -4,7 +4,8 @@ import React from 'react';
 const imgMap: any = {'../../images/alphas/bodysuit-green-female.png': require('../../images/alphas/bodysuit-green-female.png'), 
                     '../../images/alphas/bodysuit-blue-female.png': require('../../images/alphas/bodysuit-blue-female.png'),
                     '../../images/alphas/bodysuit-black-female.png': require('../../images/alphas/bodysuit-black-female.png'),
-                    '../../images/alphas/bodysuit-red-female.png': require('../../images/alphas/bodysuit-red-female.png')}
+                    '../../images/alphas/bodysuit-red-female.png': require('../../images/alphas/bodysuit-red-female.png'),
+                    '../../images/alphas/bodysuit-silo-female.png': require('../../images/alphas/bodysuit-silo-female.png')}
                     
                     
 
