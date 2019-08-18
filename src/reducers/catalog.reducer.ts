@@ -5,7 +5,7 @@ import { ICatalogState } from '.';
 const initialState: ICatalogState = {
     gloves:'../../images/defaults/empty-female-gloves.png',
     mask:'../../images/defaults/empty-female-mask.png',
-    suit:'../../images/alphas/bodysuit-green-female.png',
+    suit:'../../images/alphas/bodysuit-silo-female.png',
 };
 export const catalogReducer = (state = initialState, action:any) => {
     switch (action.type) {
