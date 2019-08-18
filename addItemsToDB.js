@@ -55,6 +55,8 @@ const make = async files => {
         myItem.name = "Suit of Flames"; break;
       case "mask red female":
         myItem.name = "Mask of Fury"; break;
+      case "bodysuit silo female":
+        continue;
     }
 
     itemMap = {
