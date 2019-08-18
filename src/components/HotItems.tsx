@@ -15,7 +15,7 @@ class HotItems extends React.Component<any> {
 
 
 
-  componentDidMount() {
+  render() {
     if (this.props.stateCheck) {
       const url = `http://localhost:8080/items/`;
       Axios.get(url).then(payload => {
@@ -29,9 +29,6 @@ class HotItems extends React.Component<any> {
 
       });
     }
-  }
-
-  render() {
     console.log(this.props.items);
 
     let itemList = this.props.items.map((item: any) => {
