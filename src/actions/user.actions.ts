@@ -56,6 +56,7 @@ function changeInfo(user : any) {
         userService.changeInfo(user)
             .then(
                 user => {
+                    console.log('preparing to dispatch update user', user);
                     dispatch(success(user));    
                     dispatch(alertActions.success('Information has been updated! >:)')); 
                 },       
