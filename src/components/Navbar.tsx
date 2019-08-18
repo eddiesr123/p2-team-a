@@ -58,7 +58,7 @@ export class Navbar extends React.Component<any, INavbarState> {
                 }
                 </li>
                 <li className="divider-vertical nav-item" data-toggle="collapse" data-target=".navbar-collapse.show"/>
-                <li>
+                <li data-toggle="collapse" data-target=".navbar-collapse.show">
                   <Link className="nav-link" to="/cart" id="navbar-cart-link">
                     <i className="fas fa-shopping-cart" id="navbar-cart-icon">
                       <span className="icons" id="text-for-shoppingcart">{this.props.total}</span>
