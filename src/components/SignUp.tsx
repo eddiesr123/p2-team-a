@@ -26,6 +26,9 @@ const styles = {
   form: {
     width: 'auto', // Fix IE 11 issue.
     marginTop: 30,
+  },
+  button: {
+    background: 'rgb(255, 166, 0)'
   }
 };
 
@@ -171,6 +174,7 @@ class SignUp extends React.Component<any, ISignUpState> {
               type="submit"
               fullWidth
               variant="contained"
+              className={classes.button}
               color="primary"
             >
               Sign Up
