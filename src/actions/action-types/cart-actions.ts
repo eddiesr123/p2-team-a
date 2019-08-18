@@ -7,3 +7,6 @@ export const ADD_QUANTITY = 'ADD_QUANTITY';
 export const ADD_SHIPPING = 'ADD_SHIPPING';
 export const GET_PRODUCTS = 'GET_PRODUCTS';
 export const RESET_STATE = 'RESET_STATE';
+export const INPUT_UPDATE = 'INPUT_UPDATE';
+export const INPUT_UPDATE2 = 'INPUT_UPDATE2';
+export const GET_ORDER = 'GET_ORDER';

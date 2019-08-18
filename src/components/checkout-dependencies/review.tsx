@@ -11,15 +11,6 @@ import { connect } from 'react-redux';
 import { IState } from '../../reducers';
 
 
-const addresses = ['1 Material-UI Drive', 'Reactville', 'Anytown', '99999', 'USA'];
-const payments = [
-  { name: 'Card type', detail: 'Visa' },
-  { name: 'Card holder', detail: 'Mr John Smith' },
-  { name: 'Card number', detail: 'xxxx-xxxx-xxxx-1234' },
-  { name: 'Expiry date', detail: '04/2024' },
-];
-
-
 const styles = (theme: Theme) => withStyles({
   root: {
     listItem: {
@@ -47,7 +38,7 @@ class Review extends React.Component<any> {
         <List disablePadding>
           {this.props.items.map((item: any) => (
             <ListItem className={classes.listItem} key={item.id}>
-              <ListItemText primary={item.name} secondary={item.desc} />
+              <ListItemText primary={item.name} secondary={item.clothingType} />
               <i>Quantity:</i><ListItemText primary={item.quantity} />
               <Typography variant="body2">${item.price}</Typography>
             </ListItem>
@@ -64,24 +55,22 @@ class Review extends React.Component<any> {
             <Typography variant="h6" gutterBottom className={classes.title}>
               Shipping
             </Typography>
-            <Typography gutterBottom>John Smith</Typography>
-            <Typography gutterBottom>{addresses.join(', ')}</Typography>
+            <Typography gutterBottom>{this.props.shipping.firstName + ' ' + this.props.shipping.lastName}</Typography>
+            <Typography gutterBottom>{this.props.shipping.address1}</Typography>
+            <Typography gutterBottom>{this.props.shipping.address2}</Typography>
+            <Typography gutterBottom>{this.props.shipping.city}, {this.props.shipping.state}, {this.props.shipping.zip}</Typography>
+            <Typography gutterBottom>{this.props.shipping.country}</Typography>
           </Grid>
           <Grid item container direction="column" xs={12} sm={6}>
             <Typography variant="h6" gutterBottom className={classes.title}>
               Payment details
             </Typography>
             <Grid container>
-              {payments.map(payment => (
-                <React.Fragment key={payment.name}>
-                  <Grid item xs={6}>
-                    <Typography gutterBottom>{payment.name}</Typography>
-                  </Grid>
-                  <Grid item xs={6}>
-                    <Typography gutterBottom>{payment.detail}</Typography>
-                  </Grid>
+                <React.Fragment key={this.props.payment.cardName}>
+                    <Typography gutterBottom>Name: {this.props.payment.cardName}</Typography>
+                    <Typography gutterBottom>Credit Card: {this.props.payment.cardNumber}</Typography>
+                    <Typography gutterBottom>Exp. Date: {this.props.payment.expDate}</Typography>
                 </React.Fragment>
-              ))}
             </Grid>
           </Grid>
         </Grid>
@@ -94,7 +83,9 @@ const mapStateToProps = (state: IState) => {
   return {
     items: state.cart.addedItems,
     addedItems: state.cart.addedItems,
-    total: state.cart.total
+    total: state.cart.total,
+    shipping: state.cart.shipping,
+    payment: state.cart.payment
   }
 }
 

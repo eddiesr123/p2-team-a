@@ -1,9 +1,9 @@
 import React from "react";
-import { Bodysuit } from "./Bodysuit";
 import { Mask } from "./Mask";
 import { Gloves } from "./Gloves";
 import { IDisplayState, IState } from "../../reducers";
 import { connect } from "react-redux";
+import { Bodysuit } from "./Bodysuit";
 
 // declaring the type of the props on this component
 export interface IDisplayProps {

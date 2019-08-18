@@ -29,7 +29,6 @@ const style = {
 };
 
 class AppRouter extends React.Component<IAppRouterProps, any> {
-  
   render() {
     return (
       <div>

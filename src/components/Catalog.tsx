@@ -64,7 +64,6 @@ export class Catalog extends React.Component<any, ICatalogProps> {
                                 </li>
                             </ul>
                         </div>
-
                         <div className="tab-content" id="myTabContent">
                             <div className="tab-pane fade show active p-12" id="one" role="tabpanel" aria-labelledby="one-tab">
                                 <div className="container">
