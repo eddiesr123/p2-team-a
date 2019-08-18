@@ -63,7 +63,7 @@ class HotItems extends React.Component<any> {
     });
     return (
       <div className="container">
-        <h3 className="center">Our items</h3>
+        <h3 className="center marketplace-title" >Shop Our Marketplace of DOOM!</h3>
         <div className="box">
           {itemList}
         </div>
