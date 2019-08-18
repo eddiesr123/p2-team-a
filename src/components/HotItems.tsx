@@ -31,7 +31,7 @@ class HotItems extends React.Component<any> {
     }
     console.log(this.props.items);
 
-    let itemList = this.props.items.map((item: any) => {
+    let itemList = this.props.items.slice(0,6).map((item: any) => {
       return (
         <div
           className="card hot-card"

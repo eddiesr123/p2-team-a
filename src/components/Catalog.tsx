@@ -17,7 +17,7 @@ export interface ICatalogProps {
     updateGloves: (image: String) => void;
     masks: any,
     gloves: any,
-    suits: any,
+    suits:any,
 }
 //axios.data
 /**
@@ -39,26 +39,28 @@ export class Catalog extends React.Component<any, ICatalogProps> {
     }*/
     componentDidMount() {
         if (this.props.stateCheck) {
-            const url = `http://localhost:8080/items/`;
-            Axios.get(url).then(payload => {
-                console.log(payload);
-
-                const items = payload.data.map((item: any) => {
-                    return item;
-                });
-                console.log(items);
-                this.props.getProducts(items.slice(0, 6));
-
+          const url = `http://localhost:8080/items/`;
+          Axios.get(url).then(payload => {
+            console.log(payload);
+    
+            const items = payload.data.map((item: any) => {
+              return item;
             });
+            console.log(items);
+            this.props.getProducts(items.slice(0, 9));
+    
+          });
         }
-    }
+      }
     render() {
         let allGloves = this.props.gloves;
-        let allMasks = this.props.masks;
-        let allSuits = this.props.suits;
+        let allMasks= this.props.masks;
+        let allSuits=this.props.suits;
         console.log(allMasks);
-
-        return (<div className="container card-container">
+        
+        return (
+        <div className="container card-container">
+            {!this.props.stateCheck && 
             <div className="row" >
                 <div className="col-12">
                     <div className="card tab-card">
@@ -79,33 +81,33 @@ export class Catalog extends React.Component<any, ICatalogProps> {
                         <div className="tab-content" id="myTabContent">
                             <div className="tab-pane fade show active p-12" id="one" role="tabpanel" aria-labelledby="one-tab">
                                 <div className="container">
-                                    <h5 className="card-title no-pad" >Bodysuits</h5>
+                                <h5 className="card-title no-pad" >Bodysuits</h5>
                                     <div className="row f-box">
-                                        <CatalogCard
-                                            name={allSuits[1].name}
-                                            price={allSuits[1].price} updateDisplay={this.props.updateSuit}
+                                        <CatalogCard 
+                                            name= {allSuits[1].name}
+                                            price= {allSuits[1].price} updateDisplay={this.props.updateSuit} 
                                             thumbObj={itemsMap[allSuits[1].imgPath][1]}
-                                            pathToImg={itemsMap[allSuits[1].imgPath][0]}
-                                            itemId={allSuits[1].id}
-                                        />
-                                        <CatalogCard
-                                            name={allSuits[0].name}
-                                            price={allSuits[0].price} updateDisplay={this.props.updateSuit}
+                                            pathToImg={itemsMap[allSuits[1].imgPath][0]} 
+                                            itemId = {allSuits[1].id}
+                                            />
+                                        <CatalogCard 
+                                            name= {allSuits[0].name}
+                                            price= {allSuits[0].price} updateDisplay={this.props.updateSuit} 
                                             thumbObj={itemsMap[allSuits[0].imgPath][1]}
                                             pathToImg={itemsMap[allSuits[0].imgPath][0]}
-                                            itemId={allSuits[0].id} />
-                                        <CatalogCard
-                                            name={allSuits[2].name}
-                                            price={allSuits[2].price} updateDisplay={this.props.updateSuit}
+                                            itemId = {allSuits[0].id}  />
+                                        <CatalogCard 
+                                            name= {allSuits[2].name}
+                                            price= {allSuits[2].price} updateDisplay={this.props.updateSuit} 
                                             thumbObj={itemsMap[allSuits[2].imgPath][1]}
                                             pathToImg={itemsMap[allSuits[2].imgPath][0]}
-                                            itemId={allSuits[2].id} />
-                                        <CatalogCard
-                                            name={allSuits[3].name}
-                                            price={allSuits[3].price} updateDisplay={this.props.updateSuit}
+                                            itemId = {allSuits[2].id}  />
+                                        <CatalogCard 
+                                            name= {allSuits[3].name}
+                                            price= {allSuits[3].price} updateDisplay={this.props.updateSuit} 
                                             thumbObj={itemsMap[allSuits[3].imgPath][1]}
                                             pathToImg={itemsMap[allSuits[3].imgPath][0]}
-                                            itemId={allSuits[3].id} />
+                                            itemId = {allSuits[3].id} />
                                     </div>
                                 </div>
                             </div>
@@ -113,44 +115,44 @@ export class Catalog extends React.Component<any, ICatalogProps> {
                                 <div className="container">
                                     <h5 className="card-title no-pad" >Masks</h5>
                                     <div className="row f-box">
-                                        <CatalogCard
+                                        <CatalogCard 
                                             name={allMasks[0].name}
-                                            price={allMasks[0].price} updateDisplay={this.props.updateMask}
-                                            thumbObj={itemsMap[allMasks[0].imgPath][1]}
-                                            pathToImg={itemsMap[allMasks[0].imgPath][0]}
-                                            itemId={allMasks[0].id}
-                                        />
-                                        <CatalogCard
+                                            price = {allMasks[0].price} updateDisplay = {this.props.updateMask}
+                                            thumbObj = {itemsMap[allMasks[0].imgPath][1]}
+                                            pathToImg = {itemsMap[allMasks[0].imgPath][0]}
+                                            itemId = {allMasks[0].id} 
+                                            />
+                                        <CatalogCard 
                                             name={allMasks[1].name}
-                                            price={allMasks[1].price} updateDisplay={this.props.updateMask}
-                                            thumbObj={itemsMap[allMasks[1].imgPath][1]}
-                                            pathToImg={itemsMap[allMasks[1].imgPath][0]}
-                                            itemId={allMasks[1].id} />
-                                        <CatalogCard
+                                            price = {allMasks[1].price} updateDisplay = {this.props.updateMask}
+                                            thumbObj = {itemsMap[allMasks[1].imgPath][1]}
+                                            pathToImg = {itemsMap[allMasks[1].imgPath][0]}
+                                            itemId = {allMasks[1].id} />
+                                        <CatalogCard 
                                             name={allMasks[2].name}
-                                            price={allMasks[2].price} updateDisplay={this.props.updateMask}
-                                            thumbObj={itemsMap[allMasks[2].imgPath][1]}
-                                            pathToImg={itemsMap[allMasks[2].imgPath][0]}
-                                            itemId={allMasks[2].id} />
-                                        <CatalogCard
+                                            price = {allMasks[2].price} updateDisplay = {this.props.updateMask}
+                                            thumbObj = {itemsMap[allMasks[2].imgPath][1]}
+                                            pathToImg = {itemsMap[allMasks[2].imgPath][0]}
+                                            itemId = {allMasks[2].id}  />
+                                        <CatalogCard 
                                             name={allMasks[3].name}
-                                            price={allMasks[3].price} updateDisplay={this.props.updateMask}
-                                            thumbObj={itemsMap[allMasks[3].imgPath][1]}
-                                            pathToImg={itemsMap[allMasks[3].imgPath][0]}
-                                            itemId={allMasks[3].id} />
+                                            price = {allMasks[3].price} updateDisplay = {this.props.updateMask}
+                                            thumbObj = {itemsMap[allMasks[3].imgPath][1]}
+                                            pathToImg = {itemsMap[allMasks[3].imgPath][0]}
+                                            itemId = {allMasks[3].id}  />
                                     </div>
                                 </div>
                             </div>
                             <div className="tab-pane fade p-12" id="three" role="tabpanel" aria-labelledby="three-tab">
                                 <div className="container">
-                                    <h5 className="card-title no-pad glove-align">Gloves</h5>
+                                <h5 className="card-title no-pad glove-align">Gloves</h5>
                                     <div className="row f-box">
-                                        <CatalogCard
+                                    <CatalogCard 
                                             name={allGloves[0].name}
-                                            price={allGloves[0].price} updateDisplay={this.props.updateGloves}
-                                            thumbObj={itemsMap[allGloves[0].imgPath][1]}
-                                            pathToImg={itemsMap[allGloves[0].imgPath][0]}
-                                            itemId={allGloves[0].id} />
+                                            price = {allGloves[0].price} updateDisplay = {this.props.updateGloves}
+                                            thumbObj = {itemsMap[allGloves[0].imgPath][1]}
+                                            pathToImg = {itemsMap[allGloves[0].imgPath][0]}
+                                            itemId = {allGloves[0].id}  />
                                     </div>
                                 </div>
                             </div>
@@ -158,6 +160,7 @@ export class Catalog extends React.Component<any, ICatalogProps> {
                     </div>
                 </div>
             </div>
+            }
         </div>
         )
     }
@@ -166,12 +169,13 @@ export class Catalog extends React.Component<any, ICatalogProps> {
 // read state-store values into state-component values
 const mapStateToProps = (state: IState) => {
     return {
-        suits: state.cart.items.slice(0, 4),
-        gloves: state.cart.items.slice(4, 5),
-        masks: state.cart.items.slice(5, 9),
+        suits: state.cart.items.slice(0,4),
+        gloves: state.cart.items.slice(4,5),
+        masks: state.cart.items.slice(5,9),
         catalog: state.catalog,
         addedItems: state.cart.addedItems,
-        total: state.cart.totalItems
+        total: state.cart.totalItems,
+        stateCheck: state.cart.stateCheck
     }
 }
 
